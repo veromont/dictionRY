@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spanish vocab</title>
+<style>
+	:root {
+		--bg: #fbfaf8;
+		--fg: #1d1c1a;
+		--muted: #75716b;
+		--line: #e3e0da;
+		--card: #ffffff;
+		--accent: #c2410c;
+		--warn-bg: #fff4e6;
+		--warn-fg: #9a3412;
+		--bad: #b91c1c;
+		--good: #15803d;
+		--flash: #fff0c2;
+		--mark-bg: #fde68a;
+		--mark-fg: #422006;
+		--chip-bg: #f1eee8;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: #16151a;
+			--fg: #eceae6;
+			--muted: #96918a;
+			--line: #2e2c33;
+			--card: #1e1d23;
+			--accent: #fb923c;
+			--warn-bg: #3a2410;
+			--warn-fg: #fcd9b0;
+			--bad: #f87171;
+			--good: #4ade80;
+			--flash: #43391a;
+			--mark-bg: #5c4614;
+			--mark-fg: #fde68a;
+			--chip-bg: #2a282f;
+		}
+	}
+	* { box-sizing: border-box; }
+	body {
+		margin: 0;
+		padding: 24px 16px 64px;
+		background: var(--bg);
+		color: var(--fg);
+		font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+	}
+	main { max-width: 640px; margin: 0 auto; }
+	.top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+	h1 { font-size: 18px; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+	h1 span { color: var(--muted); font-weight: 400; }
+	.tabs { margin-left: auto; display: flex; gap: 4px; }
+	.tabs button { font-size: 13px; padding: 3px 10px; border-radius: 999px; }
+	.tabs button.on { background: var(--chip-bg); color: var(--fg); border-color: var(--line); }
+	input, button, textarea {
+		font: inherit;
+		color: inherit;
+		border-radius: 8px;
+		border: 1px solid var(--line);
+		background: var(--card);
+	}
+	input, textarea { padding: 10px 12px; width: 100%; }
+	textarea { resize: vertical; }
+	input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+	button { padding: 6px 10px; background: transparent; border-color: transparent; color: var(--muted); cursor: pointer; }
+	button:hover { color: var(--fg); background: var(--bg); border-color: var(--line); }
+	.add { display: flex; gap: 8px; margin-bottom: 10px; }
+	.add input { font-size: 17px; }
+	.add button { border-color: var(--line); background: var(--card); color: var(--fg); padding: 0 16px; }
+	#sentenceForm { display: grid; grid-template-columns: 1fr 200px auto; gap: 8px; align-items: start; }
+	[hidden] { display: none !important; }
+	#sentenceForm textarea { font-size: 16px; }
+	#sentenceForm button { padding: 10px 16px; }
+	#search { margin-bottom: 14px; }
+	#notice { display: none; margin-bottom: 12px; padding: 9px 12px; border-radius: 8px; background: var(--warn-bg); color: var(--warn-fg); font-size: 14px; }
+	#notice.on { display: block; }
+	ul { list-style: none; margin: 0; padding: 0; }
+	li { border-bottom: 1px solid var(--line); padding: 11px 2px; }
+	li.flash { animation: flash 1.4s ease-out; }
+	@keyframes flash { from { background: var(--flash); } to { background: transparent; } }
+	.row { display: flex; align-items: baseline; gap: 10px; }
+	.es { font-weight: 600; cursor: pointer; }
+	.gloss { color: var(--muted); flex: 1; min-width: 0; overflow-wrap: anywhere; }
+	.gloss.pending { font-style: italic; opacity: 0.6; }
+	.gloss.failed { color: var(--bad); }
+	.badge { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 1px 4px; }
+	.chip {
+		font-size: 12px; padding: 1px 8px; border-radius: 999px;
+		background: var(--chip-bg); border: 1px solid transparent; color: var(--muted); cursor: pointer;
+	}
+	.chip:hover { color: var(--fg); border-color: var(--line); background: var(--chip-bg); }
+	.acts { display: flex; gap: 2px; opacity: 0; transition: opacity 0.1s; }
+	li:hover .acts, li:focus-within .acts { opacity: 1; }
+	.acts button { font-size: 13px; padding: 2px 7px; }
+	.note { color: var(--muted); font-size: 14px; margin-top: 3px; }
+	.editor { margin-top: 10px; display: grid; gap: 8px; }
+	.editor label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 3px; }
+	.editor .buttons { display: flex; gap: 8px; }
+	.editor .buttons button { border-color: var(--line); background: var(--card); }
+	.panel { margin: 10px 0 4px; padding-left: 12px; border-left: 2px solid var(--line); display: grid; gap: 12px; }
+	.sentence { display: flex; align-items: flex-start; gap: 8px; }
+	.sentence .body { flex: 1; min-width: 0; }
+	.sentence .text { overflow-wrap: anywhere; }
+	.meta { font-size: 12px; color: var(--muted); margin-top: 3px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+	.meta .chip { font-size: 11px; }
+	mark { background: var(--mark-bg); color: var(--mark-fg); border-radius: 3px; padding: 0 2px; }
+	.sentence-box { display: grid; gap: 6px; }
+	.sentence-box .fields { display: grid; grid-template-columns: 1fr 180px; gap: 6px; }
+	.sentence-box .hint { font-size: 12px; color: var(--muted); }
+	.sentence-box .bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+	.sentence-box .hint { flex: 1; min-width: 200px; }
+	.add-sentence { border-color: var(--line); background: var(--card); color: var(--fg); font-size: 13px; }
+	footer { margin-top: 22px; display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+	footer button { font-size: 13px; padding: 4px 8px; }
+	#state.saving { color: var(--muted); }
+	#state.saved { color: var(--good); }
+	#state.unsaved { color: var(--bad); font-weight: 600; }
+	.empty { color: var(--muted); padding: 28px 2px; }
+	@media (max-width: 560px) {
+		#sentenceForm { grid-template-columns: 1fr; }
+		.sentence-box .fields { grid-template-columns: 1fr; }
+		.acts { opacity: 1; }
+	}
+</style>
+</head>
+<body>
+<main>
+	<div class="top">
+		<h1>Spanish vocab <span id="count"></span></h1>
+		<div class="tabs">
+			<button type="button" id="tabWords" class="on">words</button>
+			<button type="button" id="tabSentences">sentences</button>
+		</div>
+	</div>
+
+	<form class="add" id="addForm" autocomplete="off">
+		<input id="addInput" placeholder="new word, e.g. el mapa" autofocus spellcheck="false">
+		<button type="submit">Add</button>
+	</form>
+
+	<form id="sentenceForm" autocomplete="off" hidden>
+		<textarea id="sentenceInput" rows="2" placeholder="a sentence you met your words in"></textarea>
+		<input id="sentenceSource" placeholder="source (optional)">
+		<button type="submit">Add</button>
+	</form>
+
+	<input id="search" placeholder="search…" autocomplete="off" spellcheck="false">
+
+	<div id="notice"></div>
+	<ul id="list"></ul>
+
+	<footer>
+		<span id="state" class="saved">saved</span>
+		<button id="exportBtn">Export JSON</button>
+		<button id="importBtn">Import JSON</button>
+		<input type="file" id="importFile" accept="application/json,.json" hidden>
+	</footer>
+</main>
+
+<script>
+const PENDING_KEY = "spanish-vocab-pending";
+const ARTICLES = /^(el|la|los|las|un|una|unos|unas)\s+/;
+const WORDS_IN_TEXT = /\p{L}+/gu;
+
+let items = [];
+let filter = "";
+let view = "words";
+let editingId = null;
+let openId = null;
+let flashId = null;
+let focusSentenceFor = null;
+let saveTimer = null;
+let retryTimer = null;
+
+const el = {
+	list: document.getElementById("list"),
+	notice: document.getElementById("notice"),
+	count: document.getElementById("count"),
+	state: document.getElementById("state"),
+	addForm: document.getElementById("addForm"),
+	addInput: document.getElementById("addInput"),
+	sentenceForm: document.getElementById("sentenceForm"),
+	sentenceInput: document.getElementById("sentenceInput"),
+	sentenceSource: document.getElementById("sentenceSource"),
+	search: document.getElementById("search"),
+	tabWords: document.getElementById("tabWords"),
+	tabSentences: document.getElementById("tabSentences")
+};
+
+function normKey(s) {
+	return String(s || "")
+		.toLowerCase()
+		.normalize("NFD").replace(/[̀-ͯ]/g, "")
+		.replace(ARTICLES, "")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
+// Plural tolerance only: mapa/mapas, ciudad/ciudades. Conjugation is not covered —
+// "tener" will not be found inside "tengo", which is why adding from a word's own row
+// always attaches to that word regardless of what the matcher finds.
+function tokenMatchesKey(token, key) {
+	if (!token || !key) return false;
+	if (token === key) return true;
+	if (key.length < 3 || token.length < 3) return false;
+	return token === key + "s" || token === key + "es" || key === token + "s" || key === token + "es";
+}
+
+function tokensOf(text) {
+	return new Set((String(text || "").match(WORDS_IN_TEXT) || []).map(normKey));
+}
+
+function findWords(text) {
+	const whole = normKey(text);
+	const tokens = tokensOf(text);
+	return items.filter(word => {
+		if (!word.key) return false;
+		if (word.key.includes(" ")) return whole.includes(word.key);
+		for (const token of tokens) if (tokenMatchesKey(token, word.key)) return true;
+		return false;
+	});
+}
+
+function wordsOfSentence(sentenceId) {
+	return items.filter(word => (word.examples || []).some(ex => ex.id === sentenceId));
+}
+
+function allSentences() {
+	const seen = new Map();
+	for (const word of items) {
+		for (const ex of word.examples || []) if (!seen.has(ex.id)) seen.set(ex.id, ex);
+	}
+	return [...seen.values()].sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
+}
+
+function sentenceText(word) {
+	return (word.examples || []).map(ex => ex.text + " " + (ex.source || "")).join(" ");
+}
+
+function normalizeExamples(word) {
+	const raw = Array.isArray(word.examples) ? word.examples : [];
+	word.examples = raw
+		.map(ex => {
+			// A hand-edited file may hold a bare string: "examples": ["Vivo en la ciudad."]
+			if (typeof ex === "string") return { id: crypto.randomUUID(), text: ex, source: "", addedAt: word.createdAt || Date.now() };
+			if (!ex || !ex.text) return null;
+			return {
+				id: ex.id || crypto.randomUUID(),
+				text: String(ex.text),
+				source: String(ex.source || ""),
+				addedAt: ex.addedAt || word.createdAt || Date.now()
+			};
+		})
+		.filter(Boolean);
+}
+
+function setState(kind, text) {
+	el.state.className = kind;
+	el.state.textContent = text;
+}
+
+function notify(msg) {
+	el.notice.textContent = msg;
+	el.notice.classList.toggle("on", Boolean(msg));
+}
+
+function scheduleSave() {
+	clearTimeout(saveTimer);
+	setState("saving", "saving…");
+	saveTimer = setTimeout(save, 400);
+}
+
+async function save() {
+	const snapshot = JSON.stringify(items, null, 2);
+	try {
+		const res = await fetch("/api/vocab", {
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			body: snapshot
+		});
+		if (!res.ok) throw new Error("HTTP " + res.status);
+		localStorage.removeItem(PENDING_KEY);
+		clearTimeout(retryTimer);
+		retryTimer = null;
+		setState("saved", "saved");
+	} catch (err) {
+		// Server down or machine slept: hold the data in the browser and keep trying.
+		try { localStorage.setItem(PENDING_KEY, snapshot); } catch (_) {}
+		setState("unsaved", "unsaved — retrying");
+		clearTimeout(retryTimer);
+		retryTimer = setTimeout(save, 5000);
+	}
+}
+
+function addSentence(text, source, anchorWord) {
+	const trimmed = text.trim();
+	if (!trimmed) return false;
+
+	const targets = new Map();
+	if (anchorWord) targets.set(anchorWord.id, anchorWord);
+	for (const word of findWords(trimmed)) targets.set(word.id, word);
+
+	if (!targets.size) {
+		notify("No saved word appears in that sentence — add the word first, then the sentence.");
+		return false;
+	}
+
+	const sentence = { id: crypto.randomUUID(), text: trimmed, source: source.trim(), addedAt: Date.now() };
+	for (const word of targets.values()) {
+		word.examples = word.examples || [];
+		word.examples.push({ ...sentence });
+		word.updatedAt = sentence.addedAt;
+	}
+
+	const others = [...targets.values()].filter(w => w !== anchorWord).map(w => w.es);
+	if (anchorWord) {
+		notify(others.length ? "Also attached to " + others.join(", ") + "." : "");
+	} else {
+		notify("Attached to " + others.join(", ") + ".");
+	}
+	scheduleSave();
+	return true;
+}
+
+function deleteSentence(id) {
+	for (const word of items) {
+		const before = (word.examples || []).length;
+		word.examples = (word.examples || []).filter(ex => ex.id !== id);
+		if (word.examples.length !== before) word.updatedAt = Date.now();
+	}
+	scheduleSave();
+}
+
+function sentenceNode(text, words) {
+	const keys = words.flatMap(word => String(word.key || "").split(" ")).filter(Boolean);
+	const frag = document.createDocumentFragment();
+	const re = new RegExp(WORDS_IN_TEXT.source, "gu");
+	let last = 0;
+	let match;
+	while ((match = re.exec(text))) {
+		if (!keys.some(key => tokenMatchesKey(normKey(match[0]), key))) continue;
+		if (match.index > last) frag.append(text.slice(last, match.index));
+		const mark = document.createElement("mark");
+		mark.textContent = match[0];
+		frag.append(mark);
+		last = match.index + match[0].length;
+	}
+	if (last < text.length) frag.append(text.slice(last));
+	return frag;
+}
+
+function action(label, onClick, className) {
+	const b = document.createElement("button");
+	b.type = "button";
+	b.textContent = label;
+	if (className) b.className = className;
+	b.addEventListener("click", onClick);
+	return b;
+}
+
+function wordChip(word) {
+	return action(word.es, () => {
+		view = "words";
+		filter = word.es;
+		el.search.value = word.es;
+		openId = word.id;
+		flashId = word.id;
+		applyView();
+		render();
+	}, "chip");
+}
+
+function render() {
+	const q = normKey(filter);
+	if (view === "words") renderWords(q); else renderSentences(q);
+
+	if (flashId) {
+		const target = el.list.querySelector('[data-id="' + flashId + '"]');
+		if (target) target.scrollIntoView({ block: "center", behavior: "smooth" });
+		flashId = null;
+	}
+	if (focusSentenceFor) {
+		const box = el.list.querySelector('[data-sentence-box="' + focusSentenceFor + '"]');
+		if (box) box.focus();
+		focusSentenceFor = null;
+	}
+}
+
+function renderWords(q) {
+	const visible = q
+		? items.filter(it => [it.es, it.gloss, it.auto, it.notes, sentenceText(it)].some(v => normKey(v).includes(q)))
+		: items;
+
+	el.count.textContent = q ? visible.length + " / " + items.length : String(items.length);
+	el.list.textContent = "";
+
+	if (!visible.length) {
+		empty(items.length ? "nothing matches." : "no words yet. type one above.");
+		return;
+	}
+
+	for (const item of visible) {
+		const li = document.createElement("li");
+		li.dataset.id = item.id;
+		if (item.id === flashId) li.className = "flash";
+
+		const row = document.createElement("div");
+		row.className = "row";
+
+		const es = document.createElement("span");
+		es.className = "es";
+		es.textContent = item.es;
+		es.title = "show sentences";
+		es.addEventListener("click", () => toggleSentences(item));
+
+		const gloss = document.createElement("span");
+		gloss.className = "gloss";
+		if ((item.gloss || "").trim()) {
+			gloss.textContent = item.gloss;
+		} else if (item.autoState === "pending") {
+			gloss.className += " pending";
+			gloss.textContent = "translating…";
+		} else if (item.autoState === "failed" || !item.auto) {
+			gloss.className += " failed";
+			gloss.textContent = "no translation";
+		} else {
+			gloss.textContent = item.auto;
+		}
+
+		row.append(es, gloss);
+
+		if (!(item.gloss || "").trim() && item.autoState === "ok" && item.auto) {
+			const badge = document.createElement("span");
+			badge.className = "badge";
+			badge.textContent = "auto";
+			badge.title = "machine translation, not checked by you";
+			row.append(badge);
+		}
+
+		const count = (item.examples || []).length;
+		if (count) {
+			const chip = action(String(count), () => toggleSentences(item), "chip");
+			chip.title = count + (count === 1 ? " sentence" : " sentences");
+			row.append(chip);
+		}
+
+		const acts = document.createElement("div");
+		acts.className = "acts";
+		acts.append(
+			action(count ? "sentences" : "+ sentence", () => toggleSentences(item)),
+			action("edit", () => { editingId = editingId === item.id ? null : item.id; render(); }),
+			action("retranslate", () => translateInto(item, true)),
+			action("delete", () => {
+				const owned = (item.examples || []).filter(ex => wordsOfSentence(ex.id).length === 1).length;
+				const warning = owned ? "\n\n" + owned + (owned === 1 ? " sentence is" : " sentences are") + " attached only to this word and will go with it." : "";
+				if (!confirm('Delete "' + item.es + '"?' + warning)) return;
+				items = items.filter(x => x.id !== item.id);
+				if (editingId === item.id) editingId = null;
+				if (openId === item.id) openId = null;
+				render();
+				scheduleSave();
+			})
+		);
+		row.append(acts);
+		li.append(row);
+
+		if ((item.notes || "").trim() && item.id !== editingId) {
+			const note = document.createElement("div");
+			note.className = "note";
+			note.textContent = item.notes;
+			li.append(note);
+		}
+
+		if (item.id === editingId) li.append(editor(item));
+		if (item.id === openId) li.append(sentencePanel(item));
+		el.list.append(li);
+	}
+}
+
+function renderSentences(q) {
+	const all = allSentences();
+	const visible = q
+		? all.filter(ex => {
+			const words = wordsOfSentence(ex.id);
+			return normKey(ex.text + " " + ex.source).includes(q)
+				|| words.some(w => normKey(w.es).includes(q) || normKey(w.gloss || w.auto).includes(q));
+		})
+		: all;
+
+	el.count.textContent = (q ? visible.length + " / " + all.length : String(all.length))
+		+ (all.length === 1 ? " sentence" : " sentences");
+	el.list.textContent = "";
+
+	if (!visible.length) {
+		empty(all.length ? "nothing matches." : "no sentences yet. paste one above, or open a word and add it there.");
+		return;
+	}
+
+	for (const ex of visible) {
+		const li = document.createElement("li");
+		li.dataset.id = ex.id;
+		li.append(sentenceRow(ex, wordsOfSentence(ex.id), null));
+		el.list.append(li);
+	}
+}
+
+function empty(message) {
+	const p = document.createElement("div");
+	p.className = "empty";
+	p.textContent = message;
+	el.list.append(p);
+}
+
+// `hostWord` is the word whose panel this row sits in, so its own chip is not repeated back at it.
+function sentenceRow(ex, words, hostWord) {
+	const wrap = document.createElement("div");
+	wrap.className = "sentence";
+
+	const body = document.createElement("div");
+	body.className = "body";
+
+	const text = document.createElement("div");
+	text.className = "text";
+	text.append(sentenceNode(ex.text, words));
+	body.append(text);
+
+	const meta = document.createElement("div");
+	meta.className = "meta";
+	if (ex.source) {
+		const source = document.createElement("span");
+		source.textContent = ex.source;
+		meta.append(source);
+	}
+	for (const word of words) {
+		if (word === hostWord) continue;
+		meta.append(wordChip(word));
+	}
+	if (meta.childNodes.length) body.append(meta);
+
+	const acts = document.createElement("div");
+	acts.className = "acts";
+	acts.append(action("delete", () => {
+		const shared = words.length > 1
+			? "\n\nIt is attached to " + words.length + " words and will be removed from all of them."
+			: "";
+		if (!confirm("Delete this sentence?" + shared)) return;
+		deleteSentence(ex.id);
+		render();
+	}));
+
+	wrap.append(body, acts);
+	return wrap;
+}
+
+function toggleSentences(item) {
+	const opening = openId !== item.id;
+	openId = opening ? item.id : null;
+	notify("");
+	if (opening) focusSentenceFor = item.id;
+	render();
+}
+
+function sentencePanel(item) {
+	const panel = document.createElement("div");
+	panel.className = "panel";
+
+	const sentences = [...(item.examples || [])].sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
+	for (const ex of sentences) panel.append(sentenceRow(ex, wordsOfSentence(ex.id), item));
+
+	const box = document.createElement("div");
+	box.className = "sentence-box";
+
+	const fields = document.createElement("div");
+	fields.className = "fields";
+
+	const textInput = document.createElement("textarea");
+	textInput.rows = 2;
+	textInput.placeholder = "sentence you met " + item.es + " in";
+	textInput.dataset.sentenceBox = item.id;
+
+	const sourceInput = document.createElement("input");
+	sourceInput.placeholder = "source (optional)";
+
+	fields.append(textInput, sourceInput);
+
+	function commit() {
+		if (!addSentence(textInput.value, sourceInput.value, item)) return;
+		focusSentenceFor = item.id;
+		render();
+	}
+
+	const bar = document.createElement("div");
+	bar.className = "bar";
+
+	const hint = document.createElement("div");
+	hint.className = "hint";
+	hint.textContent = "Enter saves · Shift+Enter for a new line · other saved words in the sentence get it too";
+
+	const addButton = action("add sentence", commit);
+	addButton.className = "add-sentence";
+	bar.append(hint, addButton);
+
+	textInput.addEventListener("keydown", e => {
+		if (e.key !== "Enter" || e.shiftKey) return;
+		e.preventDefault();
+		commit();
+	});
+
+	box.append(fields, bar);
+	panel.append(box);
+	return panel;
+}
+
+function editor(item) {
+	const wrap = document.createElement("div");
+	wrap.className = "editor";
+
+	const glossField = document.createElement("div");
+	const glossLabel = document.createElement("label");
+	glossLabel.textContent = item.auto ? "your gloss (machine says: " + item.auto + ")" : "your gloss";
+	const glossInput = document.createElement("input");
+	glossInput.value = item.gloss || "";
+	glossInput.placeholder = "leave empty to keep the machine translation";
+	glossField.append(glossLabel, glossInput);
+
+	const esField = document.createElement("div");
+	const esLabel = document.createElement("label");
+	esLabel.textContent = "spanish";
+	const esInput = document.createElement("input");
+	esInput.value = item.es;
+	esField.append(esLabel, esInput);
+
+	const notesField = document.createElement("div");
+	const notesLabel = document.createElement("label");
+	notesLabel.textContent = "notes";
+	const notesInput = document.createElement("textarea");
+	notesInput.rows = 2;
+	notesInput.value = item.notes || "";
+	notesField.append(notesLabel, notesInput);
+
+	function commit() {
+		const es = esInput.value.trim();
+		if (es) {
+			const key = normKey(es);
+			const clash = items.find(x => x.key === key && x.id !== item.id);
+			if (clash) {
+				notify('"' + clash.es + '" already uses that word — rename cancelled.');
+			} else {
+				item.es = es;
+				item.key = key;
+			}
+		}
+		item.gloss = glossInput.value.trim();
+		item.notes = notesInput.value.trim();
+		item.updatedAt = Date.now();
+		editingId = null;
+		render();
+		scheduleSave();
+	}
+
+	const buttons = document.createElement("div");
+	buttons.className = "buttons";
+	buttons.append(
+		action("save", commit),
+		action("cancel", () => { editingId = null; render(); })
+	);
+
+	wrap.addEventListener("keydown", e => {
+		if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") { e.preventDefault(); commit(); }
+		if (e.key === "Escape") { editingId = null; render(); }
+	});
+
+	wrap.append(glossField, esField, notesField, buttons);
+	setTimeout(() => { glossInput.focus(); glossInput.select(); }, 0);
+	return wrap;
+}
+
+async function translateInto(item, force) {
+	if (item.autoState === "ok" && item.auto && !force) return;
+	item.autoState = "pending";
+	render();
+	try {
+		const res = await fetch("/api/translate?q=" + encodeURIComponent(item.es));
+		const body = await res.json();
+		if (!res.ok) throw new Error(body.error || res.status);
+		item.auto = body.text;
+		item.autoState = "ok";
+	} catch (err) {
+		item.autoState = "failed";
+	}
+	item.updatedAt = Date.now();
+	render();
+	scheduleSave();
+}
+
+function applyView() {
+	const words = view === "words";
+	el.tabWords.classList.toggle("on", words);
+	el.tabSentences.classList.toggle("on", !words);
+	el.addForm.hidden = !words;
+	el.sentenceForm.hidden = words;
+	el.search.placeholder = words ? "search…" : "search sentences…";
+}
+
+function setView(next) {
+	if (view === next) return;
+	view = next;
+	notify("");
+	applyView();
+	render();
+	(view === "words" ? el.addInput : el.sentenceInput).focus();
+}
+
+el.tabWords.addEventListener("click", () => setView("words"));
+el.tabSentences.addEventListener("click", () => setView("sentences"));
+
+el.addForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const raw = el.addInput.value.trim();
+	if (!raw) return;
+	const key = normKey(raw);
+	el.addInput.value = "";
+	el.addInput.focus();
+
+	const existing = items.find(x => x.key === key);
+	if (existing) {
+		notify('"' + existing.es + '" is already saved — opened it below instead of adding a duplicate.');
+		filter = "";
+		el.search.value = "";
+		editingId = existing.id;
+		flashId = existing.id;
+		render();
+		return;
+	}
+
+	notify("");
+	const item = {
+		id: crypto.randomUUID(),
+		es: raw,
+		key: key,
+		auto: "",
+		autoState: "pending",
+		gloss: "",
+		examples: [],
+		notes: "",
+		createdAt: Date.now(),
+		updatedAt: Date.now()
+	};
+	items.unshift(item);
+	render();
+	scheduleSave();
+	translateInto(item, false);
+});
+
+el.sentenceForm.addEventListener("submit", e => {
+	e.preventDefault();
+	if (!addSentence(el.sentenceInput.value, el.sentenceSource.value, null)) return;
+	el.sentenceInput.value = "";
+	el.sentenceSource.value = "";
+	el.sentenceInput.focus();
+	render();
+});
+
+el.sentenceInput.addEventListener("keydown", e => {
+	if (e.key !== "Enter" || e.shiftKey) return;
+	e.preventDefault();
+	el.sentenceForm.requestSubmit();
+});
+
+el.search.addEventListener("input", e => { filter = e.target.value; render(); });
+
+document.addEventListener("keydown", e => {
+	const tag = document.activeElement.tagName;
+	if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
+		e.preventDefault();
+		el.search.focus();
+	}
+});
+
+document.getElementById("exportBtn").addEventListener("click", () => {
+	const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
+	const a = document.createElement("a");
+	a.href = URL.createObjectURL(blob);
+	a.download = "vocab-" + new Date().toISOString().slice(0, 10) + ".json";
+	a.click();
+	URL.revokeObjectURL(a.href);
+});
+
+document.getElementById("importBtn").addEventListener("click", () => document.getElementById("importFile").click());
+
+document.getElementById("importFile").addEventListener("change", async e => {
+	const file = e.target.files[0];
+	if (!file) return;
+	e.target.value = "";
+	let incoming;
+	try {
+		incoming = JSON.parse(await file.text());
+		if (!Array.isArray(incoming)) throw new Error("not an array");
+	} catch (err) {
+		notify("That file is not a vocab JSON array.");
+		return;
+	}
+	let added = 0;
+	for (const raw of incoming) {
+		const es = String(raw.es || "").trim();
+		if (!es) continue;
+		const key = normKey(es);
+		if (items.some(x => x.key === key)) continue;
+		const word = {
+			id: raw.id || crypto.randomUUID(),
+			es: es,
+			key: key,
+			auto: raw.auto || "",
+			autoState: raw.autoState || (raw.auto ? "ok" : "failed"),
+			gloss: raw.gloss || "",
+			examples: raw.examples,
+			notes: raw.notes || "",
+			createdAt: raw.createdAt || Date.now(),
+			updatedAt: Date.now()
+		};
+		normalizeExamples(word);
+		items.unshift(word);
+		added++;
+	}
+	notify("Imported " + added + " new word" + (added === 1 ? "" : "s") + " (" + (incoming.length - added) + " skipped as duplicates).");
+	render();
+	scheduleSave();
+});
+
+(async function start() {
+	try {
+		const res = await fetch("/api/vocab");
+		if (!res.ok) throw new Error("HTTP " + res.status);
+		items = await res.json();
+		setState("saved", "saved");
+	} catch (err) {
+		items = [];
+		setState("unsaved", "cannot reach server");
+		notify("Could not load vocab.json — is the server running?");
+	}
+	for (const item of items) normalizeExamples(item);
+
+	const pending = localStorage.getItem(PENDING_KEY);
+	if (pending && pending !== JSON.stringify(items, null, 2)) {
+		if (confirm("There are unsaved changes from last time. Restore them?")) {
+			try {
+				items = JSON.parse(pending);
+				for (const item of items) normalizeExamples(item);
+				scheduleSave();
+			} catch (_) {}
+		} else {
+			localStorage.removeItem(PENDING_KEY);
+		}
+	}
+	applyView();
+	render();
+})();
+</script>
+</body>
+</html>

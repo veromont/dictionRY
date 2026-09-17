@@ -1,0 +1,371 @@
+[
+  {
+    "id": "87f291e7-41d6-49dd-91f1-baa4d1880bca",
+    "es": "espia",
+    "key": "espia",
+    "auto": "Spy",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789630605148,
+    "updatedAt": 1789630610309
+  },
+  {
+    "id": "4f335d64-b6a7-40d9-aab1-5b7adae2859b",
+    "es": "eres",
+    "key": "eres",
+    "auto": "you're",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789630589118,
+    "updatedAt": 1789630609728
+  },
+  {
+    "id": "b421db05-b1c1-473c-82c2-01ed75cbb425",
+    "es": "despues",
+    "key": "despues",
+    "auto": "despues",
+    "autoState": "ok",
+    "gloss": "after",
+    "examples": [
+      {
+        "id": "d3543436-aeaa-4d04-973f-964db40aa0d2",
+        "text": "tu eres dragon despues de todo",
+        "source": "",
+        "addedAt": 1789630560030
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630511273,
+    "updatedAt": 1789630560030
+  },
+  {
+    "id": "ed519ac5-6294-477e-b960-c9e89637e103",
+    "es": "nada",
+    "key": "nada",
+    "auto": "nothing",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "6bc8ea33-038d-489c-8e47-4ce54bdf41bc",
+        "text": "no hes dormido nada, Spike",
+        "source": "",
+        "addedAt": 1789630445090
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630427113,
+    "updatedAt": 1789630445090
+  },
+  {
+    "id": "7f2268ef-3457-468c-9d42-78c27ab5fb36",
+    "es": "oscuridad",
+    "key": "oscuridad",
+    "auto": "darkness",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "00e2c195-1266-4b9e-9cb1-c798bd6601f4",
+        "text": "la oscuridad eterna",
+        "source": "",
+        "addedAt": 1789630394396
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630370387,
+    "updatedAt": 1789630394396
+  },
+  {
+    "id": "2ab4283a-f742-4548-aeb1-be58ca837cec",
+    "es": "quedar",
+    "key": "quedar",
+    "auto": "remain",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789628093979,
+    "updatedAt": 1789628094490
+  },
+  {
+    "id": "99009dbd-124e-4bd1-ab89-2a1436227866",
+    "es": "verdad",
+    "key": "verdad",
+    "auto": "truth",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789589218093,
+    "updatedAt": 1789589218751
+  },
+  {
+    "id": "a6dbb587-c21d-4d56-8c4f-1eb19dbe6927",
+    "es": "querida",
+    "key": "querida",
+    "auto": "requested",
+    "autoState": "ok",
+    "gloss": "dear, darling",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789589189529,
+    "updatedAt": 1789589200664
+  },
+  {
+    "id": "2300ca74-fed3-4527-a163-6af0bc3aa7c2",
+    "es": "verano",
+    "key": "verano",
+    "auto": "Verano",
+    "autoState": "ok",
+    "gloss": "summer",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588924776,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "f5994035-fd26-49d8-bd02-ecf029ea8e8a",
+    "es": "quien",
+    "key": "quien",
+    "auto": "whom",
+    "autoState": "ok",
+    "gloss": "whom?, who?",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588880782,
+    "updatedAt": 1789588898006
+  },
+  {
+    "id": "16c65a8c-c78d-4ff8-90a5-a8a3290528ad",
+    "es": "espero",
+    "key": "espero",
+    "auto": "I hope",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588868920,
+    "updatedAt": 1789588869709
+  },
+  {
+    "id": "3fa8a25e-fea8-4a0f-a8e6-6fc08d927a70",
+    "es": "ver",
+    "key": "ver",
+    "auto": "Show",
+    "autoState": "ok",
+    "gloss": "show, see",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588795417,
+    "updatedAt": 1789588805833
+  },
+  {
+    "id": "8d6cace3-78d5-45fc-a348-fc34f8b767e5",
+    "es": "sorprendid",
+    "key": "sorprendid",
+    "auto": "Surprised",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588637587,
+    "updatedAt": 1789588638494
+  },
+  {
+    "id": "b6a9958f-cd74-4d19-9b75-d0b0214ed840",
+    "es": "hacer",
+    "key": "hacer",
+    "auto": "do",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588603385,
+    "updatedAt": 1789588605085
+  },
+  {
+    "id": "43de5df2-ea9e-4d24-9863-be303437a083",
+    "es": "temporada",
+    "key": "temporada",
+    "auto": "skewer",
+    "autoState": "ok",
+    "gloss": "season",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588529824,
+    "updatedAt": 1789588538845
+  },
+  {
+    "id": "cca15591-0c7d-498f-8377-979d10d56076",
+    "es": "otoño",
+    "key": "otono",
+    "auto": "oroño",
+    "autoState": "ok",
+    "gloss": "autumn",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588470598,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "d3464760-e583-4d0d-83cc-64787ca3941b",
+    "es": "primavera",
+    "key": "primavera",
+    "auto": "Spring",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588454614,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "0b090d67-ca26-474b-ab39-d3ff6ead1107",
+    "es": "invierno",
+    "key": "invierno",
+    "auto": "winter",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588394647,
+    "updatedAt": 1789588445665
+  },
+  {
+    "id": "b6c1f253-d376-47ce-b796-42957ba4b882",
+    "es": "ese",
+    "key": "ese",
+    "auto": "that",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588353294,
+    "updatedAt": 1789588354005
+  },
+  {
+    "id": "c04e580f-c9d6-48a9-9509-257fd36766a0",
+    "es": "peinado",
+    "key": "peinado",
+    "auto": "combing",
+    "autoState": "ok",
+    "gloss": "hairstyle, hair, combing",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588294457,
+    "updatedAt": 1789588328521
+  },
+  {
+    "id": "b8a0261a-6748-45f4-bbfb-dee4ec6bf80d",
+    "es": "Amistad",
+    "key": "amistad",
+    "auto": "Friendship",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588283255,
+    "updatedAt": 1789588284216
+  },
+  {
+    "id": "b5cb5463-5d2e-4625-bcc1-a2e841c9cef9",
+    "es": "hermosa",
+    "key": "hermosa",
+    "auto": "hermosa",
+    "autoState": "ok",
+    "gloss": "\"beautiful\" or \"gorgeous\"",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588187734,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "1eacdc18-c8c8-4e93-b344-b200ac94903f",
+    "es": "pasar",
+    "key": "pasar",
+    "auto": "come by",
+    "autoState": "ok",
+    "gloss": "to pass by, to happen",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588080399,
+    "updatedAt": 1789588124534
+  },
+  {
+    "id": "8e86b7e4-945c-476f-b020-dcd0b8dc13e5",
+    "es": "buscar",
+    "key": "buscar",
+    "auto": "search",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587954687,
+    "updatedAt": 1789587960359
+  },
+  {
+    "id": "cb357f27-ff20-4b05-a8f3-f028f6f08076",
+    "es": "llego",
+    "key": "llego",
+    "auto": "came",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587774349,
+    "updatedAt": 1789587775268
+  },
+  {
+    "id": "74f5ef37-13b3-44fa-9576-35b63c57ab7d",
+    "es": "poder",
+    "key": "poder",
+    "auto": "power",
+    "autoState": "ok",
+    "gloss": "power, can, might",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587749690,
+    "updatedAt": 1789588784257
+  },
+  {
+    "id": "0158f861-6b5e-4e11-bbbd-8082cb3e782d",
+    "es": "cosa",
+    "key": "cosa",
+    "auto": "thing",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587716689,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "44144a7f-cf5a-4b0a-bee4-f839357beee4",
+    "es": "cosas",
+    "key": "cosas",
+    "auto": "stuff",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587709684,
+    "updatedAt": 1789591289027
+  },
+  {
+    "id": "50d901e9-8c2f-4ee1-b182-fcb3f3194d36",
+    "es": "mapa",
+    "key": "mapa",
+    "auto": "map",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587655875,
+    "updatedAt": 1789591246805
+  }
+]
