@@ -54,14 +54,14 @@
 	.tabs { margin-left: auto; display: flex; gap: 4px; }
 	.tabs button { font-size: 13px; padding: 3px 10px; border-radius: 999px; }
 	.tabs button.on { background: var(--chip-bg); color: var(--fg); border-color: var(--line); }
-	input, button, textarea {
+	input, button, textarea, select {
 		font: inherit;
 		color: inherit;
 		border-radius: 8px;
 		border: 1px solid var(--line);
 		background: var(--card);
 	}
-	input, textarea { padding: 10px 12px; width: 100%; }
+	input, textarea, select { padding: 10px 12px; width: 100%; }
 	textarea { resize: vertical; }
 	input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 	button { padding: 6px 10px; background: transparent; border-color: transparent; color: var(--muted); cursor: pointer; }
@@ -95,6 +95,20 @@
 	li:hover .acts, li:focus-within .acts { opacity: 1; }
 	.acts button { font-size: 13px; padding: 2px 7px; }
 	.note { color: var(--muted); font-size: 14px; margin-top: 3px; }
+	.pos { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0 7px; }
+	.conj { display: grid; gap: 14px; }
+	.tense { display: grid; gap: 5px; }
+	.tense .conj-head .acts { margin-left: 4px; }
+	.tense:hover .acts, .tense:focus-within .acts { opacity: 1; }
+	.conj-head { display: flex; align-items: center; gap: 8px; }
+	.conj-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+	.conj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 16px; }
+	.conj-cell { display: flex; gap: 8px; align-items: baseline; }
+	.conj-cell .who { color: var(--muted); font-size: 12px; min-width: 64px; }
+	.conj-cell .form { overflow-wrap: anywhere; }
+	.conj-grid input { padding: 4px 8px; font-size: 14px; }
+	.conj-buttons { display: flex; gap: 8px; }
+	.conj-buttons button { border-color: var(--line); background: var(--card); font-size: 13px; }
 	.editor { margin-top: 10px; display: grid; gap: 8px; }
 	.editor label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 3px; }
 	.editor .buttons { display: flex; gap: 8px; }
@@ -119,6 +133,7 @@
 	#state.unsaved { color: var(--bad); font-weight: 600; }
 	.empty { color: var(--muted); padding: 28px 2px; }
 	@media (max-width: 560px) {
+		.conj-grid { grid-template-columns: 1fr; }
 		#sentenceForm { grid-template-columns: 1fr; }
 		.sentence-box .fields { grid-template-columns: 1fr; }
 		.acts { opacity: 1; }
@@ -171,6 +186,7 @@ let editingId = null;
 let openId = null;
 let flashId = null;
 let focusSentenceFor = null;
+let conjEdit = null;
 let saveTimer = null;
 let retryTimer = null;
 
@@ -198,9 +214,296 @@ function normKey(s) {
 		.trim();
 }
 
-// Plural tolerance only: mapa/mapas, ciudad/ciudades. Conjugation is not covered —
-// "tener" will not be found inside "tengo", which is why adding from a word's own row
-// always attaches to that word regardless of what the matcher finds.
+// --- Spanish present tense, both directions -------------------------------
+// Keyed by verbKey, not normKey: ñ is its own letter in Spanish, so soñar (to dream) and
+// sonar (to sound) are different verbs and "el sueño" is a form of neither. normKey folds
+// them together, which is fine for search but wrong here. ACCENTED holds the spellings that
+// carry an accented vowel, which verbKey does strip.
+
+// Like normKey, but ñ survives.
+function verbKey(s) {
+	return String(s || "")
+		.toLowerCase()
+		.replace(/ñ/g, "")
+		.normalize("NFD").replace(/[̀-ͯ]/g, "")
+		.replace(//g, "ñ")
+		.replace(ARTICLES, "")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
+const VERBS = new Set(("ser estar tener hacer poder decir ir ver dar saber querer llegar pasar deber poner parecer quedar creer hablar llevar dejar seguir encontrar llamar venir pensar salir volver tomar conocer vivir sentir tratar mirar contar empezar esperar buscar existir entrar trabajar escribir perder producir ocurrir entender pedir recibir recordar terminar permitir aparecer conseguir comenzar servir sacar necesitar mantener resultar leer caer cambiar presentar crear abrir considerar oir acabar convertir ganar formar traer partir morir aceptar realizar suponer comprender lograr explicar preguntar tocar reconocer estudiar alcanzar nacer dirigir correr utilizar pagar ayudar gustar jugar escuchar cumplir ofrecer descubrir levantar intentar usar decidir repetir olvidar valer comer sufrir importar obtener observar indicar cerrar responder aprender comprar subir bajar evitar interesar anunciar señalar elegir resolver publicar enviar andar invertir comprobar funcionar acompañar echar desarrollar imaginar avanzar prestar notar sostener tender marchar influir aprovechar defender disponer romper dedicar acordar viajar dormir contestar matar guardar participar agradecer asegurar desear cuidar entregar abandonar soportar mover continuar apoyar dudar competir discutir mostrar preparar obligar adquirir admitir extender reunir aumentar bailar bañar besar cantar cocinar caminar comentar conducir construir contratar crecer cruzar cubrir curar dañar describir despertar destruir detener devolver dibujar disfrutar doler elevar empujar enamorar encender enseñar entretener equivocar escapar esconder escoger establecer exigir expresar faltar fijar fumar girar gritar golpear huir incluir iniciar insistir instalar investigar lanzar lavar limpiar llorar llover luchar mandar medir mejorar mencionar merecer meter molestar nadar negar obedecer ocupar odiar oler opinar organizar pertenecer pintar planear practicar preferir prender preocupar prometer proponer proteger quejar quemar quitar reir regalar regresar relajar reservar respetar respirar retirar revisar robar saltar saludar sentar separar significar sonar soñar sonreir sorprender subrayar sumar surgir temer tirar traducir transformar unir vender vestir visitar volar votar aburrir acercar aconsejar acostar actuar adivinar admirar afectar afirmar agarrar agotar agregar añadir aguantar ahorrar alegrar alimentar alquilar amar apagar apretar arreglar arrancar arrastrar asistir asustar atacar atender atraer avisar bastar borrar brillar calcular calentar callar cansar cargar casar causar celebrar cenar chocar cobrar colgar colocar combinar compartir completar comunicar concentrar conceder confesar confiar confirmar confundir congelar conservar consistir consultar contaminar contener contribuir controlar convencer copiar corregir cortar costar criticar culpar demostrar denunciar depender desayunar descansar descargar despedir determinar dividir doblar durar educar ejercer eliminar emocionar emplear encantar encargar enfermar enfrentar engañar engordar entrenar envolver escalar esforzar estirar evaluar exagerar examinar explorar fabricar facilitar fallar fascinar favorecer felicitar financiar firmar forzar fracasar frenar fregar freir generar gastar gobernar grabar guiar heredar herir hervir identificar ignorar iluminar impedir implicar imponer impresionar imprimir incorporar informar ingresar inscribir integrar interpretar interrumpir introducir inventar juntar jurar justificar lamentar liberar limitar manejar manifestar marcar mezclar modificar mojar montar mudar multiplicar narrar navegar negociar nombrar ocultar ofender operar ordenar orientar parar pasear pegar peinar pelear percibir perdonar permanecer perseguir pesar planchar plantar poseer predecir prevenir probar programar prohibir pronunciar proporcionar provocar quebrar rechazar recoger recomendar recorrer recuperar reducir reemplazar referir reflejar regar registrar renovar renunciar reparar repartir reponer reproducir requerir rescatar resistir restaurar resumir retener retrasar revelar rogar sacudir satisfacer secar seducir seleccionar sembrar simplificar situar sobrevivir solicitar solucionar someter soplar sospechar sugerir sujetar superar suprimir suspender sustituir tapar tardar temblar tejer tentar testificar tolerar traicionar tranquilizar transmitir transportar trasladar triunfar ubicar vaciar valorar variar vencer verificar vigilar vincular volcar").split(" "));
+
+// Spelled exactly like a present-tense form, but far more often the noun or the function
+// word: "nada" is "nothing" long before it is "he swims", "trabajo" is a job, "recuerdo" is
+// a memory. These are never auto-resolved to a verb; setting the part of speech by hand still
+// works if you did mean the verb.
+const NOT_VERBS = new Set(("nada para como casa caso cosa cena nota cuenta marca firma trabajo juego regalo cambio paso peso beso gasto pago ayuda falta gana vino parte forma causa pregunta duda lucha prueba muestra apoyo odio estudio uso empleo inicio fracaso aumento acuerdo encuentro recuerdo cuento vuelo deseo comienzo almuerzo esfuerzo gobierno canto grito salto entrada salida cuidado sueño sueno cuelgo").split(" "));
+
+const ACCENTED = { oir: "oír", reir: "reír", sonreir: "sonreír", freir: "freír" };
+
+const IRREGULAR_PRESENT = {
+	ser: ["soy", "eres", "es", "somos", "sois", "son"],
+	estar: ["estoy", "estás", "está", "estamos", "estáis", "están"],
+	ir: ["voy", "vas", "va", "vamos", "vais", "van"],
+	haber: ["he", "has", "ha", "hemos", "habéis", "han"],
+	tener: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
+	venir: ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
+	decir: ["digo", "dices", "dice", "decimos", "decís", "dicen"],
+	oir: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
+	reir: ["río", "ríes", "ríe", "reímos", "reís", "ríen"],
+	oler: ["huelo", "hueles", "huele", "olemos", "oléis", "huelen"],
+	ver: ["veo", "ves", "ve", "vemos", "veis", "ven"],
+	dar: ["doy", "das", "da", "damos", "dais", "dan"]
+};
+
+const YO_IRREGULAR = {
+	hacer: "hago", poner: "pongo", salir: "salgo", traer: "traigo", caer: "caigo",
+	ver: "veo", dar: "doy", saber: "sé", valer: "valgo", poseer: "poseo",
+	conocer: "conozco", parecer: "parezco", ofrecer: "ofrezco", agradecer: "agradezco",
+	crecer: "crezco", nacer: "nazco", merecer: "merezco", pertenecer: "pertenezco",
+	establecer: "establezco", permanecer: "permanezco", obedecer: "obedezco", favorecer: "favorezco",
+	conducir: "conduzco", traducir: "traduzco", producir: "produzco", reducir: "reduzco", seducir: "seduzco",
+	vencer: "venzo", convencer: "convenzo", ejercer: "ejerzo",
+	coger: "cojo", escoger: "escojo", proteger: "protejo",
+	dirigir: "dirijo", exigir: "exijo", surgir: "surjo", satisfacer: "satisfago"
+};
+
+const STEM_CHANGES = {};
+for (const verb of "pensar cerrar empezar comenzar despertar sentar calentar temblar gobernar sembrar confesar negar regar fregar apretar quebrar manifestar recomendar perder entender defender encender tender querer atender extender herir hervir sentir preferir mentir divertir convertir invertir sugerir requerir referir".split(" ")) STEM_CHANGES[verb] = ["e", "ie"];
+for (const verb of "poder volver contar encontrar recordar costar mostrar probar rogar colgar soltar sonar soñar volar doler mover llover resolver devolver envolver dormir morir forzar acordar acostar aprobar comprobar demostrar renovar soler".split(" ")) STEM_CHANGES[verb] = ["o", "ue"];
+for (const verb of "pedir servir repetir seguir vestir medir elegir corregir impedir despedir competir conseguir perseguir derretir rendir".split(" ")) STEM_CHANGES[verb] = ["e", "i"];
+STEM_CHANGES.jugar = ["u", "ue"];
+STEM_CHANGES.adquirir = ["i", "ie"];
+
+// The gerund stem shifts on its own for a handful of verbs: poder is the only -er verb
+// that does it, and decir/venir/reír do not follow their own present stem either.
+const GERUND_IRREGULAR = {
+	poder: "pudiendo", decir: "diciendo", venir: "viniendo", ir: "yendo",
+	reir: "riendo", sonreir: "sonriendo", freir: "friendo"
+};
+
+const PRESENT_ENDINGS = {
+	ar: ["o", "as", "a", "amos", "áis", "an"],
+	er: ["o", "es", "e", "emos", "éis", "en"],
+	ir: ["o", "es", "e", "imos", "ís", "en"]
+};
+
+// Future and conditional hang off the whole infinitive, so they share one stem and differ
+// only in their endings. A dozen verbs contract that stem; everything else is regular.
+const FUTURE_ENDINGS = ["é", "ás", "á", "emos", "éis", "án"];
+const CONDITIONAL_ENDINGS = ["ía", "ías", "ía", "íamos", "íais", "ían"];
+const FUTURE_STEMS = {
+	tener: "tendr", poner: "pondr", salir: "saldr", venir: "vendr", valer: "valdr",
+	poder: "podr", saber: "sabr", caber: "cabr", haber: "habr", querer: "querr",
+	hacer: "har", decir: "dir"
+};
+
+const IMPERFECT_ENDINGS = {
+	ar: ["aba", "abas", "aba", "ábamos", "abais", "aban"],
+	er: ["ía", "ías", "ía", "íamos", "íais", "ían"],
+	ir: ["ía", "ías", "ía", "íamos", "íais", "ían"]
+};
+const IMPERFECT_IRREGULAR = {
+	ser: ["era", "eras", "era", "éramos", "erais", "eran"],
+	ir: ["iba", "ibas", "iba", "íbamos", "ibais", "iban"],
+	ver: ["veía", "veías", "veía", "veíamos", "veíais", "veían"]
+};
+
+const TENSES = ["present", "future", "conditional", "imperfect"];
+const TENSE_LABELS = { present: "present", future: "future", conditional: "conditional", imperfect: "imperfect" };
+
+const PRONOUNS = ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos"];
+
+// mantener, suponer, reconocer… behave exactly like their base verb with a prefix stuck on.
+// Bases shorter than four letters are excluded: every -ir verb "ends with" ir, and volver
+// "ends with" ver, which would produce nonsense like "volveo".
+const PREFIXABLE = Object.keys(IRREGULAR_PRESENT)
+	.concat(Object.keys(YO_IRREGULAR), Object.keys(STEM_CHANGES))
+	.filter(base => base.length >= 4)
+	.sort((a, b) => b.length - a.length);
+
+function curatedBase(verb) {
+	if (IRREGULAR_PRESENT[verb] || YO_IRREGULAR[verb] || STEM_CHANGES[verb]) return { base: verb, prefix: "" };
+	for (const base of PREFIXABLE) {
+		if (verb.length > base.length && verb.endsWith(base)) return { base: base, prefix: verb.slice(0, verb.length - base.length) };
+	}
+	return null;
+}
+
+function changeStem(stem, change) {
+	const at = stem.lastIndexOf(change[0]);
+	if (at < 0) return stem;
+	return stem.slice(0, at) + change[1] + stem.slice(at + change[0].length);
+}
+
+function presentForms(verb) {
+	const cls = verb.slice(-2);
+	if (!PRESENT_ENDINGS[cls]) return null;
+
+	const curated = curatedBase(verb);
+	const base = curated ? curated.base : verb;
+	const prefix = curated ? curated.prefix : "";
+
+	if (IRREGULAR_PRESENT[base]) return IRREGULAR_PRESENT[base].map(form => prefix + form);
+
+	const plainStem = verb.slice(0, -2);
+	const change = STEM_CHANGES[base];
+	const bootStem = change ? prefix + changeStem(base.slice(0, -2), change) : plainStem;
+	// -uir verbs take a y outside nosotros/vosotros: construyo, but construimos.
+	const yStem = cls === "ir" && verb.endsWith("uir") && !verb.endsWith("guir") && !verb.endsWith("quir")
+		? plainStem + "y"
+		: null;
+
+	return PRESENT_ENDINGS[cls].map((ending, person) => {
+		if (person === 0 && YO_IRREGULAR[base]) return prefix + YO_IRREGULAR[base];
+		const boot = person !== 3 && person !== 4;
+		let stem = boot ? (yStem || bootStem) : plainStem;
+		if (ending[0] === "o") {
+			if (stem.endsWith("gu")) stem = stem.slice(0, -1);      // seguir -> sigo, not siguo
+			else if (stem.endsWith("g") && cls !== "ar") stem = stem.slice(0, -1) + "j";
+		}
+		return stem + ending;
+	});
+}
+
+function futureStem(verb) {
+	if (FUTURE_STEMS[verb]) return { stem: FUTURE_STEMS[verb], irregular: true };
+	const curated = curatedBase(verb);
+	if (curated && FUTURE_STEMS[curated.base]) return { stem: curated.prefix + FUTURE_STEMS[curated.base], irregular: true };
+	return { stem: verb, irregular: false };
+}
+
+function tenseForms(verb, tense) {
+	const cls = verb.slice(-2);
+	if (!PRESENT_ENDINGS[cls]) return null;
+
+	if (tense === "present") {
+		const forms = presentForms(verb);
+		return forms && { source: curatedBase(verb) ? "irregular" : "generated", forms: forms };
+	}
+	if (tense === "future" || tense === "conditional") {
+		const stem = futureStem(verb);
+		const endings = tense === "future" ? FUTURE_ENDINGS : CONDITIONAL_ENDINGS;
+		return { source: stem.irregular ? "irregular" : "generated", forms: endings.map(ending => stem.stem + ending) };
+	}
+
+	const curated = curatedBase(verb);
+	const base = curated ? curated.base : verb;
+	const prefix = curated ? curated.prefix : "";
+	if (IMPERFECT_IRREGULAR[verb]) return { source: "irregular", forms: IMPERFECT_IRREGULAR[verb].slice() };
+	if (IMPERFECT_IRREGULAR[base]) return { source: "irregular", forms: IMPERFECT_IRREGULAR[base].map(form => prefix + form) };
+	const stem = verb.slice(0, -2);
+	return { source: "generated", forms: IMPERFECT_ENDINGS[cls].map(ending => stem + ending) };
+}
+
+function gerundOf(verb) {
+	const cls = verb.slice(-2);
+	if (!PRESENT_ENDINGS[cls]) return "";
+	const curated = curatedBase(verb);
+	const base = curated ? curated.base : verb;
+	const prefix = curated ? curated.prefix : "";
+	if (GERUND_IRREGULAR[verb]) return GERUND_IRREGULAR[verb];
+	if (GERUND_IRREGULAR[base]) return prefix + GERUND_IRREGULAR[base];
+	let stem = verb.slice(0, -2);
+	const change = STEM_CHANGES[base];
+	// -ir stem-changers shift again in the gerund: sentir -> sintiendo, dormir -> durmiendo.
+	if (cls === "ir" && change) {
+		const gerundChange = change[1] === "ie" ? ["e", "i"] : change[1] === "ue" ? ["o", "u"] : change;
+		stem = prefix + changeStem(base.slice(0, -2), gerundChange);
+	}
+	if (cls === "ar") return stem + "ando";
+	return /[aeiou]$/.test(stem) ? stem + "yendo" : stem + "iendo";
+}
+
+let reverseIndex = null;
+
+function formToVerb() {
+	if (reverseIndex) return reverseIndex;
+	reverseIndex = new Map();
+	for (const verb of VERBS) {
+		const forms = TENSES.flatMap(tense => {
+			const built = tenseForms(verb, tense);
+			return built ? built.forms : [];
+		});
+		if (!forms.length) continue;
+		for (const form of forms.concat(gerundOf(verb))) {
+			const key = verbKey(form);
+			// First writer wins, and VERBS is ordered roughly by how common the verb is,
+			// so an ambiguous form resolves to the likelier verb.
+			if (key && !reverseIndex.has(key)) reverseIndex.set(key, verb);
+		}
+	}
+	return reverseIndex;
+}
+
+// Only a verb on the list is ever accepted. Stripping endings blindly would turn the noun
+// "mapa" into "mapar" and "verano" into "veranar" — every Spanish noun in -a or -o looks
+// like a conjugated verb.
+function lemmaOf(raw) {
+	// An article is the user saying "this is a noun" — "el sueño" is never a verb form.
+	if (ARTICLES.test(String(raw || "").trim().toLowerCase())) return null;
+	const token = verbKey(raw);
+	if (!token || token.includes(" ")) return null;
+	if (VERBS.has(token)) return token;
+	if (NOT_VERBS.has(token)) return null;
+	return formToVerb().get(token) || null;
+}
+
+function spellInfinitive(verb) {
+	return ACCENTED[verb] || verb;
+}
+
+function isVerbWord(es) {
+	const key = verbKey(es);
+	return !key.includes(" ") && (VERBS.has(key) || /(ar|er|ir)$/.test(key));
+}
+
+function buildConj(es) {
+	const key = verbKey(es);
+	if (!presentForms(key)) return null;
+	const conj = { gerund: gerundOf(key) };
+	for (const tense of TENSES) conj[tense] = tenseForms(key, tense);
+	return conj;
+}
+
+// Old files hold { source, present: [...], gerund }. Keep a correction the user made to the
+// present, and fill in the tenses that did not exist yet.
+function upgradeConj(word) {
+	const conj = word.conj;
+	if (!conj) return null;
+	if (Array.isArray(conj.present)) {
+		const carried = { gerund: conj.gerund, present: { source: conj.source || "generated", forms: conj.present } };
+		word.conj = carried;
+	}
+	const built = buildConj(word.es);
+	if (!built) return word.conj.present ? word.conj : null;
+	for (const tense of TENSES) {
+		const current = word.conj[tense];
+		if (!current || !Array.isArray(current.forms) || current.forms.length !== 6) word.conj[tense] = built[tense];
+	}
+	if (!word.conj.gerund) word.conj.gerund = built.gerund;
+	return word.conj;
+}
+
+function conjForms(word) {
+	if (!word.conj) return [];
+	const forms = TENSES.flatMap(tense => (word.conj[tense] && word.conj[tense].forms) || []);
+	if (word.conj.gerund) forms.push(word.conj.gerund);
+	return forms;
+}
+
+function guessPos(es) {
+	const raw = String(es || "").trim().toLowerCase();
+	if (ARTICLES.test(raw)) return "noun";
+	const key = normKey(es);
+	if (!key) return "other";
+	if (key.includes(" ")) return "phrase";
+	if (isVerbWord(key) || lemmaOf(key)) return "verb";
+	return "other";
+}
+
+// Plural tolerance: mapa/mapas, ciudad/ciudades.
 function tokenMatchesKey(token, key) {
 	if (!token || !key) return false;
 	if (token === key) return true;
@@ -208,8 +511,17 @@ function tokenMatchesKey(token, key) {
 	return token === key + "s" || token === key + "es" || key === token + "s" || key === token + "es";
 }
 
+// Verbs match through their stored forms, so correcting a form immediately changes which
+// sentences attach to it. Only the present tense is generated, so "hice" still will not
+// find "hacer" — adding from the verb's own row covers that.
+function wordMatchesToken(word, token) {
+	if (tokenMatchesKey(normKey(token), word.key)) return true;
+	const key = verbKey(token);
+	return conjForms(word).some(form => verbKey(form) === key);
+}
+
 function tokensOf(text) {
-	return new Set((String(text || "").match(WORDS_IN_TEXT) || []).map(normKey));
+	return new Set(String(text || "").match(WORDS_IN_TEXT) || []);
 }
 
 function findWords(text) {
@@ -218,7 +530,7 @@ function findWords(text) {
 	return items.filter(word => {
 		if (!word.key) return false;
 		if (word.key.includes(" ")) return whole.includes(word.key);
-		for (const token of tokens) if (tokenMatchesKey(token, word.key)) return true;
+		for (const token of tokens) if (wordMatchesToken(word, token)) return true;
 		return false;
 	});
 }
@@ -256,13 +568,79 @@ function normalizeExamples(word) {
 		.filter(Boolean);
 }
 
+function normalizeWord(word) {
+	normalizeExamples(word);
+	if (!word.pos) word.pos = guessPos(word.es);
+	if (word.pos !== "verb") {
+		delete word.conj;
+		return;
+	}
+	if (word.conj) {
+		if (!upgradeConj(word)) delete word.conj;
+		return;
+	}
+	const conj = buildConj(word.es);
+	if (conj) word.conj = conj; else delete word.conj;
+}
+
+// Runs once per word: `pos` is the marker that it has been classified, so a word renamed
+// back to a conjugated form by hand is never re-converted on the next load.
+function migrateToInfinitives() {
+	const renamed = [];
+	for (const word of items) {
+		if (word.pos) continue;
+		const key = normKey(word.es);
+		const lemma = lemmaOf(key);
+		if (!lemma || lemma === key) continue;
+		if (items.some(other => other !== word && normKey(other.es) === lemma)) continue;
+		const infinitive = spellInfinitive(lemma);
+		renamed.push({ word: word, from: word.es, to: infinitive });
+		word.es = infinitive;
+		word.key = lemma;
+		word.pos = "verb";
+		word.conj = buildConj(infinitive);
+		word.updatedAt = Date.now();
+	}
+	return renamed;
+}
+
+// A word that turns out to be a form of a verb already saved is folded into it: one entry per
+// verb is the whole point of storing the infinitive. Words the user marked as anything but a
+// verb are left alone, which is also how "keep it separate" stays sticky.
+function mergeIntoInfinitives() {
+	const merged = [];
+	for (const word of items.slice()) {
+		if (word.pos && word.pos !== "verb") continue;
+		const key = normKey(word.es);
+		const lemma = lemmaOf(key);
+		if (!lemma || lemma === key) continue;
+		const target = items.find(other => other !== word && normKey(other.es) === lemma);
+		if (!target) continue;
+
+		target.examples = target.examples || [];
+		for (const example of word.examples || []) {
+			if (!target.examples.some(other => other.id === example.id || other.text === example.text)) target.examples.push(example);
+		}
+		const carried = [target.notes, word.notes];
+		if (!(target.gloss || "").trim()) target.gloss = word.gloss;
+		else if ((word.gloss || "").trim() && word.gloss.trim() !== target.gloss.trim()) carried.push(word.es + ": " + word.gloss);
+		target.notes = carried.map(note => (note || "").trim()).filter(Boolean).join(" · ");
+		target.updatedAt = Date.now();
+
+		items = items.filter(other => other !== word);
+		merged.push({ word: word, from: word.es, to: target.es });
+	}
+	return merged;
+}
+
 function setState(kind, text) {
 	el.state.className = kind;
 	el.state.textContent = text;
 }
 
-function notify(msg) {
-	el.notice.textContent = msg;
+function notify(msg, actions) {
+	el.notice.textContent = msg || "";
+	for (const item of (msg && actions) || []) el.notice.append(" ", action(item.label, item.onClick, "chip"));
 	el.notice.classList.toggle("on", Boolean(msg));
 }
 
@@ -334,13 +712,13 @@ function deleteSentence(id) {
 }
 
 function sentenceNode(text, words) {
-	const keys = words.flatMap(word => String(word.key || "").split(" ")).filter(Boolean);
+	const parts = words.flatMap(word => String(word.key || "").split(" ").filter(Boolean).map(key => ({ key: key, conj: word.conj })));
 	const frag = document.createDocumentFragment();
 	const re = new RegExp(WORDS_IN_TEXT.source, "gu");
 	let last = 0;
 	let match;
 	while ((match = re.exec(text))) {
-		if (!keys.some(key => tokenMatchesKey(normKey(match[0]), key))) continue;
+		if (!parts.some(part => wordMatchesToken(part, match[0]))) continue;
 		if (match.index > last) frag.append(text.slice(last, match.index));
 		const mark = document.createElement("mark");
 		mark.textContent = match[0];
@@ -437,6 +815,13 @@ function renderWords(q) {
 			badge.textContent = "auto";
 			badge.title = "machine translation, not checked by you";
 			row.append(badge);
+		}
+
+		if (item.pos && item.pos !== "other") {
+			const pos = document.createElement("span");
+			pos.className = "pos";
+			pos.textContent = item.pos;
+			row.append(pos);
 		}
 
 		const count = (item.examples || []).length;
@@ -562,9 +947,116 @@ function toggleSentences(item) {
 	render();
 }
 
+function conjugationBlock(item) {
+	const wrap = document.createElement("div");
+	wrap.className = "conj";
+
+	for (const tense of TENSES) {
+		const block = item.conj[tense];
+		if (!block || !Array.isArray(block.forms)) continue;
+		wrap.append(tenseBlock(item, tense, block));
+	}
+	return wrap;
+}
+
+function tenseBlock(item, tense, block) {
+	const wrap = document.createElement("div");
+	wrap.className = "tense";
+
+	const head = document.createElement("div");
+	head.className = "conj-head";
+
+	const title = document.createElement("span");
+	title.className = "conj-title";
+	title.textContent = TENSE_LABELS[tense];
+
+	const badge = document.createElement("span");
+	badge.className = "badge";
+	badge.textContent = block.source;
+	badge.title = block.source === "yours"
+		? "you corrected these"
+		: block.source === "irregular"
+			? "from the app's table of irregular verbs"
+			: "built from the regular rules — an unlisted irregularity would make it wrong";
+
+	head.append(title, badge);
+
+	const editing = conjEdit && conjEdit.id === item.id && conjEdit.tense === tense;
+	const buttons = document.createElement("div");
+	buttons.className = "acts";
+	head.append(buttons);
+	wrap.append(head);
+
+	const grid = document.createElement("div");
+	grid.className = "conj-grid";
+	const inputs = [];
+
+	// Singular down the left column, plural down the right, the way conjugation tables read.
+	const order = [0, 3, 1, 4, 2, 5].map(i => [PRONOUNS[i], block.forms[i], i]);
+	if (tense === "present") order.push(["gerund", item.conj.gerund || "", 6]);
+
+	for (const [who, form, index] of order) {
+		const cell = document.createElement("div");
+		cell.className = "conj-cell";
+
+		const label = document.createElement("span");
+		label.className = "who";
+		label.textContent = who;
+		cell.append(label);
+
+		if (editing) {
+			const input = document.createElement("input");
+			input.value = form;
+			inputs[index] = input;
+			cell.append(input);
+		} else {
+			const value = document.createElement("span");
+			value.className = "form";
+			value.textContent = form;
+			cell.append(value);
+		}
+		grid.append(cell);
+	}
+	wrap.append(grid);
+
+	if (editing) {
+		const bar = document.createElement("div");
+		bar.className = "conj-buttons";
+		bar.append(
+			action("save", () => {
+				item.conj[tense] = { source: "yours", forms: inputs.slice(0, 6).map(input => input.value.trim()) };
+				if (tense === "present" && inputs[6]) item.conj.gerund = inputs[6].value.trim();
+				item.updatedAt = Date.now();
+				conjEdit = null;
+				render();
+				scheduleSave();
+			}),
+			action("cancel", () => { conjEdit = null; render(); })
+		);
+		wrap.append(bar);
+	} else {
+		buttons.append(
+			action("edit", () => { conjEdit = { id: item.id, tense: tense }; render(); }),
+			action("regenerate", () => {
+				if (block.source === "yours" && !confirm("Rebuild the " + TENSE_LABELS[tense] + " from the rules and lose your corrections?")) return;
+				const built = tenseForms(normKey(item.es), tense);
+				if (!built) return;
+				item.conj[tense] = built;
+				if (tense === "present") item.conj.gerund = gerundOf(normKey(item.es));
+				item.updatedAt = Date.now();
+				render();
+				scheduleSave();
+			})
+		);
+	}
+	return wrap;
+}
+
 function sentencePanel(item) {
 	const panel = document.createElement("div");
 	panel.className = "panel";
+
+	if (item.conj && item.conj.present) panel.append(conjugationBlock(item));
 
 	const sentences = [...(item.examples || [])].sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
 	for (const ex of sentences) panel.append(sentenceRow(ex, wordsOfSentence(ex.id), item));
@@ -632,6 +1124,19 @@ function editor(item) {
 	esInput.value = item.es;
 	esField.append(esLabel, esInput);
 
+	const posField = document.createElement("div");
+	const posLabel = document.createElement("label");
+	posLabel.textContent = "part of speech";
+	const posSelect = document.createElement("select");
+	for (const value of ["verb", "noun", "adjective", "phrase", "other"]) {
+		const option = document.createElement("option");
+		option.value = value;
+		option.textContent = value;
+		posSelect.append(option);
+	}
+	posSelect.value = item.pos || "other";
+	posField.append(posLabel, posSelect);
+
 	const notesField = document.createElement("div");
 	const notesLabel = document.createElement("label");
 	notesLabel.textContent = "notes";
@@ -642,18 +1147,24 @@ function editor(item) {
 
 	function commit() {
 		const es = esInput.value.trim();
+		let renamed = false;
 		if (es) {
 			const key = normKey(es);
 			const clash = items.find(x => x.key === key && x.id !== item.id);
 			if (clash) {
 				notify('"' + clash.es + '" already uses that word — rename cancelled.');
-			} else {
+			} else if (key !== item.key) {
 				item.es = es;
 				item.key = key;
+				renamed = true;
 			}
 		}
 		item.gloss = glossInput.value.trim();
 		item.notes = notesInput.value.trim();
+		item.pos = posSelect.value;
+		// A renamed word's old forms belong to the old spelling, corrected or not.
+		if (renamed) delete item.conj;
+		normalizeWord(item);
 		item.updatedAt = Date.now();
 		editingId = null;
 		render();
@@ -672,7 +1183,7 @@ function editor(item) {
 		if (e.key === "Escape") { editingId = null; render(); }
 	});
 
-	wrap.append(glossField, esField, notesField, buttons);
+	wrap.append(glossField, esField, posField, notesField, buttons);
 	setTimeout(() => { glossInput.focus(); glossInput.select(); }, 0);
 	return wrap;
 }
@@ -720,13 +1231,19 @@ el.addForm.addEventListener("submit", e => {
 	e.preventDefault();
 	const raw = el.addInput.value.trim();
 	if (!raw) return;
-	const key = normKey(raw);
 	el.addInput.value = "";
 	el.addInput.focus();
 
+	const lemma = lemmaOf(raw);
+	const resolved = lemma && lemma !== normKey(raw);
+	const es = resolved ? spellInfinitive(lemma) : raw;
+	const key = normKey(es);
+
 	const existing = items.find(x => x.key === key);
 	if (existing) {
-		notify('"' + existing.es + '" is already saved — opened it below instead of adding a duplicate.');
+		notify(resolved
+			? '"' + raw + '" is a form of "' + existing.es + '", which is already saved — opened it below.'
+			: '"' + existing.es + '" is already saved — opened it below instead of adding a duplicate.');
 		filter = "";
 		el.search.value = "";
 		editingId = existing.id;
@@ -735,20 +1252,38 @@ el.addForm.addEventListener("submit", e => {
 		return;
 	}
 
-	notify("");
 	const item = {
 		id: crypto.randomUUID(),
-		es: raw,
+		es: es,
 		key: key,
 		auto: "",
 		autoState: "pending",
 		gloss: "",
+		pos: "",
 		examples: [],
 		notes: "",
 		createdAt: Date.now(),
 		updatedAt: Date.now()
 	};
+	normalizeWord(item);
 	items.unshift(item);
+
+	// Deverbal nouns look exactly like verb forms — "trabajo" and "regalo" are both — so the
+	// switch is always announced and always one click from being undone.
+	notify(resolved ? 'Saved "' + es + '" — "' + raw + '" is one of its forms.' : "", [{
+		label: "keep " + raw,
+		onClick: () => {
+			item.es = raw;
+			item.key = normKey(raw);
+			item.pos = "other";
+			delete item.conj;
+			notify("");
+			render();
+			scheduleSave();
+			translateInto(item, true);
+		}
+	}]);
+
 	render();
 	scheduleSave();
 	translateInto(item, false);
@@ -820,7 +1355,9 @@ document.getElementById("importFile").addEventListener("change", async e => {
 			createdAt: raw.createdAt || Date.now(),
 			updatedAt: Date.now()
 		};
-		normalizeExamples(word);
+		word.pos = raw.pos || "";
+		word.conj = raw.conj;
+		normalizeWord(word);
 		items.unshift(word);
 		added++;
 	}
@@ -831,7 +1368,8 @@ document.getElementById("importFile").addEventListener("change", async e => {
 
 (async function start() {
 	try {
-		const res = await fetch("/api/vocab");
+		// no-store, or a reload can be handed a stale body and re-run the load-time migration.
+		const res = await fetch("/api/vocab", { cache: "no-store" });
 		if (!res.ok) throw new Error("HTTP " + res.status);
 		items = await res.json();
 		setState("saved", "saved");
@@ -840,14 +1378,18 @@ document.getElementById("importFile").addEventListener("change", async e => {
 		setState("unsaved", "cannot reach server");
 		notify("Could not load vocab.json — is the server running?");
 	}
-	for (const item of items) normalizeExamples(item);
+	const beforeMigration = JSON.stringify(items);
+	const renamed = migrateToInfinitives();
+	const merged = mergeIntoInfinitives();
+	for (const item of items) normalizeWord(item);
+	if (JSON.stringify(items) !== beforeMigration) scheduleSave();
 
 	const pending = localStorage.getItem(PENDING_KEY);
 	if (pending && pending !== JSON.stringify(items, null, 2)) {
 		if (confirm("There are unsaved changes from last time. Restore them?")) {
 			try {
 				items = JSON.parse(pending);
-				for (const item of items) normalizeExamples(item);
+				for (const item of items) normalizeWord(item);
 				scheduleSave();
 			} catch (_) {}
 		} else {
@@ -856,6 +1398,36 @@ document.getElementById("importFile").addEventListener("change", async e => {
 	}
 	applyView();
 	render();
+
+	const lines = [];
+	if (renamed.length) lines.push("saved under the infinitive: " + renamed.map(entry => entry.from + " → " + entry.to).join(", "));
+	if (merged.length) lines.push("folded into the verb already saved: " + merged.map(entry => entry.from + " → " + entry.to).join(", "));
+	if (lines.length) {
+		const undoRename = renamed.map(entry => ({
+			label: "keep " + entry.from,
+			onClick: () => {
+				entry.word.es = entry.from;
+				entry.word.key = normKey(entry.from);
+				entry.word.pos = "other";
+				delete entry.word.conj;
+				notify("");
+				render();
+				scheduleSave();
+			}
+		}));
+		const undoMerge = merged.map(entry => ({
+			label: "keep " + entry.from,
+			onClick: () => {
+				entry.word.pos = "other";
+				delete entry.word.conj;
+				items.unshift(entry.word);
+				notify("");
+				render();
+				scheduleSave();
+			}
+		}));
+		notify(lines.join("; ") + ".", undoRename.concat(undoMerge));
+	}
 })();
 </script>
 </body>

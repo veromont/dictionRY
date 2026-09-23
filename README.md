@@ -22,6 +22,36 @@ That automatic translation is a starting point, not the truth. Machine translati
 
 Adding a word you already have does not create a duplicate. The app recognises it, tells you, and opens the existing entry for editing instead. Matching ignores capitals, accents, and a leading article, so `el mapa`, `Mapa`, and `MAPÁ` are all the same word.
 
+## Verbs
+
+A word is saved under its **infinitive**. Type `espero` and the entry becomes `esperar`, with its present-tense forms attached; the notice says what happened and leaves a one-click **keep espero** next to it if you meant the literal word.
+
+Expand a verb and its forms sit above the sentences, one block per tense — present, future, conditional and imperfect:
+
+```
+PRESENT  irregular                    FUTURE  irregular
+yo       hago     nosotros  hacemos   yo      haré     nosotros  haremos
+tú       haces    vosotros  hacéis    tú      harás    vosotros  haréis
+él/ella  hace     ellos     hacen     él/ella hará     ellos     harán
+gerund   haciendo
+```
+
+Each tense is corrected and rebuilt on its own — fixing the future leaves the present alone. The badge says where that tense's forms came from. `irregular` means they were looked up in the app's own table of irregular and stem-changing verbs. `generated` means the regular rules produced them, and an irregularity the app does not know about would make them wrong. `yours` means you corrected them — press **edit**, fix what is wrong, and nothing regenerates over it afterwards. **regenerate** rebuilds that tense from the rules and asks first if it would throw away your corrections.
+
+Sentences match through every stored form, so `No puedo hacer nada` reaches `poder` as well as `hacer`, and `Ya veremos` reaches `ver`. The matched form is highlighted. Correcting a form immediately changes what attaches to it.
+
+A word that turns out to be a form of a verb you already saved is folded into it — `veremos` disappears into `ver`, carrying its sentences, and its own translation is kept as a note. The notice names every fold and leaves a **keep** button beside it.
+
+Every word also carries a **part of speech** — verb, noun, adjective, phrase or other — guessed when it is saved and changeable in the editor. Setting a word to `verb` builds its forms; setting it to anything else drops them.
+
+### What it covers
+
+Present, future, conditional and imperfect. **Not the preterite**: `Ayer hice la comida` will not find `hacer`, and typing `hice` will not resolve to it either. That tense has dozens of irregular stems, which is a different size of job. Adding a sentence from the verb's own row still attaches it, so nothing is out of reach — it just is not automatic.
+
+Two things stop a noun being mistaken for a verb form. A word you type with its article — `el sueño`, `la meta` — is taken at its word and never resolved, because the article is you saying it is a noun. And `ñ` counts as its own letter here, so `sueño` (dream) is not treated as `sueno`, the yo-form of `sonar`; `soñar` and `sonar` stay two different verbs.
+
+Resolving a form to its infinitive only happens for verbs on the app's list of about 500 common ones. This is deliberate: every Spanish noun in `-a` or `-o` looks like a conjugated verb, so without the list `mapa` would become `mapar` and `verano` would become `veranar`. Words that are far more often a noun or a function word — `nada`, `trabajo`, `recuerdo`, `cuenta`, `para`, `como` — are never converted even though they are real verb forms. A verb missing from the list is simply left alone: type the infinitive yourself and set the part of speech, and everything else works as usual.
+
 ## Example sentences
 
 A word on its own is the weakest kind of flashcard, so every word can carry the sentences you met it in.
@@ -66,8 +96,16 @@ taskkill /PID <pid> /F
 ```json
 {
   "id": "uuid",
-  "es": "el mapa",
-  "key": "mapa",
+  "es": "hacer",
+  "key": "hacer",
+  "pos": "verb",
+  "conj": {
+    "gerund": "haciendo",
+    "present": { "source": "irregular", "forms": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"] },
+    "future": { "source": "irregular", "forms": ["haré", "harás", "hará", "haremos", "haréis", "harán"] },
+    "conditional": { "source": "irregular", "forms": ["haría", "harías", "haría", "haríamos", "haríais", "harían"] },
+    "imperfect": { "source": "generated", "forms": ["hacía", "hacías", "hacía", "hacíamos", "hacíais", "hacían"] }
+  },
   "auto": "Map",
   "autoState": "ok",
   "gloss": "map (the paper kind)",
@@ -80,7 +118,7 @@ taskkill /PID <pid> /F
 }
 ```
 
-The same sentence object, with the same `id`, is repeated on every word it belongs to. The text is duplicated on disk deliberately: it keeps the file one flat array that stays readable and hand-editable.
+`conj` is only present on verbs, and is plain enough to fix by hand. The same sentence object, with the same `id`, is repeated on every word it belongs to. The text is duplicated on disk deliberately: it keeps the file one flat array that stays readable and hand-editable.
 
 ## Translation source
 
