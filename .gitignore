@@ -1,3 +1,6 @@
 server.log
 data/backups/
 data/vocab.json.tmp
+dictionary-source/
+data/dictionary.sqlite
+data/dictionary.sqlite.tmp

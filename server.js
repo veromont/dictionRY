@@ -1,11 +1,22 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { openDictionary } = require("./lib/dictionary");
 
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_FILE = path.join(ROOT, "data", "vocab.json");
 const BACKUP_DIR = path.join(ROOT, "data", "backups");
+const V1_COPY = path.join(ROOT, "data", "vocab.v1.json");
+const DICTIONARY_FILE = path.join(ROOT, "data", "dictionary.sqlite");
+
+// Built by tools/build-dictionary.js. Without it the app still works, just without the dictionary.
+let dictionary = null;
+try {
+	dictionary = openDictionary(DICTIONARY_FILE);
+} catch (err) {
+	console.log("dictionary not loaded: " + err.message);
+}
 const PORT = 8787;
 const HOST = process.argv.includes("--lan") ? "0.0.0.0" : "127.0.0.1";
 const KEEP_BACKUPS = 20;
@@ -29,16 +40,23 @@ function json(res, status, body) {
 	res.end(payload);
 }
 
+const EMPTY = { version: 2, words: [], sentences: [], links: [] };
+
+function isCurrentShape(value) {
+	return Boolean(value) && Array.isArray(value.words) && Array.isArray(value.sentences) && Array.isArray(value.links);
+}
+
+// The page converts an old-format file itself; the server only has to hand it over as is.
 function readVocab() {
 	if (!fs.existsSync(DATA_FILE)) {
 		fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
-		fs.writeFileSync(DATA_FILE, "[]", "utf8");
-		return [];
+		fs.writeFileSync(DATA_FILE, JSON.stringify(EMPTY, null, 2), "utf8");
+		return EMPTY;
 	}
 	const raw = fs.readFileSync(DATA_FILE, "utf8").trim();
-	if (!raw) return [];
+	if (!raw) return EMPTY;
 	const parsed = JSON.parse(raw);
-	if (!Array.isArray(parsed)) throw new Error("vocab.json is not an array");
+	if (!Array.isArray(parsed) && !isCurrentShape(parsed)) throw new Error("vocab.json is neither the old nor the current format");
 	return parsed;
 }
 
@@ -51,7 +69,17 @@ function backup() {
 	for (const f of old) fs.unlinkSync(path.join(BACKUP_DIR, f));
 }
 
+// The first time an old-format file is overwritten, keep it for good. The rotating backups
+// would push it out within 20 saves.
+function keepV1Copy() {
+	if (fs.existsSync(V1_COPY) || !fs.existsSync(DATA_FILE)) return;
+	try {
+		if (Array.isArray(JSON.parse(fs.readFileSync(DATA_FILE, "utf8")))) fs.copyFileSync(DATA_FILE, V1_COPY);
+	} catch (_) {}
+}
+
 function writeVocab(list) {
+	keepV1Copy();
 	backup();
 	const tmp = DATA_FILE + ".tmp";
 	fs.writeFileSync(tmp, JSON.stringify(list, null, 2), "utf8");
@@ -112,9 +140,15 @@ const server = http.createServer(async (req, res) => {
 		}
 		if (url.pathname === "/api/vocab" && req.method === "PUT") {
 			const parsed = JSON.parse(await readBody(req));
-			if (!Array.isArray(parsed)) return json(res, 400, { error: "expected an array" });
+			// An old-format save can only come from a tab still running the previous version of the
+			// page; accepting it would overwrite the converted file with the old shape.
+			if (!isCurrentShape(parsed)) return json(res, 400, { error: "expected { words, sentences, links } — reload the page" });
 			writeVocab(parsed);
 			return json(res, 200, { ok: true, count: parsed.length });
+		}
+		if (url.pathname === "/api/dict" && req.method === "GET") {
+			if (!dictionary) return json(res, 503, { error: "dictionary not built — run: node tools/build-dictionary.js <dump>" });
+			return json(res, 200, dictionary.lookup(url.searchParams.get("q") || ""));
 		}
 		if (url.pathname === "/api/translate" && req.method === "GET") {
 			const q = (url.searchParams.get("q") || "").trim();
@@ -143,4 +177,5 @@ server.on("error", err => {
 
 server.listen(PORT, HOST, () => {
 	console.log(`spanish-vocab on http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}  (data: ${DATA_FILE})`);
+	console.log(dictionary ? `dictionary: ${dictionary.meta.entries} headwords, built ${dictionary.meta.built}` : "dictionary: not built");
 });

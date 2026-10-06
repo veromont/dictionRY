@@ -120,6 +120,26 @@
 	.meta { font-size: 12px; color: var(--muted); margin-top: 3px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 	.meta .chip { font-size: 11px; }
 	mark { background: var(--mark-bg); color: var(--mark-fg); border-radius: 3px; padding: 0 2px; }
+	.link { display: inline-flex; align-items: center; background: var(--chip-bg); border-radius: 999px; }
+	.link .chip { background: transparent; padding-right: 3px; }
+	.link.manual .chip { font-style: italic; }
+	.link .unlink { font-size: 12px; line-height: 1; padding: 1px 7px 1px 2px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); }
+	.link .unlink:hover { color: var(--bad); background: transparent; }
+	.unlinked { font-style: italic; }
+	.link-box { display: flex; gap: 6px; align-items: center; margin-top: 8px; }
+	.link-box input { width: 220px; padding: 5px 9px; font-size: 14px; }
+	.link-box button { font-size: 13px; }
+	.sentence-edit { display: grid; gap: 6px; }
+	.more-tenses { justify-self: start; font-size: 13px; border-color: var(--line); background: var(--card); }
+	#notice .chip { margin: 3px 2px 0 0; }
+	li.review { display: grid; gap: 8px; }
+	.choices { display: flex; flex-wrap: wrap; gap: 6px; }
+	.choice { display: grid; text-align: left; gap: 1px; padding: 6px 10px; border-color: var(--line); background: var(--card); color: var(--fg); max-width: 100%; }
+	.choice strong { font-weight: 600; }
+	.choice span { font-size: 12px; color: var(--muted); }
+	.choices .skip { font-size: 13px; }
+	.sentence-edit .buttons { display: flex; gap: 8px; }
+	.sentence-edit .buttons button { border-color: var(--line); background: var(--card); }
 	.sentence-box { display: grid; gap: 6px; }
 	.sentence-box .fields { display: grid; grid-template-columns: 1fr 180px; gap: 6px; }
 	.sentence-box .hint { font-size: 12px; color: var(--muted); }
@@ -165,21 +185,22 @@
 
 	<div id="notice"></div>
 	<ul id="list"></ul>
+	<datalist id="wordList"></datalist>
 
 	<footer>
 		<span id="state" class="saved">saved</span>
+		<button id="checkBtn">Check against dictionary</button>
 		<button id="exportBtn">Export JSON</button>
 		<button id="importBtn">Import JSON</button>
 		<input type="file" id="importFile" accept="application/json,.json" hidden>
 	</footer>
 </main>
 
+<script src="text.js"></script>
+<script src="store.js"></script>
 <script>
 const PENDING_KEY = "spanish-vocab-pending";
-const ARTICLES = /^(el|la|los|las|un|una|unos|unas)\s+/;
-const WORDS_IN_TEXT = /\p{L}+/gu;
 
-let items = [];
 let filter = "";
 let view = "words";
 let editingId = null;
@@ -187,8 +208,15 @@ let openId = null;
 let flashId = null;
 let focusSentenceFor = null;
 let conjEdit = null;
+let sentenceEditId = null;
+let linkingId = null;
+let moreTenses = new Set();
+let reviewItems = [];
+let dictAvailable = true;
 let saveTimer = null;
 let retryTimer = null;
+// Set when the file never loaded. Saving then would overwrite the real file with an empty one.
+let loadFailed = false;
 
 const el = {
 	list: document.getElementById("list"),
@@ -202,436 +230,9 @@ const el = {
 	sentenceSource: document.getElementById("sentenceSource"),
 	search: document.getElementById("search"),
 	tabWords: document.getElementById("tabWords"),
-	tabSentences: document.getElementById("tabSentences")
+	tabSentences: document.getElementById("tabSentences"),
+	wordList: document.getElementById("wordList")
 };
-
-function normKey(s) {
-	return String(s || "")
-		.toLowerCase()
-		.normalize("NFD").replace(/[̀-ͯ]/g, "")
-		.replace(ARTICLES, "")
-		.replace(/\s+/g, " ")
-		.trim();
-}
-
-// --- Spanish present tense, both directions -------------------------------
-// Keyed by verbKey, not normKey: ñ is its own letter in Spanish, so soñar (to dream) and
-// sonar (to sound) are different verbs and "el sueño" is a form of neither. normKey folds
-// them together, which is fine for search but wrong here. ACCENTED holds the spellings that
-// carry an accented vowel, which verbKey does strip.
-
-// Like normKey, but ñ survives.
-function verbKey(s) {
-	return String(s || "")
-		.toLowerCase()
-		.replace(/ñ/g, "")
-		.normalize("NFD").replace(/[̀-ͯ]/g, "")
-		.replace(//g, "ñ")
-		.replace(ARTICLES, "")
-		.replace(/\s+/g, " ")
-		.trim();
-}
-
-const VERBS = new Set(("ser estar tener hacer poder decir ir ver dar saber querer llegar pasar deber poner parecer quedar creer hablar llevar dejar seguir encontrar llamar venir pensar salir volver tomar conocer vivir sentir tratar mirar contar empezar esperar buscar existir entrar trabajar escribir perder producir ocurrir entender pedir recibir recordar terminar permitir aparecer conseguir comenzar servir sacar necesitar mantener resultar leer caer cambiar presentar crear abrir considerar oir acabar convertir ganar formar traer partir morir aceptar realizar suponer comprender lograr explicar preguntar tocar reconocer estudiar alcanzar nacer dirigir correr utilizar pagar ayudar gustar jugar escuchar cumplir ofrecer descubrir levantar intentar usar decidir repetir olvidar valer comer sufrir importar obtener observar indicar cerrar responder aprender comprar subir bajar evitar interesar anunciar señalar elegir resolver publicar enviar andar invertir comprobar funcionar acompañar echar desarrollar imaginar avanzar prestar notar sostener tender marchar influir aprovechar defender disponer romper dedicar acordar viajar dormir contestar matar guardar participar agradecer asegurar desear cuidar entregar abandonar soportar mover continuar apoyar dudar competir discutir mostrar preparar obligar adquirir admitir extender reunir aumentar bailar bañar besar cantar cocinar caminar comentar conducir construir contratar crecer cruzar cubrir curar dañar describir despertar destruir detener devolver dibujar disfrutar doler elevar empujar enamorar encender enseñar entretener equivocar escapar esconder escoger establecer exigir expresar faltar fijar fumar girar gritar golpear huir incluir iniciar insistir instalar investigar lanzar lavar limpiar llorar llover luchar mandar medir mejorar mencionar merecer meter molestar nadar negar obedecer ocupar odiar oler opinar organizar pertenecer pintar planear practicar preferir prender preocupar prometer proponer proteger quejar quemar quitar reir regalar regresar relajar reservar respetar respirar retirar revisar robar saltar saludar sentar separar significar sonar soñar sonreir sorprender subrayar sumar surgir temer tirar traducir transformar unir vender vestir visitar volar votar aburrir acercar aconsejar acostar actuar adivinar admirar afectar afirmar agarrar agotar agregar añadir aguantar ahorrar alegrar alimentar alquilar amar apagar apretar arreglar arrancar arrastrar asistir asustar atacar atender atraer avisar bastar borrar brillar calcular calentar callar cansar cargar casar causar celebrar cenar chocar cobrar colgar colocar combinar compartir completar comunicar concentrar conceder confesar confiar confirmar confundir congelar conservar consistir consultar contaminar contener contribuir controlar convencer copiar corregir cortar costar criticar culpar demostrar denunciar depender desayunar descansar descargar despedir determinar dividir doblar durar educar ejercer eliminar emocionar emplear encantar encargar enfermar enfrentar engañar engordar entrenar envolver escalar esforzar estirar evaluar exagerar examinar explorar fabricar facilitar fallar fascinar favorecer felicitar financiar firmar forzar fracasar frenar fregar freir generar gastar gobernar grabar guiar heredar herir hervir identificar ignorar iluminar impedir implicar imponer impresionar imprimir incorporar informar ingresar inscribir integrar interpretar interrumpir introducir inventar juntar jurar justificar lamentar liberar limitar manejar manifestar marcar mezclar modificar mojar montar mudar multiplicar narrar navegar negociar nombrar ocultar ofender operar ordenar orientar parar pasear pegar peinar pelear percibir perdonar permanecer perseguir pesar planchar plantar poseer predecir prevenir probar programar prohibir pronunciar proporcionar provocar quebrar rechazar recoger recomendar recorrer recuperar reducir reemplazar referir reflejar regar registrar renovar renunciar reparar repartir reponer reproducir requerir rescatar resistir restaurar resumir retener retrasar revelar rogar sacudir satisfacer secar seducir seleccionar sembrar simplificar situar sobrevivir solicitar solucionar someter soplar sospechar sugerir sujetar superar suprimir suspender sustituir tapar tardar temblar tejer tentar testificar tolerar traicionar tranquilizar transmitir transportar trasladar triunfar ubicar vaciar valorar variar vencer verificar vigilar vincular volcar").split(" "));
-
-// Spelled exactly like a present-tense form, but far more often the noun or the function
-// word: "nada" is "nothing" long before it is "he swims", "trabajo" is a job, "recuerdo" is
-// a memory. These are never auto-resolved to a verb; setting the part of speech by hand still
-// works if you did mean the verb.
-const NOT_VERBS = new Set(("nada para como casa caso cosa cena nota cuenta marca firma trabajo juego regalo cambio paso peso beso gasto pago ayuda falta gana vino parte forma causa pregunta duda lucha prueba muestra apoyo odio estudio uso empleo inicio fracaso aumento acuerdo encuentro recuerdo cuento vuelo deseo comienzo almuerzo esfuerzo gobierno canto grito salto entrada salida cuidado sueño sueno cuelgo").split(" "));
-
-const ACCENTED = { oir: "oír", reir: "reír", sonreir: "sonreír", freir: "freír" };
-
-const IRREGULAR_PRESENT = {
-	ser: ["soy", "eres", "es", "somos", "sois", "son"],
-	estar: ["estoy", "estás", "está", "estamos", "estáis", "están"],
-	ir: ["voy", "vas", "va", "vamos", "vais", "van"],
-	haber: ["he", "has", "ha", "hemos", "habéis", "han"],
-	tener: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
-	venir: ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
-	decir: ["digo", "dices", "dice", "decimos", "decís", "dicen"],
-	oir: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
-	reir: ["río", "ríes", "ríe", "reímos", "reís", "ríen"],
-	oler: ["huelo", "hueles", "huele", "olemos", "oléis", "huelen"],
-	ver: ["veo", "ves", "ve", "vemos", "veis", "ven"],
-	dar: ["doy", "das", "da", "damos", "dais", "dan"]
-};
-
-const YO_IRREGULAR = {
-	hacer: "hago", poner: "pongo", salir: "salgo", traer: "traigo", caer: "caigo",
-	ver: "veo", dar: "doy", saber: "sé", valer: "valgo", poseer: "poseo",
-	conocer: "conozco", parecer: "parezco", ofrecer: "ofrezco", agradecer: "agradezco",
-	crecer: "crezco", nacer: "nazco", merecer: "merezco", pertenecer: "pertenezco",
-	establecer: "establezco", permanecer: "permanezco", obedecer: "obedezco", favorecer: "favorezco",
-	conducir: "conduzco", traducir: "traduzco", producir: "produzco", reducir: "reduzco", seducir: "seduzco",
-	vencer: "venzo", convencer: "convenzo", ejercer: "ejerzo",
-	coger: "cojo", escoger: "escojo", proteger: "protejo",
-	dirigir: "dirijo", exigir: "exijo", surgir: "surjo", satisfacer: "satisfago"
-};
-
-const STEM_CHANGES = {};
-for (const verb of "pensar cerrar empezar comenzar despertar sentar calentar temblar gobernar sembrar confesar negar regar fregar apretar quebrar manifestar recomendar perder entender defender encender tender querer atender extender herir hervir sentir preferir mentir divertir convertir invertir sugerir requerir referir".split(" ")) STEM_CHANGES[verb] = ["e", "ie"];
-for (const verb of "poder volver contar encontrar recordar costar mostrar probar rogar colgar soltar sonar soñar volar doler mover llover resolver devolver envolver dormir morir forzar acordar acostar aprobar comprobar demostrar renovar soler".split(" ")) STEM_CHANGES[verb] = ["o", "ue"];
-for (const verb of "pedir servir repetir seguir vestir medir elegir corregir impedir despedir competir conseguir perseguir derretir rendir".split(" ")) STEM_CHANGES[verb] = ["e", "i"];
-STEM_CHANGES.jugar = ["u", "ue"];
-STEM_CHANGES.adquirir = ["i", "ie"];
-
-// The gerund stem shifts on its own for a handful of verbs: poder is the only -er verb
-// that does it, and decir/venir/reír do not follow their own present stem either.
-const GERUND_IRREGULAR = {
-	poder: "pudiendo", decir: "diciendo", venir: "viniendo", ir: "yendo",
-	reir: "riendo", sonreir: "sonriendo", freir: "friendo"
-};
-
-const PRESENT_ENDINGS = {
-	ar: ["o", "as", "a", "amos", "áis", "an"],
-	er: ["o", "es", "e", "emos", "éis", "en"],
-	ir: ["o", "es", "e", "imos", "ís", "en"]
-};
-
-// Future and conditional hang off the whole infinitive, so they share one stem and differ
-// only in their endings. A dozen verbs contract that stem; everything else is regular.
-const FUTURE_ENDINGS = ["é", "ás", "á", "emos", "éis", "án"];
-const CONDITIONAL_ENDINGS = ["ía", "ías", "ía", "íamos", "íais", "ían"];
-const FUTURE_STEMS = {
-	tener: "tendr", poner: "pondr", salir: "saldr", venir: "vendr", valer: "valdr",
-	poder: "podr", saber: "sabr", caber: "cabr", haber: "habr", querer: "querr",
-	hacer: "har", decir: "dir"
-};
-
-const IMPERFECT_ENDINGS = {
-	ar: ["aba", "abas", "aba", "ábamos", "abais", "aban"],
-	er: ["ía", "ías", "ía", "íamos", "íais", "ían"],
-	ir: ["ía", "ías", "ía", "íamos", "íais", "ían"]
-};
-const IMPERFECT_IRREGULAR = {
-	ser: ["era", "eras", "era", "éramos", "erais", "eran"],
-	ir: ["iba", "ibas", "iba", "íbamos", "ibais", "iban"],
-	ver: ["veía", "veías", "veía", "veíamos", "veíais", "veían"]
-};
-
-const TENSES = ["present", "future", "conditional", "imperfect"];
-const TENSE_LABELS = { present: "present", future: "future", conditional: "conditional", imperfect: "imperfect" };
-
-const PRONOUNS = ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos"];
-
-// mantener, suponer, reconocer… behave exactly like their base verb with a prefix stuck on.
-// Bases shorter than four letters are excluded: every -ir verb "ends with" ir, and volver
-// "ends with" ver, which would produce nonsense like "volveo".
-const PREFIXABLE = Object.keys(IRREGULAR_PRESENT)
-	.concat(Object.keys(YO_IRREGULAR), Object.keys(STEM_CHANGES))
-	.filter(base => base.length >= 4)
-	.sort((a, b) => b.length - a.length);
-
-function curatedBase(verb) {
-	if (IRREGULAR_PRESENT[verb] || YO_IRREGULAR[verb] || STEM_CHANGES[verb]) return { base: verb, prefix: "" };
-	for (const base of PREFIXABLE) {
-		if (verb.length > base.length && verb.endsWith(base)) return { base: base, prefix: verb.slice(0, verb.length - base.length) };
-	}
-	return null;
-}
-
-function changeStem(stem, change) {
-	const at = stem.lastIndexOf(change[0]);
-	if (at < 0) return stem;
-	return stem.slice(0, at) + change[1] + stem.slice(at + change[0].length);
-}
-
-function presentForms(verb) {
-	const cls = verb.slice(-2);
-	if (!PRESENT_ENDINGS[cls]) return null;
-
-	const curated = curatedBase(verb);
-	const base = curated ? curated.base : verb;
-	const prefix = curated ? curated.prefix : "";
-
-	if (IRREGULAR_PRESENT[base]) return IRREGULAR_PRESENT[base].map(form => prefix + form);
-
-	const plainStem = verb.slice(0, -2);
-	const change = STEM_CHANGES[base];
-	const bootStem = change ? prefix + changeStem(base.slice(0, -2), change) : plainStem;
-	// -uir verbs take a y outside nosotros/vosotros: construyo, but construimos.
-	const yStem = cls === "ir" && verb.endsWith("uir") && !verb.endsWith("guir") && !verb.endsWith("quir")
-		? plainStem + "y"
-		: null;
-
-	return PRESENT_ENDINGS[cls].map((ending, person) => {
-		if (person === 0 && YO_IRREGULAR[base]) return prefix + YO_IRREGULAR[base];
-		const boot = person !== 3 && person !== 4;
-		let stem = boot ? (yStem || bootStem) : plainStem;
-		if (ending[0] === "o") {
-			if (stem.endsWith("gu")) stem = stem.slice(0, -1);      // seguir -> sigo, not siguo
-			else if (stem.endsWith("g") && cls !== "ar") stem = stem.slice(0, -1) + "j";
-		}
-		return stem + ending;
-	});
-}
-
-function futureStem(verb) {
-	if (FUTURE_STEMS[verb]) return { stem: FUTURE_STEMS[verb], irregular: true };
-	const curated = curatedBase(verb);
-	if (curated && FUTURE_STEMS[curated.base]) return { stem: curated.prefix + FUTURE_STEMS[curated.base], irregular: true };
-	return { stem: verb, irregular: false };
-}
-
-function tenseForms(verb, tense) {
-	const cls = verb.slice(-2);
-	if (!PRESENT_ENDINGS[cls]) return null;
-
-	if (tense === "present") {
-		const forms = presentForms(verb);
-		return forms && { source: curatedBase(verb) ? "irregular" : "generated", forms: forms };
-	}
-	if (tense === "future" || tense === "conditional") {
-		const stem = futureStem(verb);
-		const endings = tense === "future" ? FUTURE_ENDINGS : CONDITIONAL_ENDINGS;
-		return { source: stem.irregular ? "irregular" : "generated", forms: endings.map(ending => stem.stem + ending) };
-	}
-
-	const curated = curatedBase(verb);
-	const base = curated ? curated.base : verb;
-	const prefix = curated ? curated.prefix : "";
-	if (IMPERFECT_IRREGULAR[verb]) return { source: "irregular", forms: IMPERFECT_IRREGULAR[verb].slice() };
-	if (IMPERFECT_IRREGULAR[base]) return { source: "irregular", forms: IMPERFECT_IRREGULAR[base].map(form => prefix + form) };
-	const stem = verb.slice(0, -2);
-	return { source: "generated", forms: IMPERFECT_ENDINGS[cls].map(ending => stem + ending) };
-}
-
-function gerundOf(verb) {
-	const cls = verb.slice(-2);
-	if (!PRESENT_ENDINGS[cls]) return "";
-	const curated = curatedBase(verb);
-	const base = curated ? curated.base : verb;
-	const prefix = curated ? curated.prefix : "";
-	if (GERUND_IRREGULAR[verb]) return GERUND_IRREGULAR[verb];
-	if (GERUND_IRREGULAR[base]) return prefix + GERUND_IRREGULAR[base];
-	let stem = verb.slice(0, -2);
-	const change = STEM_CHANGES[base];
-	// -ir stem-changers shift again in the gerund: sentir -> sintiendo, dormir -> durmiendo.
-	if (cls === "ir" && change) {
-		const gerundChange = change[1] === "ie" ? ["e", "i"] : change[1] === "ue" ? ["o", "u"] : change;
-		stem = prefix + changeStem(base.slice(0, -2), gerundChange);
-	}
-	if (cls === "ar") return stem + "ando";
-	return /[aeiou]$/.test(stem) ? stem + "yendo" : stem + "iendo";
-}
-
-let reverseIndex = null;
-
-function formToVerb() {
-	if (reverseIndex) return reverseIndex;
-	reverseIndex = new Map();
-	for (const verb of VERBS) {
-		const forms = TENSES.flatMap(tense => {
-			const built = tenseForms(verb, tense);
-			return built ? built.forms : [];
-		});
-		if (!forms.length) continue;
-		for (const form of forms.concat(gerundOf(verb))) {
-			const key = verbKey(form);
-			// First writer wins, and VERBS is ordered roughly by how common the verb is,
-			// so an ambiguous form resolves to the likelier verb.
-			if (key && !reverseIndex.has(key)) reverseIndex.set(key, verb);
-		}
-	}
-	return reverseIndex;
-}
-
-// Only a verb on the list is ever accepted. Stripping endings blindly would turn the noun
-// "mapa" into "mapar" and "verano" into "veranar" — every Spanish noun in -a or -o looks
-// like a conjugated verb.
-function lemmaOf(raw) {
-	// An article is the user saying "this is a noun" — "el sueño" is never a verb form.
-	if (ARTICLES.test(String(raw || "").trim().toLowerCase())) return null;
-	const token = verbKey(raw);
-	if (!token || token.includes(" ")) return null;
-	if (VERBS.has(token)) return token;
-	if (NOT_VERBS.has(token)) return null;
-	return formToVerb().get(token) || null;
-}
-
-function spellInfinitive(verb) {
-	return ACCENTED[verb] || verb;
-}
-
-function isVerbWord(es) {
-	const key = verbKey(es);
-	return !key.includes(" ") && (VERBS.has(key) || /(ar|er|ir)$/.test(key));
-}
-
-function buildConj(es) {
-	const key = verbKey(es);
-	if (!presentForms(key)) return null;
-	const conj = { gerund: gerundOf(key) };
-	for (const tense of TENSES) conj[tense] = tenseForms(key, tense);
-	return conj;
-}
-
-// Old files hold { source, present: [...], gerund }. Keep a correction the user made to the
-// present, and fill in the tenses that did not exist yet.
-function upgradeConj(word) {
-	const conj = word.conj;
-	if (!conj) return null;
-	if (Array.isArray(conj.present)) {
-		const carried = { gerund: conj.gerund, present: { source: conj.source || "generated", forms: conj.present } };
-		word.conj = carried;
-	}
-	const built = buildConj(word.es);
-	if (!built) return word.conj.present ? word.conj : null;
-	for (const tense of TENSES) {
-		const current = word.conj[tense];
-		if (!current || !Array.isArray(current.forms) || current.forms.length !== 6) word.conj[tense] = built[tense];
-	}
-	if (!word.conj.gerund) word.conj.gerund = built.gerund;
-	return word.conj;
-}
-
-function conjForms(word) {
-	if (!word.conj) return [];
-	const forms = TENSES.flatMap(tense => (word.conj[tense] && word.conj[tense].forms) || []);
-	if (word.conj.gerund) forms.push(word.conj.gerund);
-	return forms;
-}
-
-function guessPos(es) {
-	const raw = String(es || "").trim().toLowerCase();
-	if (ARTICLES.test(raw)) return "noun";
-	const key = normKey(es);
-	if (!key) return "other";
-	if (key.includes(" ")) return "phrase";
-	if (isVerbWord(key) || lemmaOf(key)) return "verb";
-	return "other";
-}
-
-// Plural tolerance: mapa/mapas, ciudad/ciudades.
-function tokenMatchesKey(token, key) {
-	if (!token || !key) return false;
-	if (token === key) return true;
-	if (key.length < 3 || token.length < 3) return false;
-	return token === key + "s" || token === key + "es" || key === token + "s" || key === token + "es";
-}
-
-// Verbs match through their stored forms, so correcting a form immediately changes which
-// sentences attach to it. Only the present tense is generated, so "hice" still will not
-// find "hacer" — adding from the verb's own row covers that.
-function wordMatchesToken(word, token) {
-	if (tokenMatchesKey(normKey(token), word.key)) return true;
-	const key = verbKey(token);
-	return conjForms(word).some(form => verbKey(form) === key);
-}
-
-function tokensOf(text) {
-	return new Set(String(text || "").match(WORDS_IN_TEXT) || []);
-}
-
-function findWords(text) {
-	const whole = normKey(text);
-	const tokens = tokensOf(text);
-	return items.filter(word => {
-		if (!word.key) return false;
-		if (word.key.includes(" ")) return whole.includes(word.key);
-		for (const token of tokens) if (wordMatchesToken(word, token)) return true;
-		return false;
-	});
-}
-
-function wordsOfSentence(sentenceId) {
-	return items.filter(word => (word.examples || []).some(ex => ex.id === sentenceId));
-}
-
-function allSentences() {
-	const seen = new Map();
-	for (const word of items) {
-		for (const ex of word.examples || []) if (!seen.has(ex.id)) seen.set(ex.id, ex);
-	}
-	return [...seen.values()].sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
-}
-
-function sentenceText(word) {
-	return (word.examples || []).map(ex => ex.text + " " + (ex.source || "")).join(" ");
-}
-
-function normalizeExamples(word) {
-	const raw = Array.isArray(word.examples) ? word.examples : [];
-	word.examples = raw
-		.map(ex => {
-			// A hand-edited file may hold a bare string: "examples": ["Vivo en la ciudad."]
-			if (typeof ex === "string") return { id: crypto.randomUUID(), text: ex, source: "", addedAt: word.createdAt || Date.now() };
-			if (!ex || !ex.text) return null;
-			return {
-				id: ex.id || crypto.randomUUID(),
-				text: String(ex.text),
-				source: String(ex.source || ""),
-				addedAt: ex.addedAt || word.createdAt || Date.now()
-			};
-		})
-		.filter(Boolean);
-}
-
-function normalizeWord(word) {
-	normalizeExamples(word);
-	if (!word.pos) word.pos = guessPos(word.es);
-	if (word.pos !== "verb") {
-		delete word.conj;
-		return;
-	}
-	if (word.conj) {
-		if (!upgradeConj(word)) delete word.conj;
-		return;
-	}
-	const conj = buildConj(word.es);
-	if (conj) word.conj = conj; else delete word.conj;
-}
-
-// Runs once per word: `pos` is the marker that it has been classified, so a word renamed
-// back to a conjugated form by hand is never re-converted on the next load.
-function migrateToInfinitives() {
-	const renamed = [];
-	for (const word of items) {
-		if (word.pos) continue;
-		const key = normKey(word.es);
-		const lemma = lemmaOf(key);
-		if (!lemma || lemma === key) continue;
-		if (items.some(other => other !== word && normKey(other.es) === lemma)) continue;
-		const infinitive = spellInfinitive(lemma);
-		renamed.push({ word: word, from: word.es, to: infinitive });
-		word.es = infinitive;
-		word.key = lemma;
-		word.pos = "verb";
-		word.conj = buildConj(infinitive);
-		word.updatedAt = Date.now();
-	}
-	return renamed;
-}
-
-// A word that turns out to be a form of a verb already saved is folded into it: one entry per
-// verb is the whole point of storing the infinitive. Words the user marked as anything but a
-// verb are left alone, which is also how "keep it separate" stays sticky.
-function mergeIntoInfinitives() {
-	const merged = [];
-	for (const word of items.slice()) {
-		if (word.pos && word.pos !== "verb") continue;
-		const key = normKey(word.es);
-		const lemma = lemmaOf(key);
-		if (!lemma || lemma === key) continue;
-		const target = items.find(other => other !== word && normKey(other.es) === lemma);
-		if (!target) continue;
-
-		target.examples = target.examples || [];
-		for (const example of word.examples || []) {
-			if (!target.examples.some(other => other.id === example.id || other.text === example.text)) target.examples.push(example);
-		}
-		const carried = [target.notes, word.notes];
-		if (!(target.gloss || "").trim()) target.gloss = word.gloss;
-		else if ((word.gloss || "").trim() && word.gloss.trim() !== target.gloss.trim()) carried.push(word.es + ": " + word.gloss);
-		target.notes = carried.map(note => (note || "").trim()).filter(Boolean).join(" · ");
-		target.updatedAt = Date.now();
-
-		items = items.filter(other => other !== word);
-		merged.push({ word: word, from: word.es, to: target.es });
-	}
-	return merged;
-}
 
 function setState(kind, text) {
 	el.state.className = kind;
@@ -645,18 +246,22 @@ function notify(msg, actions) {
 }
 
 function scheduleSave() {
+	if (loadFailed) {
+		setState("unsaved", "not saved — the file never loaded, reload the page");
+		return;
+	}
 	clearTimeout(saveTimer);
 	setState("saving", "saving…");
 	saveTimer = setTimeout(save, 400);
 }
 
 async function save() {
-	const snapshot = JSON.stringify(items, null, 2);
+	const body = snapshot();
 	try {
 		const res = await fetch("/api/vocab", {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
-			body: snapshot
+			body: body
 		});
 		if (!res.ok) throw new Error("HTTP " + res.status);
 		localStorage.removeItem(PENDING_KEY);
@@ -665,68 +270,28 @@ async function save() {
 		setState("saved", "saved");
 	} catch (err) {
 		// Server down or machine slept: hold the data in the browser and keep trying.
-		try { localStorage.setItem(PENDING_KEY, snapshot); } catch (_) {}
+		try { localStorage.setItem(PENDING_KEY, body); } catch (_) {}
 		setState("unsaved", "unsaved — retrying");
 		clearTimeout(retryTimer);
 		retryTimer = setTimeout(save, 5000);
 	}
 }
 
-function addSentence(text, source, anchorWord) {
-	const trimmed = text.trim();
-	if (!trimmed) return false;
-
-	const targets = new Map();
-	if (anchorWord) targets.set(anchorWord.id, anchorWord);
-	for (const word of findWords(trimmed)) targets.set(word.id, word);
-
-	if (!targets.size) {
-		notify("No saved word appears in that sentence — add the word first, then the sentence.");
-		return false;
-	}
-
-	const sentence = { id: crypto.randomUUID(), text: trimmed, source: source.trim(), addedAt: Date.now() };
-	for (const word of targets.values()) {
-		word.examples = word.examples || [];
-		word.examples.push({ ...sentence });
-		word.updatedAt = sentence.addedAt;
-	}
-
-	const others = [...targets.values()].filter(w => w !== anchorWord).map(w => w.es);
-	if (anchorWord) {
-		notify(others.length ? "Also attached to " + others.join(", ") + "." : "");
-	} else {
-		notify("Attached to " + others.join(", ") + ".");
-	}
+// Every change goes through here: links are recomputed from the new state, then saved and drawn.
+function changed() {
+	relink();
+	refreshWordList();
 	scheduleSave();
-	return true;
+	render();
 }
 
-function deleteSentence(id) {
-	for (const word of items) {
-		const before = (word.examples || []).length;
-		word.examples = (word.examples || []).filter(ex => ex.id !== id);
-		if (word.examples.length !== before) word.updatedAt = Date.now();
+function refreshWordList() {
+	el.wordList.textContent = "";
+	for (const word of db.words) {
+		const option = document.createElement("option");
+		option.value = word.es;
+		el.wordList.append(option);
 	}
-	scheduleSave();
-}
-
-function sentenceNode(text, words) {
-	const parts = words.flatMap(word => String(word.key || "").split(" ").filter(Boolean).map(key => ({ key: key, conj: word.conj })));
-	const frag = document.createDocumentFragment();
-	const re = new RegExp(WORDS_IN_TEXT.source, "gu");
-	let last = 0;
-	let match;
-	while ((match = re.exec(text))) {
-		if (!parts.some(part => wordMatchesToken(part, match[0]))) continue;
-		if (match.index > last) frag.append(text.slice(last, match.index));
-		const mark = document.createElement("mark");
-		mark.textContent = match[0];
-		frag.append(mark);
-		last = match.index + match[0].length;
-	}
-	if (last < text.length) frag.append(text.slice(last));
-	return frag;
 }
 
 function action(label, onClick, className) {
@@ -738,21 +303,258 @@ function action(label, onClick, className) {
 	return b;
 }
 
-function wordChip(word) {
-	return action(word.es, () => {
+function openWord(word) {
+	view = "words";
+	filter = word.es;
+	el.search.value = word.es;
+	openId = word.id;
+	flashId = word.id;
+	applyView();
+	render();
+}
+
+// A linked word on a sentence: click the word to open it, × to unlink it here.
+function linkChip(sentence, word) {
+	const wrap = document.createElement("span");
+	const manual = isManualLink(sentence.id, word.id);
+	wrap.className = "link" + (manual ? " manual" : "");
+
+	const chip = action(word.es, () => openWord(word), "chip");
+	chip.title = manual ? "linked by hand" : "found in the text";
+
+	const unlink = action("×", () => {
+		unpinLink(sentence.id, word.id);
+		changed();
+	}, "unlink");
+	unlink.title = "unlink " + word.es + " from this sentence";
+
+	wrap.append(chip, unlink);
+	return wrap;
+}
+
+function sentenceNode(sentence, words) {
+	const linked = new Set(words.map(word => word.id));
+	// A multi-word entry ("claro que si") is highlighted word by word.
+	const phraseParts = new Set(words.filter(word => (word.key || "").includes(" ")).flatMap(word => word.key.split(" ")));
+	const text = sentence.text;
+	const frag = document.createDocumentFragment();
+	const re = new RegExp(WORDS_IN_TEXT.source, "gu");
+	let last = 0;
+	let match;
+	while ((match = re.exec(text))) {
+		const hit = [...tokenWordIds(linkState.index, match[0])].some(id => linked.has(id)) || phraseParts.has(normKey(match[0]));
+		if (!hit) continue;
+		if (match.index > last) frag.append(text.slice(last, match.index));
+		const mark = document.createElement("mark");
+		mark.textContent = match[0];
+		frag.append(mark);
+		last = match.index + match[0].length;
+	}
+	if (last < text.length) frag.append(text.slice(last));
+	return frag;
+}
+
+// Asks the server's dictionary. null = no answer (dictionary not built, or server unreachable).
+async function dictLookup(query) {
+	try {
+		const res = await fetch("/api/dict?q=" + encodeURIComponent(query));
+		if (res.status === 503) {
+			dictAvailable = false;
+			return null;
+		}
+		if (!res.ok) throw new Error("HTTP " + res.status);
+		dictAvailable = true;
+		return (await res.json()).candidates;
+	} catch (err) {
+		return null;
+	}
+}
+
+// "first-person singular present indicative" → "yo, present"
+function describeForm(tags) {
+	const t = String(tags || "").split(" ");
+	const person = t.includes("first-person") ? 0 : t.includes("second-person") ? 1 : t.includes("third-person") ? 2 : -1;
+	const who = person < 0 ? "" : PRONOUNS[person + (t.includes("plural") ? 3 : 0)];
+	const what = ["present", "preterite", "imperfect", "future", "conditional", "subjunctive", "imperative", "gerund", "participle", "feminine", "masculine", "plural"]
+		.filter(tag => t.includes(tag) && !(who && tag === "plural"));
+	return [who, what.join(" ")].filter(Boolean).join(", ") || "a form";
+}
+
+function candidateLabel(candidate) {
+	return candidate.display + " · " + candidate.pos + (candidate.senses[0] ? " · " + candidate.senses[0] : "");
+}
+
+function newWord(es) {
+	return { id: crypto.randomUUID(), es: es, key: normKey(es), auto: "", autoState: "none", gloss: "", pos: "other", notes: "", createdAt: Date.now(), updatedAt: Date.now() };
+}
+
+function openExisting(existing, raw) {
+	notify(normKey(raw) === existing.key
+		? '"' + existing.es + '" is already saved — opened it below instead of adding a duplicate.'
+		: '"' + raw + '" is "' + existing.es + '", which is already saved — opened it below.');
+	view = "words";
+	filter = "";
+	el.search.value = "";
+	editingId = existing.id;
+	flashId = existing.id;
+	applyView();
+	render();
+}
+
+function addPlainWord(raw) {
+	const item = newWord(raw);
+	db.words.unshift(item);
+	changed();
+	translateInto(item, false);
+}
+
+function addFromCandidate(candidate, raw) {
+	const es = candidate.display;
+	const existing = findWordByKey(normKey(es));
+	if (existing) {
+		openExisting(existing, raw);
+		return;
+	}
+	const item = newWord(es);
+	applyDictionary(item, candidate);
+	db.words.unshift(item);
+
+	let message = "";
+	if (candidate.genderNote) message = 'Saved "' + es + '" — ' + candidate.genderNote + ".";
+	else if (candidate.via === "form" && normKey(candidate.form || raw) !== normKey(es)) message = 'Saved "' + es + '" — "' + raw + '" is its ' + describeForm(candidate.formTags) + " form.";
+	else if (es.toLowerCase() !== raw.toLowerCase()) message = 'Saved "' + es + '".';
+	notify(message, message ? [{
+		label: "keep " + raw,
+		onClick: () => {
+			removeWord(item.id);
+			notify("");
+			addPlainWord(raw);
+		}
+	}] : []);
+	changed();
+	if (!item.dict.senses.length) translateInto(item, false);
+}
+
+// --- checking existing words against the dictionary ---------------------------------------
+
+// Everything that only adds information is applied straight away. Anything that would rename or
+// merge a word goes on the review list.
+async function checkAgainstDictionary() {
+	const words = db.words.filter(word => word.dictReview !== "skipped");
+	notify("Checking " + words.length + " words against the dictionary…");
+	let filled = 0;
+	const items = [];
+	for (const word of words) {
+		const candidates = await dictLookup(word.es);
+		if (candidates === null && !dictAvailable) {
+			notify("The dictionary isn't built yet — see README, section Dictionary.");
+			return;
+		}
+		if (!candidates || !candidates.length) continue;
+		// Filled in silently only when there is nothing to decide: the one answer has the same
+		// spelling (accents included), or the word's part of speech picks out exactly one.
+		// "claro" (adjective, adverb, interjection) or "como" next to "cómo" are asked about.
+		const same = candidates.filter(c => c.via === "headword" && !c.genderNote && c.display.toLowerCase() === word.es.toLowerCase());
+		const byPos = word.pos && word.pos !== "other" ? same.filter(c => c.pos === word.pos) : [];
+		const pick = same.length === candidates.length && (same.length === 1 ? same[0] : byPos.length === 1 ? byPos[0] : null);
+		if (pick) {
+			applyDictionary(word, pick);
+			filled++;
+			continue;
+		}
+		items.push({ wordId: word.id, candidates: candidates });
+	}
+	reviewItems = items;
+	if (items.length) setView("review");
+	changed();
+	notify("Filled in " + filled + " word" + (filled === 1 ? "" : "s") + " from the dictionary. "
+		+ (items.length ? items.length + " need a decision below." : "Nothing needs a decision."));
+}
+
+function reviewReason(candidate) {
+	if (candidate.genderNote) return candidate.genderNote;
+	if (candidate.via === "headword") return "which meaning? · " + candidate.pos;
+	if (candidate.via === "form") return "a form of " + candidate.headword + " (" + describeForm(candidate.formTags) + ")";
+	if (candidate.via === "spelling") return "spelling";
+	if (candidate.via === "similar") return "did you mean";
+	return candidate.pos;
+}
+
+function finishReviewItem(item) {
+	reviewItems = reviewItems.filter(other => other !== item);
+	if (!reviewItems.length) {
+		notify("Review done.");
 		view = "words";
-		filter = word.es;
-		el.search.value = word.es;
-		openId = word.id;
-		flashId = word.id;
 		applyView();
-		render();
-	}, "chip");
+	}
+	changed();
+}
+
+function acceptReview(item, candidate) {
+	const word = db.words.find(other => other.id === item.wordId);
+	if (!word) return finishReviewItem(item);
+	const target = findWordByKey(normKey(candidate.display));
+	if (target && target !== word) {
+		mergeWordInto(word, target);
+		applyDictionary(target, candidate);
+	} else {
+		word.es = candidate.display;
+		word.key = normKey(candidate.display);
+		applyDictionary(word, candidate);
+		delete word.dictReview;
+	}
+	finishReviewItem(item);
+}
+
+function renderReview() {
+	el.count.textContent = reviewItems.length + " to review";
+	el.list.textContent = "";
+	if (!reviewItems.length) {
+		empty("nothing to review.");
+		return;
+	}
+	for (const item of reviewItems) {
+		const word = db.words.find(other => other.id === item.wordId);
+		if (!word) continue;
+		const li = document.createElement("li");
+		li.className = "review";
+
+		const head = document.createElement("div");
+		head.className = "row";
+		const es = document.createElement("span");
+		es.className = "es";
+		es.textContent = word.es;
+		const now = document.createElement("span");
+		now.className = "gloss";
+		now.textContent = meaningOf(word).text;
+		head.append(es, now);
+
+		const choices = document.createElement("div");
+		choices.className = "choices";
+		for (const candidate of item.candidates) {
+			const choice = action("", () => acceptReview(item, candidate), "choice");
+			const title = document.createElement("strong");
+			title.textContent = "→ " + candidate.display;
+			const detail = document.createElement("span");
+			detail.textContent = reviewReason(candidate) + (candidate.senses[0] ? " · " + candidate.senses.slice(0, 2).join("; ") : "");
+			choice.append(title, detail);
+			choices.append(choice);
+		}
+		choices.append(action("skip — keep " + word.es, () => {
+			word.dictReview = "skipped";
+			finishReviewItem(item);
+		}, "skip"));
+
+		li.append(head, choices);
+		el.list.append(li);
+	}
 }
 
 function render() {
 	const q = normKey(filter);
-	if (view === "words") renderWords(q); else renderSentences(q);
+	if (view === "review") renderReview();
+	else if (view === "words") renderWords(q);
+	else renderSentences(q);
 
 	if (flashId) {
 		const target = el.list.querySelector('[data-id="' + flashId + '"]');
@@ -760,7 +562,7 @@ function render() {
 		flashId = null;
 	}
 	if (focusSentenceFor) {
-		const box = el.list.querySelector('[data-sentence-box="' + focusSentenceFor + '"]');
+		const box = el.list.querySelector('[data-focus="' + focusSentenceFor + '"]');
 		if (box) box.focus();
 		focusSentenceFor = null;
 	}
@@ -768,14 +570,16 @@ function render() {
 
 function renderWords(q) {
 	const visible = q
-		? items.filter(it => [it.es, it.gloss, it.auto, it.notes, sentenceText(it)].some(v => normKey(v).includes(q)))
-		: items;
+		? db.words.filter(word => [word.es, word.gloss, word.auto, word.notes, meaningOf(word).text]
+			.concat(linkedSentences(word.id).map(sentence => sentence.text + " " + sentence.source))
+			.some(value => normKey(value).includes(q)))
+		: db.words;
 
-	el.count.textContent = q ? visible.length + " / " + items.length : String(items.length);
+	el.count.textContent = q ? visible.length + " / " + db.words.length : String(db.words.length);
 	el.list.textContent = "";
 
 	if (!visible.length) {
-		empty(items.length ? "nothing matches." : "no words yet. type one above.");
+		empty(db.words.length ? "nothing matches." : "no words yet. type one above.");
 		return;
 	}
 
@@ -793,23 +597,22 @@ function renderWords(q) {
 		es.title = "show sentences";
 		es.addEventListener("click", () => toggleSentences(item));
 
+		const meaning = meaningOf(item);
 		const gloss = document.createElement("span");
 		gloss.className = "gloss";
-		if ((item.gloss || "").trim()) {
-			gloss.textContent = item.gloss;
-		} else if (item.autoState === "pending") {
+		if (meaning.from === "pending") {
 			gloss.className += " pending";
 			gloss.textContent = "translating…";
-		} else if (item.autoState === "failed" || !item.auto) {
+		} else if (meaning.from === "none") {
 			gloss.className += " failed";
 			gloss.textContent = "no translation";
 		} else {
-			gloss.textContent = item.auto;
+			gloss.textContent = meaning.text;
 		}
 
 		row.append(es, gloss);
 
-		if (!(item.gloss || "").trim() && item.autoState === "ok" && item.auto) {
+		if (meaning.from === "machine") {
 			const badge = document.createElement("span");
 			badge.className = "badge";
 			badge.textContent = "auto";
@@ -820,11 +623,11 @@ function renderWords(q) {
 		if (item.pos && item.pos !== "other") {
 			const pos = document.createElement("span");
 			pos.className = "pos";
-			pos.textContent = item.pos;
+			pos.textContent = item.pos + (item.gender ? " · " + item.gender : "");
 			row.append(pos);
 		}
 
-		const count = (item.examples || []).length;
+		const count = linkedSentences(item.id).length;
 		if (count) {
 			const chip = action(String(count), () => toggleSentences(item), "chip");
 			chip.title = count + (count === 1 ? " sentence" : " sentences");
@@ -838,14 +641,12 @@ function renderWords(q) {
 			action("edit", () => { editingId = editingId === item.id ? null : item.id; render(); }),
 			action("retranslate", () => translateInto(item, true)),
 			action("delete", () => {
-				const owned = (item.examples || []).filter(ex => wordsOfSentence(ex.id).length === 1).length;
-				const warning = owned ? "\n\n" + owned + (owned === 1 ? " sentence is" : " sentences are") + " attached only to this word and will go with it." : "";
-				if (!confirm('Delete "' + item.es + '"?' + warning)) return;
-				items = items.filter(x => x.id !== item.id);
+				const kept = count ? "\n\nIts " + count + (count === 1 ? " sentence stays." : " sentences stay.") : "";
+				if (!confirm('Delete "' + item.es + '"?' + kept)) return;
+				removeWord(item.id);
 				if (editingId === item.id) editingId = null;
 				if (openId === item.id) openId = null;
-				render();
-				scheduleSave();
+				changed();
 			})
 		);
 		row.append(acts);
@@ -865,13 +666,10 @@ function renderWords(q) {
 }
 
 function renderSentences(q) {
-	const all = allSentences();
+	const all = db.sentences.slice().sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 	const visible = q
-		? all.filter(ex => {
-			const words = wordsOfSentence(ex.id);
-			return normKey(ex.text + " " + ex.source).includes(q)
-				|| words.some(w => normKey(w.es).includes(q) || normKey(w.gloss || w.auto).includes(q));
-		})
+		? all.filter(sentence => normKey(sentence.text + " " + sentence.source).includes(q)
+			|| linkedWords(sentence.id).some(word => normKey(word.es).includes(q) || normKey(word.gloss || word.auto).includes(q)))
 		: all;
 
 	el.count.textContent = (q ? visible.length + " / " + all.length : String(all.length))
@@ -883,10 +681,11 @@ function renderSentences(q) {
 		return;
 	}
 
-	for (const ex of visible) {
+	for (const sentence of visible) {
 		const li = document.createElement("li");
-		li.dataset.id = ex.id;
-		li.append(sentenceRow(ex, wordsOfSentence(ex.id), null));
+		li.dataset.id = sentence.id;
+		if (sentence.id === flashId) li.className = "flash";
+		li.append(sentenceRow(sentence, null));
 		el.list.append(li);
 	}
 }
@@ -899,7 +698,10 @@ function empty(message) {
 }
 
 // `hostWord` is the word whose panel this row sits in, so its own chip is not repeated back at it.
-function sentenceRow(ex, words, hostWord) {
+function sentenceRow(sentence, hostWord) {
+	if (sentenceEditId === sentence.id) return sentenceEditor(sentence);
+
+	const words = linkedWords(sentence.id);
 	const wrap = document.createElement("div");
 	wrap.className = "sentence";
 
@@ -908,34 +710,130 @@ function sentenceRow(ex, words, hostWord) {
 
 	const text = document.createElement("div");
 	text.className = "text";
-	text.append(sentenceNode(ex.text, words));
+	text.append(sentenceNode(sentence, words));
 	body.append(text);
 
 	const meta = document.createElement("div");
 	meta.className = "meta";
-	if (ex.source) {
+	if (sentence.source) {
 		const source = document.createElement("span");
-		source.textContent = ex.source;
+		source.textContent = sentence.source;
 		meta.append(source);
 	}
 	for (const word of words) {
 		if (word === hostWord) continue;
-		meta.append(wordChip(word));
+		meta.append(linkChip(sentence, word));
+	}
+	if (!words.length) {
+		const none = document.createElement("span");
+		none.className = "unlinked";
+		none.textContent = "none of your words appear in it yet";
+		meta.append(none);
 	}
 	if (meta.childNodes.length) body.append(meta);
 
+	if (linkingId === sentence.id) body.append(linkBox(sentence));
+
 	const acts = document.createElement("div");
 	acts.className = "acts";
+	acts.append(
+		action("+ word", () => {
+			linkingId = linkingId === sentence.id ? null : sentence.id;
+			if (linkingId) focusSentenceFor = "link-" + sentence.id;
+			render();
+		}),
+		action("edit", () => {
+			sentenceEditId = sentence.id;
+			focusSentenceFor = "edit-" + sentence.id;
+			render();
+		})
+	);
+	if (hostWord) {
+		acts.append(action("unlink", () => {
+			unpinLink(sentence.id, hostWord.id);
+			changed();
+		}));
+	}
 	acts.append(action("delete", () => {
-		const shared = words.length > 1
-			? "\n\nIt is attached to " + words.length + " words and will be removed from all of them."
-			: "";
+		const shared = words.length > 1 ? "\n\nIt is linked to " + words.length + " words." : "";
 		if (!confirm("Delete this sentence?" + shared)) return;
-		deleteSentence(ex.id);
-		render();
+		removeSentence(sentence.id);
+		changed();
 	}));
 
 	wrap.append(body, acts);
+	return wrap;
+}
+
+function linkBox(sentence) {
+	const box = document.createElement("div");
+	box.className = "link-box";
+
+	const input = document.createElement("input");
+	input.setAttribute("list", "wordList");
+	input.placeholder = "link a saved word";
+	input.dataset.focus = "link-" + sentence.id;
+
+	function commit() {
+		const raw = input.value.trim();
+		if (!raw) return;
+		const word = resolveWord(raw);
+		if (!word) {
+			notify('"' + raw + '" isn\'t saved yet — add it as a word first.');
+			return;
+		}
+		pinLink(sentence.id, word.id);
+		linkingId = null;
+		notify("");
+		changed();
+	}
+
+	input.addEventListener("keydown", e => {
+		if (e.key === "Enter") { e.preventDefault(); commit(); }
+		if (e.key === "Escape") { linkingId = null; render(); }
+	});
+
+	box.append(input, action("link", commit), action("cancel", () => { linkingId = null; render(); }));
+	return box;
+}
+
+function sentenceEditor(sentence) {
+	const wrap = document.createElement("div");
+	wrap.className = "sentence-edit";
+
+	const textInput = document.createElement("textarea");
+	textInput.rows = 2;
+	textInput.value = sentence.text;
+	textInput.dataset.focus = "edit-" + sentence.id;
+
+	const sourceInput = document.createElement("input");
+	sourceInput.value = sentence.source || "";
+	sourceInput.placeholder = "source (optional)";
+
+	function commit() {
+		const text = textInput.value.trim();
+		if (!text) return;
+		const clash = findSentenceByText(text, sentence.id);
+		if (clash) {
+			notify("You already have that sentence — edit cancelled.");
+			return;
+		}
+		editSentence(sentence, text, sourceInput.value);
+		sentenceEditId = null;
+		notify("");
+		changed();
+	}
+
+	wrap.addEventListener("keydown", e => {
+		if (e.key === "Enter" && !e.shiftKey && e.target === textInput) { e.preventDefault(); commit(); }
+		if (e.key === "Escape") { sentenceEditId = null; render(); }
+	});
+
+	const buttons = document.createElement("div");
+	buttons.className = "buttons";
+	buttons.append(action("save", commit), action("cancel", () => { sentenceEditId = null; render(); }));
+
+	wrap.append(textInput, sourceInput, buttons);
 	return wrap;
 }
 
@@ -943,7 +841,7 @@ function toggleSentences(item) {
 	const opening = openId !== item.id;
 	openId = opening ? item.id : null;
 	notify("");
-	if (opening) focusSentenceFor = item.id;
+	if (opening) focusSentenceFor = "add-" + item.id;
 	render();
 }
 
@@ -951,10 +849,14 @@ function conjugationBlock(item) {
 	const wrap = document.createElement("div");
 	wrap.className = "conj";
 
-	for (const tense of TENSES) {
-		const block = item.conj[tense];
-		if (!block || !Array.isArray(block.forms)) continue;
-		wrap.append(tenseBlock(item, tense, block));
+	const tenses = TENSES.filter(tense => item.conj[tense] && Array.isArray(item.conj[tense].forms));
+	const all = moreTenses.has(item.id);
+	for (const tense of all ? tenses : tenses.slice(0, 1)) wrap.append(tenseBlock(item, tense, item.conj[tense]));
+	if (tenses.length > 1) {
+		wrap.append(action(all ? "fewer tenses" : "more tenses (" + (tenses.length - 1) + ")", () => {
+			if (all) moreTenses.delete(item.id); else moreTenses.add(item.id);
+			render();
+		}, "more-tenses"));
 	}
 	return wrap;
 }
@@ -975,9 +877,9 @@ function tenseBlock(item, tense, block) {
 	badge.textContent = block.source;
 	badge.title = block.source === "yours"
 		? "you corrected these"
-		: block.source === "irregular"
-			? "from the app's table of irregular verbs"
-			: "built from the regular rules — an unlisted irregularity would make it wrong";
+		: block.source === "dictionary"
+			? "from Wiktionary"
+			: "built by the old rules engine — run Check against dictionary to replace it";
 
 	head.append(title, badge);
 
@@ -993,7 +895,7 @@ function tenseBlock(item, tense, block) {
 
 	// Singular down the left column, plural down the right, the way conjugation tables read.
 	const order = [0, 3, 1, 4, 2, 5].map(i => [PRONOUNS[i], block.forms[i], i]);
-	if (tense === "present") order.push(["gerund", item.conj.gerund || "", 6]);
+	if (tense === "present") order.push(["gerund", item.conj.gerund || "", 6], ["participle", item.conj.participle || "", 7]);
 
 	for (const [who, form, index] of order) {
 		const cell = document.createElement("div");
@@ -1025,11 +927,13 @@ function tenseBlock(item, tense, block) {
 		bar.append(
 			action("save", () => {
 				item.conj[tense] = { source: "yours", forms: inputs.slice(0, 6).map(input => input.value.trim()) };
-				if (tense === "present" && inputs[6]) item.conj.gerund = inputs[6].value.trim();
+				if (tense === "present") {
+					item.conj.gerund = inputs[6].value.trim();
+					item.conj.participle = inputs[7].value.trim();
+				}
 				item.updatedAt = Date.now();
 				conjEdit = null;
-				render();
-				scheduleSave();
+				changed();
 			}),
 			action("cancel", () => { conjEdit = null; render(); })
 		);
@@ -1037,16 +941,22 @@ function tenseBlock(item, tense, block) {
 	} else {
 		buttons.append(
 			action("edit", () => { conjEdit = { id: item.id, tense: tense }; render(); }),
-			action("regenerate", () => {
-				if (block.source === "yours" && !confirm("Rebuild the " + TENSE_LABELS[tense] + " from the rules and lose your corrections?")) return;
-				const built = tenseForms(normKey(item.es), tense);
-				if (!built) return;
-				item.conj[tense] = built;
-				if (tense === "present") item.conj.gerund = gerundOf(normKey(item.es));
+			item.dict ? action("reset", async () => {
+				if (block.source === "yours" && !confirm("Replace your " + TENSE_LABELS[tense] + " with the dictionary's?")) return;
+				const candidates = await dictLookup(item.dict.headword);
+				const match = candidates && candidates.find(c => c.headword === item.dict.headword && c.pos === "verb" && c.conj && c.conj[tense]);
+				if (!match) {
+					notify("The dictionary has no " + TENSE_LABELS[tense] + " for " + item.es + ".");
+					return;
+				}
+				item.conj[tense] = match.conj[tense];
+				if (tense === "present") {
+					item.conj.gerund = match.conj.gerund || "";
+					item.conj.participle = match.conj.participle || "";
+				}
 				item.updatedAt = Date.now();
-				render();
-				scheduleSave();
-			})
+				changed();
+			}) : ""
 		);
 	}
 	return wrap;
@@ -1058,8 +968,7 @@ function sentencePanel(item) {
 
 	if (item.conj && item.conj.present) panel.append(conjugationBlock(item));
 
-	const sentences = [...(item.examples || [])].sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
-	for (const ex of sentences) panel.append(sentenceRow(ex, wordsOfSentence(ex.id), item));
+	for (const sentence of linkedSentences(item.id)) panel.append(sentenceRow(sentence, item));
 
 	const box = document.createElement("div");
 	box.className = "sentence-box";
@@ -1070,7 +979,7 @@ function sentencePanel(item) {
 	const textInput = document.createElement("textarea");
 	textInput.rows = 2;
 	textInput.placeholder = "sentence you met " + item.es + " in";
-	textInput.dataset.sentenceBox = item.id;
+	textInput.dataset.focus = "add-" + item.id;
 
 	const sourceInput = document.createElement("input");
 	sourceInput.placeholder = "source (optional)";
@@ -1078,9 +987,23 @@ function sentencePanel(item) {
 	fields.append(textInput, sourceInput);
 
 	function commit() {
-		if (!addSentence(textInput.value, sourceInput.value, item)) return;
-		focusSentenceFor = item.id;
-		render();
+		const text = textInput.value.trim();
+		if (!text) return;
+		const existing = findSentenceByText(text);
+		if (existing) {
+			pinLink(existing.id, item.id);
+			notify("You already had that sentence — linked it to " + item.es + ".");
+		} else {
+			const sentence = createSentence(text, sourceInput.value);
+			// Stored by hand only when the text alone wouldn't link it, e.g. a preterite form.
+			if (!matchedWordIds(linkState.index, sentence.text).has(item.id)) pinLink(sentence.id, item.id);
+			const others = [...matchedWordIds(linkState.index, sentence.text)]
+				.filter(id => id !== item.id)
+				.map(id => db.words.find(word => word.id === id).es);
+			notify(others.length ? "Also linked to " + others.join(", ") + "." : "");
+		}
+		focusSentenceFor = "add-" + item.id;
+		changed();
 	}
 
 	const bar = document.createElement("div");
@@ -1088,7 +1011,7 @@ function sentencePanel(item) {
 
 	const hint = document.createElement("div");
 	hint.className = "hint";
-	hint.textContent = "Enter saves · Shift+Enter for a new line · other saved words in the sentence get it too";
+	hint.textContent = "Enter saves · Shift+Enter for a new line · any other saved word in it links too";
 
 	const addButton = action("add sentence", commit);
 	addButton.className = "add-sentence";
@@ -1111,10 +1034,11 @@ function editor(item) {
 
 	const glossField = document.createElement("div");
 	const glossLabel = document.createElement("label");
-	glossLabel.textContent = item.auto ? "your gloss (machine says: " + item.auto + ")" : "your gloss";
+	const suggested = item.dict && item.dict.senses.length ? "dictionary: " + item.dict.senses.slice(0, 3).join("; ") : item.auto ? "machine says: " + item.auto : "";
+	glossLabel.textContent = suggested ? "your gloss (" + suggested + ")" : "your gloss";
 	const glossInput = document.createElement("input");
 	glossInput.value = item.gloss || "";
-	glossInput.placeholder = "leave empty to keep the machine translation";
+	glossInput.placeholder = "leave empty to show the meaning above";
 	glossField.append(glossLabel, glossInput);
 
 	const esField = document.createElement("div");
@@ -1128,7 +1052,7 @@ function editor(item) {
 	const posLabel = document.createElement("label");
 	posLabel.textContent = "part of speech";
 	const posSelect = document.createElement("select");
-	for (const value of ["verb", "noun", "adjective", "phrase", "other"]) {
+	for (const value of POS_OPTIONS.includes(item.pos) ? POS_OPTIONS : POS_OPTIONS.concat(item.pos || [])) {
 		const option = document.createElement("option");
 		option.value = value;
 		option.textContent = value;
@@ -1150,7 +1074,7 @@ function editor(item) {
 		let renamed = false;
 		if (es) {
 			const key = normKey(es);
-			const clash = items.find(x => x.key === key && x.id !== item.id);
+			const clash = db.words.find(x => x.key === key && x.id !== item.id);
 			if (clash) {
 				notify('"' + clash.es + '" already uses that word — rename cancelled.');
 			} else if (key !== item.key) {
@@ -1162,13 +1086,11 @@ function editor(item) {
 		item.gloss = glossInput.value.trim();
 		item.notes = notesInput.value.trim();
 		item.pos = posSelect.value;
-		// A renamed word's old forms belong to the old spelling, corrected or not.
-		if (renamed) delete item.conj;
+		if (renamed) delete item.dictReview;
 		normalizeWord(item);
 		item.updatedAt = Date.now();
 		editingId = null;
-		render();
-		scheduleSave();
+		changed();
 	}
 
 	const buttons = document.createElement("div");
@@ -1202,16 +1124,17 @@ async function translateInto(item, force) {
 		item.autoState = "failed";
 	}
 	item.updatedAt = Date.now();
-	render();
 	scheduleSave();
+	render();
 }
 
 function applyView() {
 	const words = view === "words";
 	el.tabWords.classList.toggle("on", words);
-	el.tabSentences.classList.toggle("on", !words);
+	el.tabSentences.classList.toggle("on", view === "sentences");
 	el.addForm.hidden = !words;
-	el.sentenceForm.hidden = words;
+	el.sentenceForm.hidden = view !== "sentences";
+	el.search.hidden = view === "review";
 	el.search.placeholder = words ? "search…" : "search sentences…";
 }
 
@@ -1221,81 +1144,73 @@ function setView(next) {
 	notify("");
 	applyView();
 	render();
-	(view === "words" ? el.addInput : el.sentenceInput).focus();
+	if (view !== "review") (view === "words" ? el.addInput : el.sentenceInput).focus();
 }
 
 el.tabWords.addEventListener("click", () => setView("words"));
 el.tabSentences.addEventListener("click", () => setView("sentences"));
 
-el.addForm.addEventListener("submit", e => {
+el.addForm.addEventListener("submit", async e => {
 	e.preventDefault();
 	const raw = el.addInput.value.trim();
 	if (!raw) return;
 	el.addInput.value = "";
 	el.addInput.focus();
 
-	const lemma = lemmaOf(raw);
-	const resolved = lemma && lemma !== normKey(raw);
-	const es = resolved ? spellInfinitive(lemma) : raw;
-	const key = normKey(es);
-
-	const existing = items.find(x => x.key === key);
+	const existing = findWordByKey(normKey(raw));
 	if (existing) {
-		notify(resolved
-			? '"' + raw + '" is a form of "' + existing.es + '", which is already saved — opened it below.'
-			: '"' + existing.es + '" is already saved — opened it below instead of adding a duplicate.');
+		openExisting(existing, raw);
+		return;
+	}
+
+	const candidates = await dictLookup(raw);
+	if (!candidates || !candidates.length) {
+		addPlainWord(raw);
+		if (!dictAvailable) notify("Saved as typed — the dictionary isn't built yet, so this uses machine translation.");
+		return;
+	}
+
+	// One clear answer is saved straight away; anything else is a choice, and nothing is saved
+	// until you pick.
+	if (candidates.length === 1 && candidates[0].via !== "similar") {
+		addFromCandidate(candidates[0], raw);
+		return;
+	}
+	const exact = candidates.filter(c => c.via === "headword" || c.via === "form");
+	const question = exact.length
+		? '"' + raw + '" could be:'
+		: 'Nothing called "' + raw + '" — did you mean:';
+	notify(question, candidates.map(candidate => ({
+		label: candidateLabel(candidate),
+		onClick: () => addFromCandidate(candidate, raw)
+	})).concat([{ label: "keep " + raw, onClick: () => { notify(""); addPlainWord(raw); } }]));
+});
+
+el.sentenceForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const text = el.sentenceInput.value.trim();
+	if (!text) return;
+
+	const existing = findSentenceByText(text);
+	if (existing) {
+		notify("You already have that sentence — it's highlighted below.");
 		filter = "";
 		el.search.value = "";
-		editingId = existing.id;
 		flashId = existing.id;
 		render();
 		return;
 	}
 
-	const item = {
-		id: crypto.randomUUID(),
-		es: es,
-		key: key,
-		auto: "",
-		autoState: "pending",
-		gloss: "",
-		pos: "",
-		examples: [],
-		notes: "",
-		createdAt: Date.now(),
-		updatedAt: Date.now()
-	};
-	normalizeWord(item);
-	items.unshift(item);
-
-	// Deverbal nouns look exactly like verb forms — "trabajo" and "regalo" are both — so the
-	// switch is always announced and always one click from being undone.
-	notify(resolved ? 'Saved "' + es + '" — "' + raw + '" is one of its forms.' : "", [{
-		label: "keep " + raw,
-		onClick: () => {
-			item.es = raw;
-			item.key = normKey(raw);
-			item.pos = "other";
-			delete item.conj;
-			notify("");
-			render();
-			scheduleSave();
-			translateInto(item, true);
-		}
-	}]);
-
-	render();
-	scheduleSave();
-	translateInto(item, false);
-});
-
-el.sentenceForm.addEventListener("submit", e => {
-	e.preventDefault();
-	if (!addSentence(el.sentenceInput.value, el.sentenceSource.value, null)) return;
+	const sentence = createSentence(text, el.sentenceSource.value);
 	el.sentenceInput.value = "";
 	el.sentenceSource.value = "";
 	el.sentenceInput.focus();
-	render();
+	changed();
+
+	const words = linkedWords(sentence.id).map(word => word.es);
+	notify(words.length
+		? "Linked to " + words.join(", ") + "."
+		: "Saved. None of your words appear in it yet — it will link up as you add them.");
 });
 
 el.sentenceInput.addEventListener("keydown", e => {
@@ -1314,8 +1229,10 @@ document.addEventListener("keydown", e => {
 	}
 });
 
+document.getElementById("checkBtn").addEventListener("click", () => checkAgainstDictionary());
+
 document.getElementById("exportBtn").addEventListener("click", () => {
-	const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
+	const blob = new Blob([snapshot()], { type: "application/json" });
 	const a = document.createElement("a");
 	a.href = URL.createObjectURL(blob);
 	a.download = "vocab-" + new Date().toISOString().slice(0, 10) + ".json";
@@ -1331,103 +1248,87 @@ document.getElementById("importFile").addEventListener("change", async e => {
 	e.target.value = "";
 	let incoming;
 	try {
-		incoming = JSON.parse(await file.text());
-		if (!Array.isArray(incoming)) throw new Error("not an array");
+		incoming = loadAny(JSON.parse(await file.text())).db;
 	} catch (err) {
-		notify("That file is not a vocab JSON array.");
+		notify("That file isn't a vocab export.");
 		return;
 	}
-	let added = 0;
-	for (const raw of incoming) {
-		const es = String(raw.es || "").trim();
-		if (!es) continue;
-		const key = normKey(es);
-		if (items.some(x => x.key === key)) continue;
-		const word = {
-			id: raw.id || crypto.randomUUID(),
-			es: es,
-			key: key,
-			auto: raw.auto || "",
-			autoState: raw.autoState || (raw.auto ? "ok" : "failed"),
-			gloss: raw.gloss || "",
-			examples: raw.examples,
-			notes: raw.notes || "",
-			createdAt: raw.createdAt || Date.now(),
-			updatedAt: Date.now()
-		};
-		word.pos = raw.pos || "";
-		word.conj = raw.conj;
-		normalizeWord(word);
-		items.unshift(word);
-		added++;
-	}
-	notify("Imported " + added + " new word" + (added === 1 ? "" : "s") + " (" + (incoming.length - added) + " skipped as duplicates).");
-	render();
-	scheduleSave();
+	const result = mergeDb(incoming);
+	notify("Imported " + result.addedWords + " new word" + (result.addedWords === 1 ? "" : "s")
+		+ " (" + result.skippedWords + " already saved) and " + result.addedSentences + " new sentence"
+		+ (result.addedSentences === 1 ? "" : "s") + ".");
+	changed();
 });
 
+function conversionNotice(loaded) {
+	const lines = [];
+	if (loaded.renamed.length) lines.push("saved under the infinitive: " + loaded.renamed.map(entry => entry.from + " → " + entry.to).join(", "));
+	if (loaded.merged.length) lines.push("folded into the verb already saved: " + loaded.merged.map(entry => entry.from + " → " + entry.to).join(", "));
+	if (!lines.length) return;
+	const undoRename = loaded.renamed.map(entry => ({
+		label: "keep " + entry.from,
+		onClick: () => {
+			entry.word.es = entry.from;
+			entry.word.key = normKey(entry.from);
+			entry.word.pos = "other";
+			delete entry.word.conj;
+			notify("");
+			changed();
+		}
+	}));
+	const undoMerge = loaded.merged.map(entry => ({
+		label: "keep " + entry.from,
+		onClick: () => {
+			entry.word.pos = "other";
+			delete entry.word.conj;
+			db.words.unshift(entry.word);
+			notify("");
+			changed();
+		}
+	}));
+	notify(lines.join("; ") + ".", undoRename.concat(undoMerge));
+}
+
 (async function start() {
+	let loaded;
 	try {
-		// no-store, or a reload can be handed a stale body and re-run the load-time migration.
+		// no-store, or a reload can be handed a stale body.
 		const res = await fetch("/api/vocab", { cache: "no-store" });
 		if (!res.ok) throw new Error("HTTP " + res.status);
-		items = await res.json();
+		loaded = loadAny(await res.json());
 		setState("saved", "saved");
 	} catch (err) {
-		items = [];
+		loadFailed = true;
+		loaded = { db: emptyDb(), renamed: [], merged: [], converted: false };
 		setState("unsaved", "cannot reach server");
-		notify("Could not load vocab.json — is the server running?");
+		notify("Could not load vocab.json — is the server running? Nothing you type here will be saved until you reload.");
 	}
-	const beforeMigration = JSON.stringify(items);
-	const renamed = migrateToInfinitives();
-	const merged = mergeIntoInfinitives();
-	for (const item of items) normalizeWord(item);
-	if (JSON.stringify(items) !== beforeMigration) scheduleSave();
+	db = loaded.db;
+	relink();
+	if (loaded.converted) scheduleSave();
 
 	const pending = localStorage.getItem(PENDING_KEY);
-	if (pending && pending !== JSON.stringify(items, null, 2)) {
-		if (confirm("There are unsaved changes from last time. Restore them?")) {
+	if (pending && !loadFailed) {
+		let parsed = null;
+		try { parsed = JSON.parse(pending); } catch (_) {}
+		// An old-format buffer next to an already-converted file can only come from a tab that was
+		// still running the previous version; it is older than the file, so it is dropped.
+		const stale = Array.isArray(parsed) && !loaded.converted;
+		if (parsed && !stale && pending !== snapshot() && confirm("There are unsaved changes from last time. Restore them?")) {
 			try {
-				items = JSON.parse(pending);
-				for (const item of items) normalizeWord(item);
+				db = loadAny(parsed).db;
+				relink();
 				scheduleSave();
 			} catch (_) {}
 		} else {
 			localStorage.removeItem(PENDING_KEY);
 		}
 	}
+
+	refreshWordList();
 	applyView();
 	render();
-
-	const lines = [];
-	if (renamed.length) lines.push("saved under the infinitive: " + renamed.map(entry => entry.from + " → " + entry.to).join(", "));
-	if (merged.length) lines.push("folded into the verb already saved: " + merged.map(entry => entry.from + " → " + entry.to).join(", "));
-	if (lines.length) {
-		const undoRename = renamed.map(entry => ({
-			label: "keep " + entry.from,
-			onClick: () => {
-				entry.word.es = entry.from;
-				entry.word.key = normKey(entry.from);
-				entry.word.pos = "other";
-				delete entry.word.conj;
-				notify("");
-				render();
-				scheduleSave();
-			}
-		}));
-		const undoMerge = merged.map(entry => ({
-			label: "keep " + entry.from,
-			onClick: () => {
-				entry.word.pos = "other";
-				delete entry.word.conj;
-				items.unshift(entry.word);
-				notify("");
-				render();
-				scheduleSave();
-			}
-		}));
-		notify(lines.join("; ") + ".", undoRename.concat(undoMerge));
-	}
+	conversionNotice(loaded);
 })();
 </script>
 </body>

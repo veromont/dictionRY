@@ -1,0 +1,3902 @@
+[
+  {
+    "id": "12dc2dc5-2b79-42e4-98ed-776a8cd5d110",
+    "es": "mareada",
+    "key": "mareada",
+    "auto": "Dizzy",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790169600392,
+    "updatedAt": 1790169600907
+  },
+  {
+    "id": "366e02b8-ca56-4469-91e7-1012c8cee844",
+    "es": "el globo",
+    "key": "globo",
+    "auto": "baloon",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790168877990,
+    "updatedAt": 1790168878720
+  },
+  {
+    "id": "477ae201-6252-4ca7-9127-3b4a86c3dae9",
+    "es": "vieja amiga",
+    "key": "vieja amiga",
+    "auto": "Old friend!",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790156696255,
+    "updatedAt": 1790156697117
+  },
+  {
+    "id": "dcaa9c8f-c25a-4d71-b889-da2967f30d9c",
+    "es": "grunona",
+    "key": "grunona",
+    "auto": "Snarly",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790156507583,
+    "updatedAt": 1790156508239
+  },
+  {
+    "id": "15f6406f-6b7a-4b35-b679-fa53e7fb1170",
+    "es": "celosa",
+    "key": "celosa",
+    "auto": "Jealous",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "55d88cda-5399-429c-b90e-3707b1c4e99b",
+        "text": "Creo que esta celosa",
+        "source": "",
+        "addedAt": 1790156138522
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790156118709,
+    "updatedAt": 1790156138522
+  },
+  {
+    "id": "68a0ac5c-272b-41fb-8db4-fe48e8824f50",
+    "es": "comoda",
+    "key": "comoda",
+    "auto": "Comfortable",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790155945998,
+    "updatedAt": 1790155946597
+  },
+  {
+    "id": "539062b4-1e34-4d41-9b46-c3a403b0e27f",
+    "es": "maniobras",
+    "key": "maniobras",
+    "auto": "drive",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790155930898,
+    "updatedAt": 1790155931566
+  },
+  {
+    "id": "60306e83-51c0-477c-b60f-abbc1daaee74",
+    "es": "la seguridad",
+    "key": "seguridad",
+    "auto": "safety concerns",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790154783393,
+    "updatedAt": 1790154784313
+  },
+  {
+    "id": "73078bf8-6cad-4001-92b2-5bfc08669007",
+    "es": "los viejos tiempos",
+    "key": "viejos tiempos",
+    "auto": "the good old days",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790145018544,
+    "updatedAt": 1790145031438
+  },
+  {
+    "id": "bc33c041-8935-4e58-b0f4-56bb37778aad",
+    "es": "molestar",
+    "key": "molestar",
+    "auto": "Bad Guy",
+    "autoState": "ok",
+    "gloss": "annoy",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144646319,
+    "updatedAt": 1790144681845,
+    "conj": {
+      "gerund": "molestando",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "molestoy",
+          "molestás",
+          "molestá",
+          "molestamos",
+          "molestáis",
+          "molestán"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "molestaré",
+          "molestarás",
+          "molestará",
+          "molestaremos",
+          "molestaréis",
+          "molestarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "molestaría",
+          "molestarías",
+          "molestaría",
+          "molestaríamos",
+          "molestaríais",
+          "molestarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "molestaba",
+          "molestabas",
+          "molestaba",
+          "molestábamos",
+          "molestabais",
+          "molestaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "722455c5-9d38-4296-9b38-412f74265dd7",
+    "es": "tonteria",
+    "key": "tonteria",
+    "auto": "Stupidity",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144600056,
+    "updatedAt": 1790144600729
+  },
+  {
+    "id": "1a46b093-2926-46c6-88e8-8c38ee16dc08",
+    "es": "olvidar",
+    "key": "olvidar",
+    "auto": "Forget",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144590380,
+    "updatedAt": 1790144591049,
+    "conj": {
+      "gerund": "olvidando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "olvido",
+          "olvidas",
+          "olvida",
+          "olvidamos",
+          "olvidáis",
+          "olvidan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "olvidaré",
+          "olvidarás",
+          "olvidará",
+          "olvidaremos",
+          "olvidaréis",
+          "olvidarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "olvidaría",
+          "olvidarías",
+          "olvidaría",
+          "olvidaríamos",
+          "olvidaríais",
+          "olvidarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "olvidaba",
+          "olvidabas",
+          "olvidaba",
+          "olvidábamos",
+          "olvidabais",
+          "olvidaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "776e03c1-c6ed-4f3e-9e68-44543e6ef151",
+    "es": "recuerdar",
+    "key": "recuerdar",
+    "auto": "Remember)",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144564349,
+    "updatedAt": 1790144564842,
+    "conj": {
+      "gerund": "recuerdando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "recuerdo",
+          "recuerdas",
+          "recuerda",
+          "recuerdamos",
+          "recuerdáis",
+          "recuerdan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "recuerdaré",
+          "recuerdarás",
+          "recuerdará",
+          "recuerdaremos",
+          "recuerdaréis",
+          "recuerdarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "recuerdaría",
+          "recuerdarías",
+          "recuerdaría",
+          "recuerdaríamos",
+          "recuerdaríais",
+          "recuerdarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "recuerdaba",
+          "recuerdabas",
+          "recuerdaba",
+          "recuerdábamos",
+          "recuerdabais",
+          "recuerdaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "445d2622-70d1-42c0-a26b-41a7d6a3883e",
+    "es": "templada",
+    "key": "templada",
+    "auto": "lukewarm (water, milk)",
+    "autoState": "ok",
+    "gloss": "tempered",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "e7568eec-85d1-4276-9121-b7fd78f057ec",
+        "text": "necesitamos otra victima que este mejor templada",
+        "source": "",
+        "addedAt": 1790144473132
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790144424689,
+    "updatedAt": 1790144473132
+  },
+  {
+    "id": "e7199220-3af0-402d-a95f-85b250268197",
+    "es": "herir",
+    "key": "herir",
+    "auto": "hurting",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144407149,
+    "updatedAt": 1790144408139,
+    "conj": {
+      "gerund": "hiriendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "hiero",
+          "hieres",
+          "hiere",
+          "herimos",
+          "herís",
+          "hieren"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "heriré",
+          "herirás",
+          "herirá",
+          "heriremos",
+          "heriréis",
+          "herirán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "heriría",
+          "herirías",
+          "heriría",
+          "heriríamos",
+          "heriríais",
+          "herirían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "hería",
+          "herías",
+          "hería",
+          "heríamos",
+          "heríais",
+          "herían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "98e0d869-6fc9-41d7-9405-2594d6ca22f5",
+    "es": "sentimentos",
+    "key": "sentimentos",
+    "auto": "feelings",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "07de0282-b8e0-4e31-918b-caf1ec3d9bc4",
+        "text": "va a herir sus sentimentos hast la broma mas inocente",
+        "source": "",
+        "addedAt": 1790144396885
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790144339776,
+    "updatedAt": 1790144396885
+  },
+  {
+    "id": "8f51e070-a94d-44fd-9e8a-15bac152989c",
+    "es": "el bromista",
+    "key": "bromista",
+    "auto": "the prankster",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790144162639,
+    "updatedAt": 1790144163318
+  },
+  {
+    "id": "4cc5bbab-dfaf-4a17-844d-9697da808844",
+    "es": "izquierda",
+    "key": "izquierda",
+    "auto": "Left",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790143997492,
+    "updatedAt": 1790143998158
+  },
+  {
+    "id": "0a7de724-e3ac-4c42-831a-67b6ffa06dc6",
+    "es": "derecha",
+    "key": "derecha",
+    "auto": "Right wing",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790143987179,
+    "updatedAt": 1790143988128
+  },
+  {
+    "id": "06ba1f3f-2aa0-42a7-b4d6-5860452eecb0",
+    "es": "cerca",
+    "key": "cerca",
+    "auto": "beside",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790143923167,
+    "updatedAt": 1790143924340
+  },
+  {
+    "id": "064819a5-9ffe-42f2-b911-87400e62d33f",
+    "es": "arriba",
+    "key": "arriba",
+    "auto": "top",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790143893736,
+    "updatedAt": 1790143895262
+  },
+  {
+    "id": "78633210-2018-44b8-bc83-6ba97d5e35e0",
+    "es": "sentar",
+    "key": "sentar",
+    "auto": "sientar",
+    "autoState": "ok",
+    "gloss": "sit",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790085728854,
+    "updatedAt": 1790085758200,
+    "conj": {
+      "gerund": "sentando",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "siento",
+          "sientas",
+          "sienta",
+          "sentamos",
+          "sentáis",
+          "sientan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "sentaré",
+          "sentarás",
+          "sentará",
+          "sentaremos",
+          "sentaréis",
+          "sentarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "sentaría",
+          "sentarías",
+          "sentaría",
+          "sentaríamos",
+          "sentaríais",
+          "sentarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "sentaba",
+          "sentabas",
+          "sentaba",
+          "sentábamos",
+          "sentabais",
+          "sentaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ff946bff-ff8a-406e-8a60-d9a8e960baf9",
+    "es": "valiosa",
+    "key": "valiosa",
+    "auto": "Valuable",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790085589881,
+    "updatedAt": 1790085590408
+  },
+  {
+    "id": "0561f13d-924f-4321-89be-279af2d43043",
+    "es": "testaruda",
+    "key": "testaruda",
+    "auto": "stubborn",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790085576519,
+    "updatedAt": 1790085577716
+  },
+  {
+    "id": "0eb9cff0-baa5-457e-bfea-8ce3c4c6f30e",
+    "es": "unico",
+    "key": "unico",
+    "auto": "the one",
+    "autoState": "ok",
+    "gloss": "the only",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790085534012,
+    "updatedAt": 1790085541261
+  },
+  {
+    "id": "26cebbbd-7464-4e91-bcca-c4c8464d865b",
+    "es": "creer",
+    "key": "creer",
+    "auto": "lieve",
+    "autoState": "ok",
+    "gloss": "to believe",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "cf048d96-1d1b-4a6b-9607-d204b597d242",
+        "text": "no creo",
+        "source": "",
+        "addedAt": 1790156071342
+      },
+      {
+        "id": "4ae2f06e-c93d-421d-b844-57c8b3458901",
+        "text": "Sabes lo que creo, Pinkie Pie?",
+        "source": "",
+        "addedAt": 1790156102037
+      },
+      {
+        "id": "55d88cda-5399-429c-b90e-3707b1c4e99b",
+        "text": "Creo que esta celosa",
+        "source": "",
+        "addedAt": 1790156138522
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790084397359,
+    "updatedAt": 1790156138522,
+    "conj": {
+      "gerund": "creyendo",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "creo",
+          "crees",
+          "cree",
+          "creemos",
+          "creéis",
+          "creen"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "creeré",
+          "creerás",
+          "creerá",
+          "creeremos",
+          "creeréis",
+          "creerán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "creería",
+          "creerías",
+          "creería",
+          "creeríamos",
+          "creeríais",
+          "creerían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "creía",
+          "creías",
+          "creía",
+          "creíamos",
+          "creíais",
+          "creían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "c75073b1-c3d8-4eec-ad86-63a6ebf00527",
+    "es": "peligroso",
+    "key": "peligroso",
+    "auto": "dangerous",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790084279417,
+    "updatedAt": 1790084280322
+  },
+  {
+    "id": "9d2cc063-a955-4f66-b851-32c152423eae",
+    "es": "volver",
+    "key": "volver",
+    "auto": "back",
+    "autoState": "ok",
+    "gloss": "return",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790083332073,
+    "updatedAt": 1790083338060,
+    "conj": {
+      "gerund": "volviendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "vuelvo",
+          "vuelves",
+          "vuelve",
+          "volvemos",
+          "volvéis",
+          "vuelven"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "volveré",
+          "volverás",
+          "volverá",
+          "volveremos",
+          "volveréis",
+          "volverán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "volvería",
+          "volverías",
+          "volvería",
+          "volveríamos",
+          "volveríais",
+          "volverían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "volvía",
+          "volvías",
+          "volvía",
+          "volvíamos",
+          "volvíais",
+          "volvían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "50865d6c-8e0e-4501-9d70-27c3c4837337",
+    "es": "el arbol",
+    "key": "arbol",
+    "auto": "the tree",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "c6636172-e519-4fd1-ad7f-bcbe995cde74",
+        "text": "bajamos todal las manzanas de los arboles para vender",
+        "source": "",
+        "addedAt": 1790083258752
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790083199727,
+    "updatedAt": 1790083258752
+  },
+  {
+    "id": "b529d32d-460b-4b0f-a9cd-d71963bc6ebb",
+    "es": "apoyar",
+    "key": "apoyar",
+    "auto": "to support MD",
+    "autoState": "ok",
+    "gloss": "to support",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790081525803,
+    "updatedAt": 1790081622300,
+    "conj": {
+      "gerund": "apoyando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "apoyo",
+          "apoyas",
+          "apoya",
+          "apoyamos",
+          "apoyáis",
+          "apoyan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "apoyaré",
+          "apoyarás",
+          "apoyará",
+          "apoyaremos",
+          "apoyaréis",
+          "apoyarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "apoyaría",
+          "apoyarías",
+          "apoyaría",
+          "apoyaríamos",
+          "apoyaríais",
+          "apoyarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "apoyaba",
+          "apoyabas",
+          "apoyaba",
+          "apoyábamos",
+          "apoyabais",
+          "apoyaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "b15c0003-d69e-4132-8454-4aed90d36aa9",
+    "es": "falta",
+    "key": "falta",
+    "auto": "missing",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "3d620246-79ff-4ae2-8b6b-576419be3c5f",
+        "text": "solo falta una cosa",
+        "source": "",
+        "addedAt": 1790079492784
+      }
+    ],
+    "notes": "",
+    "createdAt": 1790079441458,
+    "updatedAt": 1790079492784
+  },
+  {
+    "id": "ee7d55c3-0480-40e7-afcd-d957dd5606b6",
+    "es": "el pueblo",
+    "key": "pueblo",
+    "auto": "the people",
+    "autoState": "ok",
+    "gloss": "the people, the village",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790079397426,
+    "updatedAt": 1790079408229
+  },
+  {
+    "id": "b35488f0-1b26-4b9e-8c3c-e8c96feab9a4",
+    "es": "salvar",
+    "key": "salvar",
+    "auto": "save",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790079333359,
+    "updatedAt": 1790079334416,
+    "conj": {
+      "gerund": "salvando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "salvo",
+          "salvas",
+          "salva",
+          "salvamos",
+          "salváis",
+          "salvan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "salvaré",
+          "salvarás",
+          "salvará",
+          "salvaremos",
+          "salvaréis",
+          "salvarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "salvaría",
+          "salvarías",
+          "salvaría",
+          "salvaríamos",
+          "salvaríais",
+          "salvarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "salvaba",
+          "salvabas",
+          "salvaba",
+          "salvábamos",
+          "salvabais",
+          "salvaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "07e415b2-725d-4d18-9021-0c84ad7e465d",
+    "es": "Qué piensas tú",
+    "key": "que piensas tu",
+    "auto": "What do you think?",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790076359122,
+    "updatedAt": 1790079336860
+  },
+  {
+    "id": "c27a7bb3-3889-42d6-9f66-25bb64c33b65",
+    "es": "vamos a ver",
+    "key": "vamos a ver",
+    "auto": "we'll see",
+    "autoState": "ok",
+    "gloss": "lets see",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1790074316518,
+    "updatedAt": 1790074335785
+  },
+  {
+    "id": "e2963df0-2a44-48f2-936b-ed18291736c5",
+    "es": "el sueño",
+    "key": "sueno",
+    "auto": "the dream",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789742009223,
+    "updatedAt": 1789742010396
+  },
+  {
+    "id": "3ba22a85-6a1c-4da8-b1e2-7c264efd778d",
+    "es": "sonar",
+    "key": "sonar",
+    "auto": "to sound",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789741791870,
+    "updatedAt": 1789741792642,
+    "conj": {
+      "gerund": "sonando",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "sueno",
+          "suenas",
+          "suena",
+          "sonamos",
+          "sonáis",
+          "suenan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "sonaré",
+          "sonarás",
+          "sonará",
+          "sonaremos",
+          "sonaréis",
+          "sonarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "sonaría",
+          "sonarías",
+          "sonaría",
+          "sonaríamos",
+          "sonaríais",
+          "sonarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "sonaba",
+          "sonabas",
+          "sonaba",
+          "sonábamos",
+          "sonabais",
+          "sonaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "261b36a2-a3a3-4cb0-a7c8-5b8f8df94963",
+    "es": "llevar",
+    "key": "llevar",
+    "auto": "Aways",
+    "autoState": "ok",
+    "gloss": "to take",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789737186220,
+    "updatedAt": 1789737248262,
+    "conj": {
+      "gerund": "llevando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "llevo",
+          "llevas",
+          "lleva",
+          "llevamos",
+          "lleváis",
+          "llevan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "llevaré",
+          "llevarás",
+          "llevará",
+          "llevaremos",
+          "llevaréis",
+          "llevarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "llevaría",
+          "llevarías",
+          "llevaría",
+          "llevaríamos",
+          "llevaríais",
+          "llevarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "llevaba",
+          "llevabas",
+          "llevaba",
+          "llevábamos",
+          "llevabais",
+          "llevaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "420eb3b1-f928-4d02-add6-9f34c000bdba",
+    "es": "mostrar",
+    "key": "mostrar",
+    "auto": "show",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789737148377,
+    "updatedAt": 1789737149546,
+    "conj": {
+      "gerund": "mostrando",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "muestro",
+          "muestras",
+          "muestra",
+          "mostramos",
+          "mostráis",
+          "muestran"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "mostraré",
+          "mostrarás",
+          "mostrará",
+          "mostraremos",
+          "mostraréis",
+          "mostrarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "mostraría",
+          "mostrarías",
+          "mostraría",
+          "mostraríamos",
+          "mostraríais",
+          "mostrarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "mostraba",
+          "mostrabas",
+          "mostraba",
+          "mostrábamos",
+          "mostrabais",
+          "mostraban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5ee67bca-164d-454b-a96a-b032a39bf13b",
+    "es": "llamar",
+    "key": "llamar",
+    "auto": "call",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789737062838,
+    "updatedAt": 1789737063896,
+    "conj": {
+      "gerund": "llamando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "llamo",
+          "llamas",
+          "llama",
+          "llamamos",
+          "llamáis",
+          "llaman"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "llamaré",
+          "llamarás",
+          "llamará",
+          "llamaremos",
+          "llamaréis",
+          "llamarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "llamaría",
+          "llamarías",
+          "llamaría",
+          "llamaríamos",
+          "llamaríais",
+          "llamarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "llamaba",
+          "llamabas",
+          "llamaba",
+          "llamábamos",
+          "llamabais",
+          "llamaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "a713a343-3fa6-4686-8c55-340778ff3773",
+    "es": "cada ano",
+    "key": "cada ano",
+    "auto": "every year",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736955196,
+    "updatedAt": 1789736988045
+  },
+  {
+    "id": "e299ec79-6090-4b1d-84c8-7804c5272c58",
+    "es": "la cosecha",
+    "key": "cosecha",
+    "auto": "harvesting,",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736922685,
+    "updatedAt": 1789736923972
+  },
+  {
+    "id": "7aa15458-c42c-43af-90bb-123b66ec6364",
+    "es": "los ganancias",
+    "key": "ganancias",
+    "auto": "earnings",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736607769,
+    "updatedAt": 1789736608570
+  },
+  {
+    "id": "53b527d7-b7e5-4716-994e-46c9aafe4fa4",
+    "es": "el puesto",
+    "key": "puesto",
+    "auto": "Position",
+    "autoState": "ok",
+    "gloss": "stand",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "ad956df5-39e5-47ef-b0a0-e2f871fc1a0b",
+        "text": "el puesto de manzanas",
+        "source": "",
+        "addedAt": 1789736530451
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789736512487,
+    "updatedAt": 1789736530451
+  },
+  {
+    "id": "562ec1dd-f7bc-4983-89ed-3889555ca1ba",
+    "es": "la corcela",
+    "key": "corcela",
+    "auto": "the steed",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736472059,
+    "updatedAt": 1789736472904
+  },
+  {
+    "id": "722eb0d7-5a07-456f-bcc1-b708de6def68",
+    "es": "briosos",
+    "key": "briosos",
+    "auto": "enthusiastic",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736413872,
+    "updatedAt": 1789736415467
+  },
+  {
+    "id": "583303d2-3dc5-46a1-ad8a-dca9c2242c69",
+    "es": "acudir",
+    "key": "acudir",
+    "auto": "Keep",
+    "autoState": "ok",
+    "gloss": "keep, go",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "1b4c5d24-5ab6-4257-a14b-ff57f15723a4",
+        "text": "me encantaria acudir briosos corceles",
+        "source": "",
+        "addedAt": 1789736352776
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789736299953,
+    "updatedAt": 1789736352776,
+    "conj": {
+      "gerund": "acudiendo",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "acudo",
+          "acudes",
+          "acude",
+          "acudimos",
+          "acudís",
+          "acuden"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "acudiré",
+          "acudirás",
+          "acudirá",
+          "acudiremos",
+          "acudiréis",
+          "acudirán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "acudiría",
+          "acudirías",
+          "acudiría",
+          "acudiríamos",
+          "acudiríais",
+          "acudirían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "acudía",
+          "acudías",
+          "acudía",
+          "acudíamos",
+          "acudíais",
+          "acudían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "03ddd78d-ada9-4069-88f6-e796e0b063f8",
+    "es": "jamas",
+    "key": "jamas",
+    "auto": "never",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789736051353,
+    "updatedAt": 1789736052495
+  },
+  {
+    "id": "62f619d5-65fb-4819-b4a0-a86b3fbd1669",
+    "es": "ceder",
+    "key": "ceder",
+    "auto": "assign, cede, grant",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735980768,
+    "updatedAt": 1789735982045,
+    "conj": {
+      "gerund": "cediendo",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "cedo",
+          "cedes",
+          "cede",
+          "cedemos",
+          "cedéis",
+          "ceden"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "cederé",
+          "cederás",
+          "cederá",
+          "cederemos",
+          "cederéis",
+          "cederán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "cedería",
+          "cederías",
+          "cedería",
+          "cederíamos",
+          "cederíais",
+          "cederían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "cedía",
+          "cedías",
+          "cedía",
+          "cedíamos",
+          "cedíais",
+          "cedían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "9c7e2817-83a1-4f4f-9ff4-7862e6a4f69c",
+    "es": "complace",
+    "key": "complace",
+    "auto": "pleased",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735935737,
+    "updatedAt": 1789735936285
+  },
+  {
+    "id": "a76f4e11-c3c0-4342-8770-fe787e5d3911",
+    "es": "la alteza",
+    "key": "alteza",
+    "auto": "his Highness",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735913679,
+    "updatedAt": 1789735914372
+  },
+  {
+    "id": "55d8cf26-0d81-4368-8e39-ce0351b5d6e5",
+    "es": "el gusano",
+    "key": "gusano",
+    "auto": "The worm",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735876648,
+    "updatedAt": 1789735877540
+  },
+  {
+    "id": "c00ac57a-e7ba-46fd-a17b-99aae2495740",
+    "es": "perder",
+    "key": "perder",
+    "auto": "to lose",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735446547,
+    "updatedAt": 1789735447082,
+    "conj": {
+      "gerund": "perdiendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "pierdo",
+          "pierdes",
+          "pierde",
+          "perdemos",
+          "perdéis",
+          "pierden"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "perderé",
+          "perderás",
+          "perderá",
+          "perderemos",
+          "perderéis",
+          "perderán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "perdería",
+          "perderías",
+          "perdería",
+          "perderíamos",
+          "perderíais",
+          "perderían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "perdía",
+          "perdías",
+          "perdía",
+          "perdíamos",
+          "perdíais",
+          "perdían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "3cbb2340-444e-48bd-960c-e8bca96f66a3",
+    "es": "tardaron tanto",
+    "key": "tardaron tanto",
+    "auto": "took so long",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "phrase",
+    "examples": [
+      {
+        "id": "ba1185bd-0b22-4052-8cc2-f5220894d8da",
+        "text": "ustedes dos tardaron tanto que mi perdi el almuerzo",
+        "source": "",
+        "addedAt": 1789735392210
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789735353633,
+    "updatedAt": 1789735392210
+  },
+  {
+    "id": "583d6987-623e-43c0-9546-eae31cc0984b",
+    "es": "mientras",
+    "key": "mientras",
+    "auto": "While it",
+    "autoState": "ok",
+    "gloss": "while",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789735237957,
+    "updatedAt": 1789735244339
+  },
+  {
+    "id": "9aee6f91-ca47-4564-9917-11b488d90523",
+    "es": "el lomo",
+    "key": "lomo",
+    "auto": "the loin",
+    "autoState": "ok",
+    "gloss": "the back, body part",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789734761304,
+    "updatedAt": 1789734779822
+  },
+  {
+    "id": "8db4e4bd-a8b3-4ed9-a048-57040edd364b",
+    "es": "Descansar",
+    "key": "descansar",
+    "auto": "Rest",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789734693225,
+    "updatedAt": 1789734693638,
+    "conj": {
+      "gerund": "descansando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "descanso",
+          "descansas",
+          "descansa",
+          "descansamos",
+          "descansáis",
+          "descansan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "descansaré",
+          "descansarás",
+          "descansará",
+          "descansaremos",
+          "descansaréis",
+          "descansarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "descansaría",
+          "descansarías",
+          "descansaría",
+          "descansaríamos",
+          "descansaríais",
+          "descansarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "descansaba",
+          "descansabas",
+          "descansaba",
+          "descansábamos",
+          "descansabais",
+          "descansaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2682c721-2567-4f76-855d-fc3cc06bc7cd",
+    "es": "la meta",
+    "key": "meta",
+    "auto": "Furthermore the",
+    "autoState": "ok",
+    "gloss": "the goal",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "a2950cde-f374-4723-80b9-2fa2838e32b1",
+        "text": "me alegra que la meta sea el almuerzo",
+        "source": "",
+        "addedAt": 1789734613567
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789734534357,
+    "updatedAt": 1789734613567
+  },
+  {
+    "id": "41763865-3a89-4775-b83b-d0867745ff65",
+    "es": "alegrar",
+    "key": "alegrar",
+    "auto": "gladden",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "a2950cde-f374-4723-80b9-2fa2838e32b1",
+        "text": "me alegra que la meta sea el almuerzo",
+        "source": "",
+        "addedAt": 1789734613567
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789734509581,
+    "updatedAt": 1789734613567,
+    "conj": {
+      "gerund": "alegrando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "alegro",
+          "alegras",
+          "alegra",
+          "alegramos",
+          "alegráis",
+          "alegran"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "alegraré",
+          "alegrarás",
+          "alegrará",
+          "alegraremos",
+          "alegraréis",
+          "alegrarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "alegraría",
+          "alegrarías",
+          "alegraría",
+          "alegraríamos",
+          "alegraríais",
+          "alegrarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "alegraba",
+          "alegrabas",
+          "alegraba",
+          "alegrábamos",
+          "alegrabais",
+          "alegraban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "579c7023-b013-4b91-badd-100a2593f468",
+    "es": "el palcer",
+    "key": "palcer",
+    "auto": "the palcer",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "7d071726-ee01-493b-9332-84a336b2b3f0",
+        "text": "es todo un placer",
+        "source": "",
+        "addedAt": 1789734457316
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789734444362,
+    "updatedAt": 1789734457316
+  },
+  {
+    "id": "19228eb7-a3f5-4a16-986a-ceaf93937725",
+    "es": "placer",
+    "key": "placer",
+    "auto": "leisure",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "7d071726-ee01-493b-9332-84a336b2b3f0",
+        "text": "es todo un placer",
+        "source": "",
+        "addedAt": 1789734457316
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789734412079,
+    "updatedAt": 1789734457316,
+    "conj": {
+      "gerund": "placiendo",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "placo",
+          "places",
+          "place",
+          "placemos",
+          "placéis",
+          "placen"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "placeré",
+          "placerás",
+          "placerá",
+          "placeremos",
+          "placeréis",
+          "placerán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "placería",
+          "placerías",
+          "placería",
+          "placeríamos",
+          "placeríais",
+          "placerían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "placía",
+          "placías",
+          "placía",
+          "placíamos",
+          "placíais",
+          "placían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2320d8be-3c00-42e9-ba76-72a2605f69f2",
+    "es": "ganar",
+    "key": "ganar",
+    "auto": "and win",
+    "autoState": "ok",
+    "gloss": "earn, gain",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789734273608,
+    "updatedAt": 1789736582227,
+    "conj": {
+      "gerund": "ganando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "gano",
+          "ganas",
+          "gana",
+          "ganamos",
+          "ganáis",
+          "ganan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "ganaré",
+          "ganarás",
+          "ganará",
+          "ganaremos",
+          "ganaréis",
+          "ganarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "ganaría",
+          "ganarías",
+          "ganaría",
+          "ganaríamos",
+          "ganaríais",
+          "ganarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "ganaba",
+          "ganabas",
+          "ganaba",
+          "ganábamos",
+          "ganabais",
+          "ganaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "38246039-c571-43ad-a843-562e6f579a2c",
+    "es": "ayudarme",
+    "key": "ayudarme",
+    "auto": "\"Help me?\"",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789734110790,
+    "updatedAt": 1789734111720
+  },
+  {
+    "id": "0a739fe7-a775-448b-8d4d-fde5fe166949",
+    "es": "regresar",
+    "key": "regresar",
+    "auto": "go back",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789722792788,
+    "updatedAt": 1789722793511,
+    "conj": {
+      "gerund": "regresando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "regreso",
+          "regresas",
+          "regresa",
+          "regresamos",
+          "regresáis",
+          "regresan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "regresaré",
+          "regresarás",
+          "regresará",
+          "regresaremos",
+          "regresaréis",
+          "regresarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "regresaría",
+          "regresarías",
+          "regresaría",
+          "regresaríamos",
+          "regresaríais",
+          "regresarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "regresaba",
+          "regresabas",
+          "regresaba",
+          "regresábamos",
+          "regresabais",
+          "regresaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "e32ac863-2303-408a-ae42-59e1b9c07518",
+    "es": "oscura",
+    "key": "oscura",
+    "auto": "Dark",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789656034885,
+    "updatedAt": 1789656035667
+  },
+  {
+    "id": "6ecdc49b-3bf6-4ec3-b7e2-90e114490463",
+    "es": "apostar",
+    "key": "apostar",
+    "auto": "aposte",
+    "autoState": "ok",
+    "gloss": "bet",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789651978163,
+    "updatedAt": 1789722843622,
+    "conj": {
+      "gerund": "apostando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "aposto",
+          "apostas",
+          "aposta",
+          "apostamos",
+          "apostáis",
+          "apostan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "apostaré",
+          "apostarás",
+          "apostará",
+          "apostaremos",
+          "apostaréis",
+          "apostarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "apostaría",
+          "apostarías",
+          "apostaría",
+          "apostaríamos",
+          "apostaríais",
+          "apostarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "apostaba",
+          "apostabas",
+          "apostaba",
+          "apostábamos",
+          "apostabais",
+          "apostaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5fe8f745-4cbc-4938-a8c8-ce3481ed6493",
+    "es": "ir",
+    "key": "ir",
+    "auto": "go",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "07de0282-b8e0-4e31-918b-caf1ec3d9bc4",
+        "text": "va a herir sus sentimentos hast la broma mas inocente",
+        "source": "",
+        "addedAt": 1790144396885
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789648674043,
+    "updatedAt": 1790144396885,
+    "conj": {
+      "gerund": "yendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "voy",
+          "vas",
+          "va",
+          "vamos",
+          "vais",
+          "van"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "iré",
+          "irás",
+          "irá",
+          "iremos",
+          "iréis",
+          "irán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "iría",
+          "irías",
+          "iría",
+          "iríamos",
+          "iríais",
+          "irían"
+        ]
+      },
+      "imperfect": {
+        "source": "irregular",
+        "forms": [
+          "iba",
+          "ibas",
+          "iba",
+          "íbamos",
+          "ibais",
+          "iban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ca2ab587-1476-4574-ad0f-46c4b163bc90",
+    "es": "mejor",
+    "key": "mejor",
+    "auto": "better",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "b98bdb99-77c9-4a32-ae72-b3d1d83bf6fe",
+        "text": "Mejor vamos por algo de comer",
+        "source": "",
+        "addedAt": 1789648665082
+      },
+      {
+        "id": "e7568eec-85d1-4276-9121-b7fd78f057ec",
+        "text": "necesitamos otra victima que este mejor templada",
+        "source": "",
+        "addedAt": 1790144473132
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789648624241,
+    "updatedAt": 1790144473132
+  },
+  {
+    "id": "9f9dcb7d-db92-42a2-bb42-80316e0da49c",
+    "es": "el almuerzo",
+    "key": "almuerzo",
+    "auto": "Lunch",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "a2950cde-f374-4723-80b9-2fa2838e32b1",
+        "text": "me alegra que la meta sea el almuerzo",
+        "source": "",
+        "addedAt": 1789734613567
+      },
+      {
+        "id": "ba1185bd-0b22-4052-8cc2-f5220894d8da",
+        "text": "ustedes dos tardaron tanto que mi perdi el almuerzo",
+        "source": "",
+        "addedAt": 1789735392210
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789648585515,
+    "updatedAt": 1789735392210
+  },
+  {
+    "id": "082712ac-456d-4cc2-a0d2-6b77bdf98010",
+    "es": "agradecer",
+    "key": "agradecer",
+    "auto": "thank",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646959790,
+    "updatedAt": 1789646960725,
+    "conj": {
+      "gerund": "agradeciendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "agradezco",
+          "agradeces",
+          "agradece",
+          "agradecemos",
+          "agradecéis",
+          "agradecen"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "agradeceré",
+          "agradecerás",
+          "agradecerá",
+          "agradeceremos",
+          "agradeceréis",
+          "agradecerán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "agradecería",
+          "agradecerías",
+          "agradecería",
+          "agradeceríamos",
+          "agradeceríais",
+          "agradecerían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "agradecía",
+          "agradecías",
+          "agradecía",
+          "agradecíamos",
+          "agradecíais",
+          "agradecían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "12dcdff6-b874-4d0f-9377-923a52ac57d2",
+    "es": "sobre",
+    "key": "sobre",
+    "auto": "about",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646827124,
+    "updatedAt": 1789646827995
+  },
+  {
+    "id": "aa5a4110-34b3-4679-9a6c-1912742b18b0",
+    "es": "dejar",
+    "key": "dejar",
+    "auto": "leave",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646805252,
+    "updatedAt": 1789646806046,
+    "conj": {
+      "gerund": "dejando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "dejo",
+          "dejas",
+          "deja",
+          "dejamos",
+          "dejáis",
+          "dejan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "dejaré",
+          "dejarás",
+          "dejará",
+          "dejaremos",
+          "dejaréis",
+          "dejarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "dejaría",
+          "dejarías",
+          "dejaría",
+          "dejaríamos",
+          "dejaríais",
+          "dejarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "dejaba",
+          "dejabas",
+          "dejaba",
+          "dejábamos",
+          "dejabais",
+          "dejaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "a41d6209-36db-4736-ae96-7884d0d5530e",
+    "es": "todos",
+    "key": "todos",
+    "auto": "all",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "2a9d8e95-6785-4d46-940f-c2320d64e1ee",
+        "text": "todos las ponis aqui está loca",
+        "source": "",
+        "addedAt": 1789646593560
+      },
+      {
+        "id": "7d071726-ee01-493b-9332-84a336b2b3f0",
+        "text": "es todo un placer",
+        "source": "",
+        "addedAt": 1789734457316
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789646556547,
+    "updatedAt": 1789734457316
+  },
+  {
+    "id": "68f82aa4-6464-4907-8e4a-3feae3033cdc",
+    "es": "el hogar",
+    "key": "hogar",
+    "auto": "Home",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646357220,
+    "updatedAt": 1789646358373
+  },
+  {
+    "id": "94f03f5e-aaf0-4dc3-b21a-0b495784e225",
+    "es": "el corazon",
+    "key": "corazon",
+    "auto": "the heart",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646233691,
+    "updatedAt": 1789646234752
+  },
+  {
+    "id": "b37f4060-db50-464b-8cbd-eb185ae60fb5",
+    "es": "fiel",
+    "key": "fiel",
+    "auto": "faithful",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646197511,
+    "updatedAt": 1789646198093
+  },
+  {
+    "id": "d39b4512-c5a4-45a6-9620-317a68816f05",
+    "es": "la cabeza",
+    "key": "cabeza",
+    "auto": "Head",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789646124457,
+    "updatedAt": 1789646125697
+  },
+  {
+    "id": "084592e2-530e-48eb-aa3a-b88a20fc8eec",
+    "es": "la broma",
+    "key": "broma",
+    "auto": "Joke",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [
+      {
+        "id": "07de0282-b8e0-4e31-918b-caf1ec3d9bc4",
+        "text": "va a herir sus sentimentos hast la broma mas inocente",
+        "source": "",
+        "addedAt": 1790144396885
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789643150128,
+    "updatedAt": 1790144396885
+  },
+  {
+    "id": "28313ebf-1aa6-4e01-9bc8-382de65f2f37",
+    "es": "la chispa",
+    "key": "chispa",
+    "auto": "the spark",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789643086291,
+    "updatedAt": 1789643091818
+  },
+  {
+    "id": "54823876-9efc-4084-b1d2-ce483ed7124b",
+    "es": "la generosidad",
+    "key": "generosidad",
+    "auto": "Generosity",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789643039299,
+    "updatedAt": 1789643039983
+  },
+  {
+    "id": "46c0b33e-c5ea-44bd-abd4-9c463f437d03",
+    "es": "la honestidad",
+    "key": "honestidad",
+    "auto": "Honesty",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789643014734,
+    "updatedAt": 1789643015448
+  },
+  {
+    "id": "0f31966b-987b-4f47-a68b-0d6d75406f26",
+    "es": "la risa",
+    "key": "risa",
+    "auto": "Laughter.",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789642989387,
+    "updatedAt": 1789642992016
+  },
+  {
+    "id": "e23a00b4-7e07-4a2f-9313-d5efa480b1f4",
+    "es": "durar",
+    "key": "durar",
+    "auto": "go",
+    "autoState": "ok",
+    "gloss": "last",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "5a4a43a2-eb0d-42dd-988e-a7a50f541668",
+        "text": "la noche durara para siempre",
+        "source": "",
+        "addedAt": 1789642931412
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789642904875,
+    "updatedAt": 1789642931412,
+    "conj": {
+      "gerund": "durando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "duro",
+          "duras",
+          "dura",
+          "duramos",
+          "duráis",
+          "duran"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "duraré",
+          "durarás",
+          "durará",
+          "duraremos",
+          "duraréis",
+          "durarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "duraría",
+          "durarías",
+          "duraría",
+          "duraríamos",
+          "duraríais",
+          "durarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "duraba",
+          "durabas",
+          "duraba",
+          "durábamos",
+          "durabais",
+          "duraban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "bbf960ba-ef3e-4c8a-947c-8a75a3aa19b9",
+    "es": "mirar",
+    "key": "mirar",
+    "auto": "look",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789642784163,
+    "updatedAt": 1789642785065,
+    "conj": {
+      "gerund": "mirando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "miro",
+          "miras",
+          "mira",
+          "miramos",
+          "miráis",
+          "miran"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "miraré",
+          "mirarás",
+          "mirará",
+          "miraremos",
+          "miraréis",
+          "mirarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "miraría",
+          "mirarías",
+          "miraría",
+          "miraríamos",
+          "miraríais",
+          "mirarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "miraba",
+          "mirabas",
+          "miraba",
+          "mirábamos",
+          "mirabais",
+          "miraban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "c53ee9da-5bc3-4ab0-be3d-5dcf68fce459",
+    "es": "defraudo",
+    "key": "defraudo",
+    "auto": "fraud",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789642583957,
+    "updatedAt": 1789642584567
+  },
+  {
+    "id": "0df36712-9a29-4539-9710-2de417111fe8",
+    "es": "ademas",
+    "key": "ademas",
+    "auto": "also",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789642413621,
+    "updatedAt": 1789642422448
+  },
+  {
+    "id": "67f105a1-b24b-4a5d-813a-dedd1fdd91d2",
+    "es": "cola",
+    "key": "cola",
+    "auto": "queue",
+    "autoState": "ok",
+    "gloss": "tail",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "2b095c0b-3db8-4505-bfa4-5f80eb754f07",
+        "text": "tu hermosa cola",
+        "source": "",
+        "addedAt": 1789642393980
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789642383636,
+    "updatedAt": 1789642401107
+  },
+  {
+    "id": "1009debc-ea4c-4766-836b-05b87251b75a",
+    "es": "saber",
+    "key": "saber",
+    "auto": "aware that",
+    "autoState": "ok",
+    "gloss": "know",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "b100ab01-61a2-4643-b812-05e758484153",
+        "text": "lo sé",
+        "source": "",
+        "addedAt": 1789638941824
+      },
+      {
+        "id": "4ae2f06e-c93d-421d-b844-57c8b3458901",
+        "text": "Sabes lo que creo, Pinkie Pie?",
+        "source": "",
+        "addedAt": 1790156102037
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638925670,
+    "updatedAt": 1790156102037,
+    "conj": {
+      "gerund": "sabiendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "sé",
+          "sabes",
+          "sabe",
+          "sabemos",
+          "sabéis",
+          "saben"
+        ]
+      },
+      "future": {
+        "source": "irregular",
+        "forms": [
+          "sabré",
+          "sabrás",
+          "sabrá",
+          "sabremos",
+          "sabréis",
+          "sabrán"
+        ]
+      },
+      "conditional": {
+        "source": "irregular",
+        "forms": [
+          "sabría",
+          "sabrías",
+          "sabría",
+          "sabríamos",
+          "sabríais",
+          "sabrían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "sabía",
+          "sabías",
+          "sabía",
+          "sabíamos",
+          "sabíais",
+          "sabían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "a7dc3759-7c0d-4104-b0f8-adfb805b6e4c",
+    "es": "tanto",
+    "key": "tanto",
+    "auto": "both",
+    "autoState": "ok",
+    "gloss": "so much",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "8d2afa4d-7d82-4066-b2ae-0a24877be9aa",
+        "text": "por eso tanto alboroto",
+        "source": "",
+        "addedAt": 1789638808533
+      },
+      {
+        "id": "ba1185bd-0b22-4052-8cc2-f5220894d8da",
+        "text": "ustedes dos tardaron tanto que mi perdi el almuerzo",
+        "source": "",
+        "addedAt": 1789735392210
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638759390,
+    "updatedAt": 1789735392210
+  },
+  {
+    "id": "412c810c-1af3-4da3-96f0-45ab773508d2",
+    "es": "alboroto",
+    "key": "alboroto",
+    "auto": "uproar",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "8d2afa4d-7d82-4066-b2ae-0a24877be9aa",
+        "text": "por eso tanto alboroto",
+        "source": "",
+        "addedAt": 1789638808533
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638748470,
+    "updatedAt": 1789638808533
+  },
+  {
+    "id": "e6d0382d-caa8-4d0b-913e-d1593edd8fb3",
+    "es": "bigote",
+    "key": "bigote",
+    "auto": "mustache",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "038d02f0-fbe2-4ede-9f78-036d31c5ebbc",
+        "text": "mi amado bigote",
+        "source": "",
+        "addedAt": 1789638686205
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638677079,
+    "updatedAt": 1789638686205
+  },
+  {
+    "id": "e7765b0c-d812-4325-bc4b-05eec497354e",
+    "es": "amado",
+    "key": "amado",
+    "auto": "darling",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "038d02f0-fbe2-4ede-9f78-036d31c5ebbc",
+        "text": "mi amado bigote",
+        "source": "",
+        "addedAt": 1789638686205
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638660967,
+    "updatedAt": 1789638686205
+  },
+  {
+    "id": "16d23a47-b15e-4821-be92-94b480504179",
+    "es": "como",
+    "key": "como",
+    "auto": "as",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789638563038,
+    "updatedAt": 1789638563836
+  },
+  {
+    "id": "2ae0a5be-c731-4a7c-b9d6-6440ebe1c63b",
+    "es": "insensible",
+    "key": "insensible",
+    "auto": "Unfeeling",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "ab1e5a10-d22a-4295-95c9-11b713393110",
+        "text": "como pueden ser tan insensibles",
+        "source": "",
+        "addedAt": 1789638556665
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789638427431,
+    "updatedAt": 1789638556665
+  },
+  {
+    "id": "89637339-9efd-40b6-9b2e-7424abbd123c",
+    "es": "claro que si",
+    "key": "claro que si",
+    "auto": "of course, thank you so much",
+    "autoState": "ok",
+    "gloss": "of course it is, of course you are, etc",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789638363399,
+    "updatedAt": 1789638406757
+  },
+  {
+    "id": "798f6381-73a3-4b8f-9ca5-ff62013bcdf6",
+    "es": "no puede ser",
+    "key": "no puede ser",
+    "auto": "it can't be.",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "phrase",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789638284178,
+    "updatedAt": 1789638284967
+  },
+  {
+    "id": "d96e55dd-c3fe-4a80-a38b-2631611ceb4b",
+    "es": "barro",
+    "key": "barro",
+    "auto": "mudflat",
+    "autoState": "ok",
+    "gloss": "mud",
+    "pos": "noun",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789637847580,
+    "updatedAt": 1789637861569
+  },
+  {
+    "id": "ad72df26-0633-4202-8742-3bb1652aad2a",
+    "es": "bondad",
+    "key": "bondad",
+    "auto": "kindness",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "47b3e4c3-7dad-429b-a80a-3a9b3cb9db04",
+        "text": "a veces sólo debemos tener un poco de bondad",
+        "source": "",
+        "addedAt": 1789637517425
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789637483537,
+    "updatedAt": 1789637517425
+  },
+  {
+    "id": "9fd17b0c-e4cc-40f2-af82-b0dac04c93b1",
+    "es": "claro",
+    "key": "claro",
+    "auto": "of course",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "other",
+    "examples": [
+      {
+        "id": "a29256b1-2990-4b77-b736-996f97970a47",
+        "text": "claro que si",
+        "source": "",
+        "addedAt": 1789637461467
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789637451816,
+    "updatedAt": 1789637461467
+  },
+  {
+    "id": "5b3bae19-ac5e-482d-8fcb-e91593bc68ca",
+    "es": "doler",
+    "key": "doler",
+    "auto": "hurt",
+    "autoState": "ok",
+    "gloss": "",
+    "pos": "verb",
+    "examples": [
+      {
+        "id": "5da32a9e-2f43-4286-a31f-5a6d8ac40ccd",
+        "text": "esto te va a doler por sólo un segundo",
+        "source": "",
+        "addedAt": 1789637427421
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789637397899,
+    "updatedAt": 1789637427421,
+    "conj": {
+      "gerund": "doliendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "duelo",
+          "dueles",
+          "duele",
+          "dolemos",
+          "doléis",
+          "duelen"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "doleré",
+          "dolerás",
+          "dolerá",
+          "doleremos",
+          "doleréis",
+          "dolerán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "dolería",
+          "dolerías",
+          "dolería",
+          "doleríamos",
+          "doleríais",
+          "dolerían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "dolía",
+          "dolías",
+          "dolía",
+          "dolíamos",
+          "dolíais",
+          "dolían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "bd814d3f-a222-46e1-9900-9f3f06ff56a7",
+    "es": "pobre",
+    "key": "pobre",
+    "auto": "Poor",
+    "autoState": "ok",
+    "gloss": "poor",
+    "pos": "adjective",
+    "examples": [
+      {
+        "id": "345476b4-295f-46e0-9634-2e6936b4e206",
+        "text": "pobre bebito indefence",
+        "source": "",
+        "addedAt": 1789637378766
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789637297385,
+    "updatedAt": 1789637378766
+  },
+  {
+    "id": "c8510e1c-c8ed-4b82-8384-0b02a7db921c",
+    "es": "decir",
+    "key": "decir",
+    "auto": "says",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789631735715,
+    "updatedAt": 1789632046688,
+    "pos": "verb",
+    "conj": {
+      "gerund": "diciendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "digo",
+          "dices",
+          "dice",
+          "decimos",
+          "decís",
+          "dicen"
+        ]
+      },
+      "future": {
+        "source": "irregular",
+        "forms": [
+          "diré",
+          "dirás",
+          "dirá",
+          "diremos",
+          "diréis",
+          "dirán"
+        ]
+      },
+      "conditional": {
+        "source": "irregular",
+        "forms": [
+          "diría",
+          "dirías",
+          "diría",
+          "diríamos",
+          "diríais",
+          "dirían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "decía",
+          "decías",
+          "decía",
+          "decíamos",
+          "decíais",
+          "decían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "87f291e7-41d6-49dd-91f1-baa4d1880bca",
+    "es": "espia",
+    "key": "espia",
+    "auto": "Spy",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789630605148,
+    "updatedAt": 1789634845605,
+    "pos": "noun"
+  },
+  {
+    "id": "4f335d64-b6a7-40d9-aab1-5b7adae2859b",
+    "es": "ser",
+    "key": "ser",
+    "auto": "you're",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "b81ecc38-fdc2-428b-9145-b1f663baca7b",
+        "text": "no puede ser",
+        "source": "",
+        "addedAt": 1789638248657
+      },
+      {
+        "id": "ab1e5a10-d22a-4295-95c9-11b713393110",
+        "text": "como pueden ser tan insensibles",
+        "source": "",
+        "addedAt": 1789638556665
+      },
+      {
+        "id": "0e74f052-cb17-482e-ace1-6d6c6efaeb90",
+        "text": "no es lo que estabas esperando",
+        "source": "",
+        "addedAt": 1789642670463
+      },
+      {
+        "id": "7d071726-ee01-493b-9332-84a336b2b3f0",
+        "text": "es todo un placer",
+        "source": "",
+        "addedAt": 1789734457316
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630589118,
+    "updatedAt": 1789734457316,
+    "pos": "verb",
+    "conj": {
+      "gerund": "siendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "soy",
+          "eres",
+          "es",
+          "somos",
+          "sois",
+          "son"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "seré",
+          "serás",
+          "será",
+          "seremos",
+          "seréis",
+          "serán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "sería",
+          "serías",
+          "sería",
+          "seríamos",
+          "seríais",
+          "serían"
+        ]
+      },
+      "imperfect": {
+        "source": "irregular",
+        "forms": [
+          "era",
+          "eras",
+          "era",
+          "éramos",
+          "erais",
+          "eran"
+        ]
+      }
+    }
+  },
+  {
+    "id": "b421db05-b1c1-473c-82c2-01ed75cbb425",
+    "es": "despues",
+    "key": "despues",
+    "auto": "despues",
+    "autoState": "ok",
+    "gloss": "after",
+    "examples": [
+      {
+        "id": "d3543436-aeaa-4d04-973f-964db40aa0d2",
+        "text": "tu eres dragon despues de todo",
+        "source": "",
+        "addedAt": 1789630560030
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630511273,
+    "updatedAt": 1789630560030,
+    "pos": "other"
+  },
+  {
+    "id": "ed519ac5-6294-477e-b960-c9e89637e103",
+    "es": "nada",
+    "key": "nada",
+    "auto": "nothing",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "6bc8ea33-038d-489c-8e47-4ce54bdf41bc",
+        "text": "no hes dormido nada, Spike",
+        "source": "",
+        "addedAt": 1789630445090
+      },
+      {
+        "id": "b05d8d08-8f3c-4422-b2aa-1c411b7ec54d",
+        "text": "de nada",
+        "source": "",
+        "addedAt": 1789631972430
+      },
+      {
+        "id": "1acbe374-ba11-4a54-80da-39e0619d79e2",
+        "text": "para nada en el lugar y no es natural",
+        "source": "",
+        "addedAt": 1789632041585
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630427113,
+    "updatedAt": 1789632536617,
+    "pos": "other"
+  },
+  {
+    "id": "7f2268ef-3457-468c-9d42-78c27ab5fb36",
+    "es": "oscuridad",
+    "key": "oscuridad",
+    "auto": "darkness",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "00e2c195-1266-4b9e-9cb1-c798bd6601f4",
+        "text": "la oscuridad eterna",
+        "source": "",
+        "addedAt": 1789630394396
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789630370387,
+    "updatedAt": 1789630394396,
+    "pos": "other"
+  },
+  {
+    "id": "2ab4283a-f742-4548-aeb1-be58ca837cec",
+    "es": "quedar",
+    "key": "quedar",
+    "auto": "remain",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789628093979,
+    "updatedAt": 1789628094490,
+    "pos": "verb",
+    "conj": {
+      "gerund": "quedando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "quedo",
+          "quedas",
+          "queda",
+          "quedamos",
+          "quedáis",
+          "quedan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "quedaré",
+          "quedarás",
+          "quedará",
+          "quedaremos",
+          "quedaréis",
+          "quedarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "quedaría",
+          "quedarías",
+          "quedaría",
+          "quedaríamos",
+          "quedaríais",
+          "quedarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "quedaba",
+          "quedabas",
+          "quedaba",
+          "quedábamos",
+          "quedabais",
+          "quedaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "99009dbd-124e-4bd1-ab89-2a1436227866",
+    "es": "verdad",
+    "key": "verdad",
+    "auto": "truth",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789589218093,
+    "updatedAt": 1789589218751,
+    "pos": "other"
+  },
+  {
+    "id": "a6dbb587-c21d-4d56-8c4f-1eb19dbe6927",
+    "es": "querida",
+    "key": "querida",
+    "auto": "requested",
+    "autoState": "ok",
+    "gloss": "dear, darling",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789589189529,
+    "updatedAt": 1789589200664,
+    "pos": "other"
+  },
+  {
+    "id": "2300ca74-fed3-4527-a163-6af0bc3aa7c2",
+    "es": "verano",
+    "key": "verano",
+    "auto": "Verano",
+    "autoState": "ok",
+    "gloss": "summer",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588924776,
+    "updatedAt": 1789591289027,
+    "pos": "other"
+  },
+  {
+    "id": "f5994035-fd26-49d8-bd02-ecf029ea8e8a",
+    "es": "quien",
+    "key": "quien",
+    "auto": "whom",
+    "autoState": "ok",
+    "gloss": "whom?, who?",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588880782,
+    "updatedAt": 1789588898006,
+    "pos": "other"
+  },
+  {
+    "id": "16c65a8c-c78d-4ff8-90a5-a8a3290528ad",
+    "es": "esperar",
+    "key": "esperar",
+    "auto": "I hope",
+    "autoState": "ok",
+    "gloss": "hope, expect, wait",
+    "examples": [
+      {
+        "id": "0e74f052-cb17-482e-ace1-6d6c6efaeb90",
+        "text": "no es lo que estabas esperando",
+        "source": "",
+        "addedAt": 1789642670463
+      },
+      {
+        "id": "3f515c09-23a3-43a5-9aa5-60c5edcbc9a3",
+        "text": "espera solo un momentito",
+        "source": "",
+        "addedAt": 1789737298149
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789588868920,
+    "updatedAt": 1789737298149,
+    "pos": "verb",
+    "conj": {
+      "gerund": "esperando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "espero",
+          "esperas",
+          "espera",
+          "esperamos",
+          "esperáis",
+          "esperan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "esperaré",
+          "esperarás",
+          "esperará",
+          "esperaremos",
+          "esperaréis",
+          "esperarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "esperaría",
+          "esperarías",
+          "esperaría",
+          "esperaríamos",
+          "esperaríais",
+          "esperarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "esperaba",
+          "esperabas",
+          "esperaba",
+          "esperábamos",
+          "esperabais",
+          "esperaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "3fa8a25e-fea8-4a0f-a8e6-6fc08d927a70",
+    "es": "ver",
+    "key": "ver",
+    "auto": "Show",
+    "autoState": "ok",
+    "gloss": "show, see",
+    "examples": [
+      {
+        "id": "1b54a341-344f-469c-b352-1dd3371e4523",
+        "text": "te vere mas tarde",
+        "source": "",
+        "addedAt": 1790144957494
+      }
+    ],
+    "notes": "veremos: we will see",
+    "createdAt": 1789588795417,
+    "updatedAt": 1790144957494,
+    "pos": "verb",
+    "conj": {
+      "gerund": "viendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "veo",
+          "ves",
+          "ve",
+          "vemos",
+          "veis",
+          "ven"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "veré",
+          "verás",
+          "verá",
+          "veremos",
+          "veréis",
+          "verán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "vería",
+          "verías",
+          "vería",
+          "veríamos",
+          "veríais",
+          "verían"
+        ]
+      },
+      "imperfect": {
+        "source": "irregular",
+        "forms": [
+          "veía",
+          "veías",
+          "veía",
+          "veíamos",
+          "veíais",
+          "veían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "8d6cace3-78d5-45fc-a348-fc34f8b767e5",
+    "es": "sorprendid",
+    "key": "sorprendid",
+    "auto": "Surprised",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588637587,
+    "updatedAt": 1789588638494,
+    "pos": "other"
+  },
+  {
+    "id": "b6a9958f-cd74-4d19-9b75-d0b0214ed840",
+    "es": "hacer",
+    "key": "hacer",
+    "auto": "do",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588603385,
+    "updatedAt": 1789632536617,
+    "pos": "verb",
+    "conj": {
+      "gerund": "haciendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "hago",
+          "haces",
+          "hace",
+          "hacemos",
+          "hacéis",
+          "hacen"
+        ]
+      },
+      "future": {
+        "source": "irregular",
+        "forms": [
+          "haré",
+          "harás",
+          "hará",
+          "haremos",
+          "haréis",
+          "harán"
+        ]
+      },
+      "conditional": {
+        "source": "irregular",
+        "forms": [
+          "haría",
+          "harías",
+          "haría",
+          "haríamos",
+          "haríais",
+          "harían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "hacía",
+          "hacías",
+          "hacía",
+          "hacíamos",
+          "hacíais",
+          "hacían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "43de5df2-ea9e-4d24-9863-be303437a083",
+    "es": "temporada",
+    "key": "temporada",
+    "auto": "skewer",
+    "autoState": "ok",
+    "gloss": "season",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588529824,
+    "updatedAt": 1789588538845,
+    "pos": "other"
+  },
+  {
+    "id": "cca15591-0c7d-498f-8377-979d10d56076",
+    "es": "otoño",
+    "key": "otono",
+    "auto": "oroño",
+    "autoState": "ok",
+    "gloss": "autumn",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588470598,
+    "updatedAt": 1789591289027,
+    "pos": "other"
+  },
+  {
+    "id": "d3464760-e583-4d0d-83cc-64787ca3941b",
+    "es": "primavera",
+    "key": "primavera",
+    "auto": "Spring",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588454614,
+    "updatedAt": 1789591289027,
+    "pos": "other"
+  },
+  {
+    "id": "0b090d67-ca26-474b-ab39-d3ff6ead1107",
+    "es": "invierno",
+    "key": "invierno",
+    "auto": "winter",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588394647,
+    "updatedAt": 1789588445665,
+    "pos": "other"
+  },
+  {
+    "id": "b6c1f253-d376-47ce-b796-42957ba4b882",
+    "es": "ese",
+    "key": "ese",
+    "auto": "that",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588353294,
+    "updatedAt": 1789588354005,
+    "pos": "other"
+  },
+  {
+    "id": "c04e580f-c9d6-48a9-9509-257fd36766a0",
+    "es": "peinado",
+    "key": "peinado",
+    "auto": "combing",
+    "autoState": "ok",
+    "gloss": "hairstyle, hair, combing",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588294457,
+    "updatedAt": 1789588328521,
+    "pos": "other"
+  },
+  {
+    "id": "b8a0261a-6748-45f4-bbfb-dee4ec6bf80d",
+    "es": "Amistad",
+    "key": "amistad",
+    "auto": "Friendship",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588283255,
+    "updatedAt": 1789588284216,
+    "pos": "other"
+  },
+  {
+    "id": "b5cb5463-5d2e-4625-bcc1-a2e841c9cef9",
+    "es": "hermosa",
+    "key": "hermosa",
+    "auto": "hermosa",
+    "autoState": "ok",
+    "gloss": "\"beautiful\" or \"gorgeous\"",
+    "examples": [
+      {
+        "id": "2b095c0b-3db8-4505-bfa4-5f80eb754f07",
+        "text": "tu hermosa cola",
+        "source": "",
+        "addedAt": 1789642393980
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789588187734,
+    "updatedAt": 1789642393980,
+    "pos": "other"
+  },
+  {
+    "id": "1eacdc18-c8c8-4e93-b344-b200ac94903f",
+    "es": "pasar",
+    "key": "pasar",
+    "auto": "come by",
+    "autoState": "ok",
+    "gloss": "to pass by, to happen",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789588080399,
+    "updatedAt": 1789588124534,
+    "pos": "verb",
+    "conj": {
+      "gerund": "pasando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "paso",
+          "pasas",
+          "pasa",
+          "pasamos",
+          "pasáis",
+          "pasan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "pasaré",
+          "pasarás",
+          "pasará",
+          "pasaremos",
+          "pasaréis",
+          "pasarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "pasaría",
+          "pasarías",
+          "pasaría",
+          "pasaríamos",
+          "pasaríais",
+          "pasarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "pasaba",
+          "pasabas",
+          "pasaba",
+          "pasábamos",
+          "pasabais",
+          "pasaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "8e86b7e4-945c-476f-b020-dcd0b8dc13e5",
+    "es": "buscar",
+    "key": "buscar",
+    "auto": "search",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587954687,
+    "updatedAt": 1789632536618,
+    "pos": "verb",
+    "conj": {
+      "gerund": "buscando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "busco",
+          "buscas",
+          "busca",
+          "buscamos",
+          "buscáis",
+          "buscan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "buscaré",
+          "buscarás",
+          "buscará",
+          "buscaremos",
+          "buscaréis",
+          "buscarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "buscaría",
+          "buscarías",
+          "buscaría",
+          "buscaríamos",
+          "buscaríais",
+          "buscarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "buscaba",
+          "buscabas",
+          "buscaba",
+          "buscábamos",
+          "buscabais",
+          "buscaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "cb357f27-ff20-4b05-a8f3-f028f6f08076",
+    "es": "llegar",
+    "key": "llegar",
+    "auto": "came",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587774349,
+    "updatedAt": 1789632046688,
+    "pos": "verb",
+    "conj": {
+      "gerund": "llegando",
+      "present": {
+        "source": "generated",
+        "forms": [
+          "llego",
+          "llegas",
+          "llega",
+          "llegamos",
+          "llegáis",
+          "llegan"
+        ]
+      },
+      "future": {
+        "source": "generated",
+        "forms": [
+          "llegaré",
+          "llegarás",
+          "llegará",
+          "llegaremos",
+          "llegaréis",
+          "llegarán"
+        ]
+      },
+      "conditional": {
+        "source": "generated",
+        "forms": [
+          "llegaría",
+          "llegarías",
+          "llegaría",
+          "llegaríamos",
+          "llegaríais",
+          "llegarían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "llegaba",
+          "llegabas",
+          "llegaba",
+          "llegábamos",
+          "llegabais",
+          "llegaban"
+        ]
+      }
+    }
+  },
+  {
+    "id": "74f5ef37-13b3-44fa-9576-35b63c57ab7d",
+    "es": "poder",
+    "key": "poder",
+    "auto": "power",
+    "autoState": "ok",
+    "gloss": "power, can, might",
+    "examples": [
+      {
+        "id": "b81ecc38-fdc2-428b-9145-b1f663baca7b",
+        "text": "no puede ser",
+        "source": "",
+        "addedAt": 1789638248657
+      },
+      {
+        "id": "ab1e5a10-d22a-4295-95c9-11b713393110",
+        "text": "como pueden ser tan insensibles",
+        "source": "",
+        "addedAt": 1789638556665
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789587749690,
+    "updatedAt": 1789638556665,
+    "pos": "verb",
+    "conj": {
+      "gerund": "pudiendo",
+      "present": {
+        "source": "irregular",
+        "forms": [
+          "puedo",
+          "puedes",
+          "puede",
+          "podemos",
+          "podéis",
+          "pueden"
+        ]
+      },
+      "future": {
+        "source": "irregular",
+        "forms": [
+          "podré",
+          "podrás",
+          "podrá",
+          "podremos",
+          "podréis",
+          "podrán"
+        ]
+      },
+      "conditional": {
+        "source": "irregular",
+        "forms": [
+          "podría",
+          "podrías",
+          "podría",
+          "podríamos",
+          "podríais",
+          "podrían"
+        ]
+      },
+      "imperfect": {
+        "source": "generated",
+        "forms": [
+          "podía",
+          "podías",
+          "podía",
+          "podíamos",
+          "podíais",
+          "podían"
+        ]
+      }
+    }
+  },
+  {
+    "id": "0158f861-6b5e-4e11-bbbd-8082cb3e782d",
+    "es": "cosa",
+    "key": "cosa",
+    "auto": "thing",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "3d620246-79ff-4ae2-8b6b-576419be3c5f",
+        "text": "solo falta una cosa",
+        "source": "",
+        "addedAt": 1790079492784
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789587716689,
+    "updatedAt": 1790079492784,
+    "pos": "other"
+  },
+  {
+    "id": "44144a7f-cf5a-4b0a-bee4-f839357beee4",
+    "es": "cosas",
+    "key": "cosas",
+    "auto": "stuff",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [
+      {
+        "id": "3d620246-79ff-4ae2-8b6b-576419be3c5f",
+        "text": "solo falta una cosa",
+        "source": "",
+        "addedAt": 1790079492784
+      }
+    ],
+    "notes": "",
+    "createdAt": 1789587709684,
+    "updatedAt": 1790079492784,
+    "pos": "other"
+  },
+  {
+    "id": "50d901e9-8c2f-4ee1-b182-fcb3f3194d36",
+    "es": "mapa",
+    "key": "mapa",
+    "auto": "map",
+    "autoState": "ok",
+    "gloss": "",
+    "examples": [],
+    "notes": "",
+    "createdAt": 1789587655875,
+    "updatedAt": 1789591246805,
+    "pos": "other"
+  }
+]

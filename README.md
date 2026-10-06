@@ -7,70 +7,73 @@ Open it at **http://localhost:8787**
 ## How it works
 
 - `server.js` — a small Node server (no dependencies, nothing to install). Serves the page, reads and writes the data file, and proxies translation requests.
-- `public/index.html` — the entire app: markup, styles, and script in one file.
+- `public/index.html` — the screen: markup, styles, and everything you click.
+- `public/store.js` — the data: words, sentences, the links between them, loading and saving.
+- `public/text.js` — small text helpers (ignoring case and accents, splitting sentences into words).
+- `lib/dictionary.js` — looks words up in the dictionary; `tools/build-dictionary.js` builds it (see **Dictionary**).
+- `data/dictionary.sqlite` — the dictionary: Spanish from English Wiktionary. Rebuildable, not your data.
 - `data/vocab.json` — **the data.** Plain, readable JSON. Edit it by hand, copy it, commit it, back it up.
+- `data/vocab.v1.json` — your file as it was before words and sentences were split apart. Kept for good; nothing writes to it.
 - `data/backups/` — a snapshot taken before every write. The 20 most recent are kept.
+- `test/run.js` — checks the dictionary lookups, the linking and the conversion, using `test/fixtures/dict-sample.jsonl` (a few real Wiktionary entries). Run `node test/run.js`; it only reads `data/`, never writes.
 - `start-hidden.vbs` — launches the server with no console window.
 
 The server starts automatically at logon via a shortcut in the Windows Startup folder (`Spanish vocab server.lnk`). Delete that shortcut to stop it starting.
 
 ## Using it
 
-Type a word, press Enter. The row appears immediately and an English translation fills in a moment later, marked with an `auto` badge.
+Type a word, press Enter. The app looks it up in the dictionary first:
 
-That automatic translation is a starting point, not the truth. Machine translation is regularly wrong on slang and idiom, so press **edit** and write your own gloss. Your gloss then replaces the automatic one everywhere, the badge disappears, and nothing ever overwrites it — the automatic text stays cached underneath and is only refetched if you press **retranslate**.
+- **One clear answer** — it's saved under its dictionary headword, with its meanings. Type `celosa` and you get `celoso`, and the notice says `celosa` is its feminine form, with **keep celosa** beside it if you meant the literal word. Verbs are saved as the infinitive, and nouns keep the article you typed, corrected if it was wrong (`los ganancias` → `la ganancia`).
+- **Several answers** — nothing is saved until you pick one. `sueño` offers the noun *(dream, sleep)* and the verb `soñar`, because it's also "I dream".
+- **A spelling slip** — *did you mean* `cómoda` for `comoda`, or `placer` for `palcer`.
+- **Nothing** — it's saved as typed and translated by machine, as before, marked with an `auto` badge.
 
-Adding a word you already have does not create a duplicate. The app recognises it, tells you, and opens the existing entry for editing instead. Matching ignores capitals, accents, and a leading article, so `el mapa`, `Mapa`, and `MAPÁ` are all the same word.
+Rare verb forms aren't offered when a common reading exists: `cosa` is also a subjunctive of *coser*, but you'll never be asked about it.
+
+The meaning shown on a word is your own gloss if you wrote one, otherwise the dictionary's, otherwise the machine translation. Press **edit** to write your own; nothing ever overwrites it.
+
+Adding a word you already have does not create a duplicate: typing `celosas` next month opens `celoso`.
+
+**Check against dictionary** (bottom of the page) goes through every saved word. It fills in meanings, gender, forms and verb tables straight away, since that only adds information and never touches your own gloss, notes or corrected tables. Anything that would rename or merge a word goes on a review list, one row each, which you accept or skip: respellings (`comoda → cómoda`), typos (`el palcer → placer`, merging into the `placer` you already have), headwords (`maniobras → maniobra`), wrong articles. Skipped words aren't asked about again.
 
 ## Verbs
 
-A word is saved under its **infinitive**. Type `espero` and the entry becomes `esperar`, with its present-tense forms attached; the notice says what happened and leaves a one-click **keep espero** next to it if you meant the literal word.
-
-Expand a verb and its forms sit above the sentences, one block per tense — present, future, conditional and imperfect:
+Expand a verb and its conjugation sits above its sentences. The present tense shows first, with the gerund and past participle; **more tenses** opens the preterite, imperfect, future, conditional, present and imperfect subjunctive, and the imperative. All of them come from Wiktionary, so irregular verbs are right: `hacer → hice, hizo, hecho`.
 
 ```
-PRESENT  irregular                    FUTURE  irregular
-yo       hago     nosotros  hacemos   yo      haré     nosotros  haremos
-tú       haces    vosotros  hacéis    tú      harás    vosotros  haréis
-él/ella  hace     ellos     hacen     él/ella hará     ellos     harán
-gerund   haciendo
+PRESENT  dictionary
+yo       hago     nosotros  hacemos
+tú       haces    vosotros  hacéis
+él/ella  hace     ellos     hacen
+gerund   haciendo participle hecho
 ```
 
-Each tense is corrected and rebuilt on its own — fixing the future leaves the present alone. The badge says where that tense's forms came from. `irregular` means they were looked up in the app's own table of irregular and stem-changing verbs. `generated` means the regular rules produced them, and an irregularity the app does not know about would make them wrong. `yours` means you corrected them — press **edit**, fix what is wrong, and nothing regenerates over it afterwards. **regenerate** rebuilds that tense from the rules and asks first if it would throw away your corrections.
+Each table can be corrected on its own with **edit**; once you do, it's marked `yours` and the dictionary never overwrites it. **reset** puts the dictionary's version back, after asking. Tables marked `irregular` or `generated` come from the rules engine the app used before the dictionary; **Check against dictionary** replaces them.
 
-Sentences match through every stored form, so `No puedo hacer nada` reaches `poder` as well as `hacer`, and `Ya veremos` reaches `ver`. The matched form is highlighted. Correcting a form immediately changes what attaches to it.
+Sentences match through every stored form, in every tense: `Ayer hice la comida` reaches `hacer` on its own, and the matched form is highlighted. Nouns and adjectives link through their real plurals and feminines (`cosas`, `celosas`). Words the dictionary doesn't know fall back to guessing plurals.
 
-A word that turns out to be a form of a verb you already saved is folded into it — `veremos` disappears into `ver`, carrying its sentences, and its own translation is kept as a note. The notice names every fold and leaves a **keep** button beside it.
-
-Every word also carries a **part of speech** — verb, noun, adjective, phrase or other — guessed when it is saved and changeable in the editor. Setting a word to `verb` builds its forms; setting it to anything else drops them.
-
-### What it covers
-
-Present, future, conditional and imperfect. **Not the preterite**: `Ayer hice la comida` will not find `hacer`, and typing `hice` will not resolve to it either. That tense has dozens of irregular stems, which is a different size of job. Adding a sentence from the verb's own row still attaches it, so nothing is out of reach — it just is not automatic.
-
-Two things stop a noun being mistaken for a verb form. A word you type with its article — `el sueño`, `la meta` — is taken at its word and never resolved, because the article is you saying it is a noun. And `ñ` counts as its own letter here, so `sueño` (dream) is not treated as `sueno`, the yo-form of `sonar`; `soñar` and `sonar` stay two different verbs.
-
-Resolving a form to its infinitive only happens for verbs on the app's list of about 500 common ones. This is deliberate: every Spanish noun in `-a` or `-o` looks like a conjugated verb, so without the list `mapa` would become `mapar` and `verano` would become `veranar`. Words that are far more often a noun or a function word — `nada`, `trabajo`, `recuerdo`, `cuenta`, `para`, `como` — are never converted even though they are real verb forms. A verb missing from the list is simply left alone: type the infinitive yourself and set the part of speech, and everything else works as usual.
+`ñ` counts as its own letter: `sueño` is never mistaken for `sueno`, a form of `sonar`.
 
 ## Example sentences
 
-A word on its own is the weakest kind of flashcard, so every word can carry the sentences you met it in.
+A word on its own is the weakest kind of flashcard, so words and the sentences you met them in live side by side and link to each other.
 
-Click a word (or its count chip) to expand it, type the sentence, press Enter. The `sentences` tab at the top does the same thing from one box, and lists everything you have collected.
+Words and sentences are **separate things**. A sentence exists once, however many words it belongs to, and it stays when a word is deleted. The `sentences` tab lists all of them; opening a word shows the ones linked to it.
 
-**A sentence attaches to every saved word it contains, not just the one you are looking at.** Save *"En verano y primavera hago cosas hermosas"* and it lands on `verano`, `primavera`, `cosa`, `cosas`, and `hermosa` at once — the app tells you which. The words it recognised are highlighted inside the sentence, so you can see what it caught.
+**Links are worked out from the text, all the time.** A sentence links to every saved word it contains — including plurals (`cosas` → `cosa`) and any stored verb form (`hago` → `hacer`, `veremos` → `ver`). Because nothing is frozen at the moment you add a sentence:
 
-Matching tolerates plurals (`mapa` catches `mapas`, `ciudad` catches `ciudades`) but **not conjugation** — `hacer` is not found inside `hago`. That is why a sentence added from a word's own row always attaches to that word, whether or not the matcher saw it. Adding from the `sentences` tab needs at least one recognised word, since a sentence with no word has nowhere to live.
+- save a new word and every older sentence containing it links up immediately
+- edit a sentence and its links follow the new text
+- correct a verb form and sentences using that form attach to the verb
 
-A sentence is stored on each of its words with the same `id`, which is what links them. Deleting it from one word removes it from all of them. Deleting a *word* takes its own sentences with it; ones shared with other words stay on those.
+The words found are highlighted inside the sentence.
+
+**You can overrule the matcher either way.** Each linked word shows as a chip with an **×** — press it and that word stays unlinked from that sentence, even though it's in the text. **+ word** on a sentence pins a word the matcher can't see, like a typo or a preterite form (`hice` → `hacer`). Pinned words show in italics. Adding a sentence from a word's own row pins it to that word if the text alone wouldn't.
+
+**Edit** on a sentence changes its text and source in place. Pasting a sentence you already have — even with different capitals or without the full stop — opens the one you have instead of making a copy. A sentence with none of your words in it is still saved, and links up as you add them.
 
 Sentences are never machine-translated. They are context to work out, and translating every one would burn the free quota in a day.
-
-To add one by hand in an editor, a bare string is enough — the app upgrades it on load:
-
-```json
-"examples": ["En otoño las hojas caen."]
-```
 
 Search filters as you type across the Spanish word, both translations, your notes, and your sentences — accents optional. Press `/` anywhere to jump to the search box.
 
@@ -93,33 +96,76 @@ taskkill /PID <pid> /F
 
 ## Data shape
 
+One file, three lists — like three tables in a database:
+
 ```json
 {
-  "id": "uuid",
-  "es": "hacer",
-  "key": "hacer",
-  "pos": "verb",
-  "conj": {
-    "gerund": "haciendo",
-    "present": { "source": "irregular", "forms": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"] },
-    "future": { "source": "irregular", "forms": ["haré", "harás", "hará", "haremos", "haréis", "harán"] },
-    "conditional": { "source": "irregular", "forms": ["haría", "harías", "haría", "haríamos", "haríais", "harían"] },
-    "imperfect": { "source": "generated", "forms": ["hacía", "hacías", "hacía", "hacíamos", "hacíais", "hacían"] }
-  },
-  "auto": "Map",
-  "autoState": "ok",
-  "gloss": "map (the paper kind)",
-  "examples": [
-    { "id": "uuid", "text": "En verano hago cosas hermosas.", "source": "podcast ep. 12", "addedAt": 1789591190464 }
+  "version": 2,
+  "words": [
+    {
+      "id": "uuid",
+      "es": "hacer",
+      "key": "hacer",
+      "pos": "verb",
+      "dict": { "headword": "hacer", "pos": "verb", "senses": ["to do, perform, execute, carry out", "to make"] },
+      "conj": {
+        "gerund": "haciendo",
+        "participle": "hecho",
+        "present": { "source": "dictionary", "forms": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"] },
+        "preterite": { "source": "dictionary", "forms": ["hice", "hiciste", "hizo", "hicimos", "hicisteis", "hicieron"] },
+        "…": "imperfect, future, conditional, subjunctive, imperfectSubjunctive, imperative"
+      },
+      "auto": "do",
+      "autoState": "ok",
+      "gloss": "",
+      "notes": "",
+      "createdAt": 1789587435481,
+      "updatedAt": 1789587447527
+    }
   ],
-  "notes": "",
-  "createdAt": 1789587435481,
-  "updatedAt": 1789587447527
+  "sentences": [
+    { "id": "uuid", "text": "No puedo hacer nada.", "source": "podcast ep. 12", "createdAt": 1789591190464, "updatedAt": 1789591190464 }
+  ],
+  "links": [
+    { "wordId": "uuid", "sentenceId": "uuid", "kind": "manual" },
+    { "wordId": "uuid", "sentenceId": "uuid", "kind": "blocked" }
+  ]
 }
 ```
 
-`conj` is only present on verbs, and is plain enough to fix by hand. The same sentence object, with the same `id`, is repeated on every word it belongs to. The text is duplicated on disk deliberately: it keeps the file one flat array that stays readable and hand-editable.
+`links` holds **only your decisions** — words you pinned (`manual`) and matches you rejected (`blocked`). The links you see are:
+
+```
+(matched from the text  +  manual)  −  blocked
+```
+
+The matched ones are never stored, so they can never go stale. Rows point at ids, so renaming a word or editing a sentence doesn't break them.
+
+`dict` is the copy of what the dictionary said when the word was saved. Nouns also get `gender` (`m`, `f` or `mf`), and nouns and adjectives get `forms` (plurals, feminines). `conj` is only present on verbs, and is plain enough to fix by hand. To add a sentence by hand, append it to `sentences` with any unique `id`; it links itself on the next load.
 
 ## Translation source
 
-MyMemory (`api.mymemory.translated.net`), no API key, roughly 5000 characters per day. Requests go through the local server rather than the browser. If the quota runs out or the network is down the entry is marked `no translation` and gets a **retranslate** button — nothing is lost, and you can always write the gloss yourself.
+Meanings come from **Wiktionary** (English edition), via the extraction published at kaikki.org. Wiktionary text is licensed CC BY-SA.
+
+For phrases and anything the dictionary doesn't have, MyMemory (`api.mymemory.translated.net`) fills in, with no API key and roughly 5000 characters per day. Requests go through the local server. If the quota runs out or the network is down the entry is marked `no translation` and gets a **retranslate** button.
+
+## Dictionary
+
+The dictionary is built once from Wiktionary's full data dump and stored in `data/dictionary.sqlite`, a normal SQLite file you can open in DBeaver or any SQLite tool:
+
+```
+entries(word, pos, gender, senses, forms, conj)   -- one row per headword and part of speech
+forms  (form, lemma, pos, tags)                   -- every inflected form → its headword
+```
+
+For example, `SELECT * FROM forms WHERE form = 'hice'` shows it is the yo preterite of `hacer`.
+
+To rebuild it, for example to pick up Wiktionary's weekly updates:
+
+1. Download `https://kaikki.org/dictionary/raw-wiktextract-data.jsonl.gz` (about 2.9 GB) into `dictionary-source/`.
+2. Run `node tools/build-dictionary.js dictionary-source/raw-wiktextract-data.jsonl.gz`. This takes a while and prints its progress.
+3. Restart the server so it opens the new file. On Windows the build can't replace a file the running server has open; if it says so, stop the server, rename `dictionary.sqlite.tmp` to `dictionary.sqlite`, and start it again.
+
+Your words keep their own copy of what the dictionary said when they were saved, so a rebuild changes nothing until you run **Check against dictionary** again. The download can be deleted after the build.
+
+Without the dictionary file the app still works: words are saved as typed and translated by machine.
