@@ -2,6 +2,2513 @@
   "version": 2,
   "words": [
     {
+      "id": "928b5e87-9764-424d-a2a7-3266fc8a069c",
+      "es": "tocar",
+      "key": "tocar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1792693860454,
+      "updatedAt": 1792693860454,
+      "dict": {
+        "headword": "tocar",
+        "pos": "verb",
+        "senses": [
+          "to touch",
+          "to play (a musical instrument)",
+          "to be someone's time or turn, or time to do something",
+          "to have to do something, be obligated to do",
+          "to knock",
+          "to honk"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "toco",
+            "tocas",
+            "toca",
+            "tocamos",
+            "tocáis",
+            "tocan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "toqué",
+            "tocaste",
+            "tocó",
+            "tocamos",
+            "tocasteis",
+            "tocaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "tocaba",
+            "tocabas",
+            "tocaba",
+            "tocábamos",
+            "tocabais",
+            "tocaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "tocaré",
+            "tocarás",
+            "tocará",
+            "tocaremos",
+            "tocaréis",
+            "tocarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "tocaría",
+            "tocarías",
+            "tocaría",
+            "tocaríamos",
+            "tocaríais",
+            "tocarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "toque",
+            "toques",
+            "toque",
+            "toquemos",
+            "toquéis",
+            "toquen"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "tocara",
+            "tocaras",
+            "tocara",
+            "tocáramos",
+            "tocarais",
+            "tocaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "toca",
+            "toque",
+            "toquemos",
+            "tocad",
+            "toquen"
+          ]
+        },
+        "gerund": "tocando",
+        "participle": "tocado"
+      }
+    },
+    {
+      "id": "0f8217eb-769b-493c-b586-e8c462d6d73a",
+      "es": "tal vez",
+      "key": "tal vez",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adverb",
+      "notes": "",
+      "createdAt": 1792693779050,
+      "updatedAt": 1792693779050,
+      "dict": {
+        "headword": "tal vez",
+        "pos": "adv",
+        "senses": [
+          "maybe, perhaps"
+        ]
+      }
+    },
+    {
+      "id": "e7dfd2f3-2e1c-43a3-85cc-276d65eaac01",
+      "es": "asombrar",
+      "key": "asombrar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1792693543327,
+      "updatedAt": 1792693543327,
+      "dict": {
+        "headword": "asombrar",
+        "pos": "verb",
+        "senses": [
+          "to amaze",
+          "to astonish, to astound"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "asombro",
+            "asombras",
+            "asombra",
+            "asombramos",
+            "asombráis",
+            "asombran"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "asombré",
+            "asombraste",
+            "asombró",
+            "asombramos",
+            "asombrasteis",
+            "asombraron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "asombraba",
+            "asombrabas",
+            "asombraba",
+            "asombrábamos",
+            "asombrabais",
+            "asombraban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "asombraré",
+            "asombrarás",
+            "asombrará",
+            "asombraremos",
+            "asombraréis",
+            "asombrarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "asombraría",
+            "asombrarías",
+            "asombraría",
+            "asombraríamos",
+            "asombraríais",
+            "asombrarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "asombre",
+            "asombres",
+            "asombre",
+            "asombremos",
+            "asombréis",
+            "asombren"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "asombrara",
+            "asombraras",
+            "asombrara",
+            "asombráramos",
+            "asombrarais",
+            "asombraran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "asombra",
+            "asombre",
+            "asombremos",
+            "asombrad",
+            "asombren"
+          ]
+        },
+        "gerund": "asombrando",
+        "participle": "asombrado"
+      }
+    },
+    {
+      "id": "3e2e2429-e41e-4f50-86af-b4dc21061ffe",
+      "es": "estoy seguro",
+      "key": "estoy seguro",
+      "auto": "I'm positive.",
+      "autoState": "ok",
+      "gloss": "",
+      "pos": "other",
+      "notes": "",
+      "createdAt": 1792693355221,
+      "updatedAt": 1792693356185
+    },
+    {
+      "id": "aa01d199-38d1-44fc-b420-d5c669f48512",
+      "es": "hecho",
+      "key": "hecho",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1792693286148,
+      "updatedAt": 1792693286148,
+      "dict": {
+        "headword": "hecho",
+        "pos": "noun",
+        "senses": [
+          "fact",
+          "act, deed",
+          "act of hatching a plan or an idea",
+          "(adjective) done, completed",
+          "(adjective) made"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "hechos",
+        "hecha",
+        "hechas"
+      ]
+    },
+    {
+      "id": "4109579e-4a5e-405f-929e-f88ae225a8c8",
+      "es": "matiz",
+      "key": "matiz",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1792693233562,
+      "updatedAt": 1792693233562,
+      "dict": {
+        "headword": "matiz",
+        "pos": "noun",
+        "senses": [
+          "hue",
+          "nuance, overtone"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "matices"
+      ]
+    },
+    {
+      "id": "96931ec2-15ec-4e09-b09f-57083b5c9b03",
+      "es": "parecer",
+      "key": "parecer",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1792692800586,
+      "updatedAt": 1792692800586,
+      "dict": {
+        "headword": "parecer",
+        "pos": "verb",
+        "senses": [
+          "to seem, to see fit",
+          "to look like, to seem like",
+          "to believe",
+          "to think",
+          "to strike (seem, appear, make an impression)",
+          "to be like, to take after, to resemble"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "parezco",
+            "pareces",
+            "parece",
+            "parecemos",
+            "parecéis",
+            "parecen"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "parecí",
+            "pareciste",
+            "pareció",
+            "parecimos",
+            "parecisteis",
+            "parecieron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "parecía",
+            "parecías",
+            "parecía",
+            "parecíamos",
+            "parecíais",
+            "parecían"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "pareceré",
+            "parecerás",
+            "parecerá",
+            "pareceremos",
+            "pareceréis",
+            "parecerán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "parecería",
+            "parecerías",
+            "parecería",
+            "pareceríamos",
+            "pareceríais",
+            "parecerían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "parezca",
+            "parezcas",
+            "parezca",
+            "parezcamos",
+            "parezcáis",
+            "parezcan"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "pareciera",
+            "parecieras",
+            "pareciera",
+            "pareciéramos",
+            "parecierais",
+            "parecieran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "parece",
+            "parezca",
+            "parezcamos",
+            "pareced",
+            "parezcan"
+          ]
+        },
+        "gerund": "pareciendo",
+        "participle": "parecido"
+      }
+    },
+    {
+      "id": "c55ea6b8-1ba7-400f-93b2-e649ee1d1db0",
+      "es": "prestar",
+      "key": "prestar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1792692790342,
+      "updatedAt": 1792692790342,
+      "dict": {
+        "headword": "prestar",
+        "pos": "verb",
+        "senses": [
+          "to lend",
+          "to give, pay (e.g., attention)",
+          "to have a natural inclination, a natural tendency",
+          "to take",
+          "to borrow"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "presto",
+            "prestas",
+            "presta",
+            "prestamos",
+            "prestáis",
+            "prestan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "presté",
+            "prestaste",
+            "prestó",
+            "prestamos",
+            "prestasteis",
+            "prestaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "prestaba",
+            "prestabas",
+            "prestaba",
+            "prestábamos",
+            "prestabais",
+            "prestaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "prestaré",
+            "prestarás",
+            "prestará",
+            "prestaremos",
+            "prestaréis",
+            "prestarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "prestaría",
+            "prestarías",
+            "prestaría",
+            "prestaríamos",
+            "prestaríais",
+            "prestarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "preste",
+            "prestes",
+            "preste",
+            "prestemos",
+            "prestéis",
+            "presten"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "prestara",
+            "prestaras",
+            "prestara",
+            "prestáramos",
+            "prestarais",
+            "prestaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "presta",
+            "preste",
+            "prestemos",
+            "prestad",
+            "presten"
+          ]
+        },
+        "gerund": "prestando",
+        "participle": "prestado"
+      }
+    },
+    {
+      "id": "7b817827-6e04-4b32-a6c9-091cdef7ca87",
+      "es": "obvio",
+      "key": "obvio",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791718902044,
+      "updatedAt": 1791718902044,
+      "dict": {
+        "headword": "obvio",
+        "pos": "adj",
+        "senses": [
+          "obvious",
+          "clear"
+        ]
+      },
+      "forms": [
+        "obvia",
+        "obvios",
+        "obvias"
+      ]
+    },
+    {
+      "id": "44bd9ff1-f050-4611-9e0e-7476530c2c4a",
+      "es": "salir",
+      "key": "salir",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791718211995,
+      "updatedAt": 1791718211995,
+      "dict": {
+        "headword": "salir",
+        "pos": "verb",
+        "senses": [
+          "to go out, to leave, to depart, to head out",
+          "to go out, to come out (to leave one's abode to go to public places)",
+          "to come out (e.g. from hiding), to come off (e.g. off the bench in a sport; off of a high place like a roof or ladder)",
+          "to exit, to leave, to walk out, to slip out",
+          "to step out (e.g. of a room, house or building)",
+          "to get off, to leave (e.g., get off work)"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "salgo",
+            "sales",
+            "sale",
+            "salimos",
+            "salís",
+            "salen"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "salí",
+            "saliste",
+            "salió",
+            "salimos",
+            "salisteis",
+            "salieron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "salía",
+            "salías",
+            "salía",
+            "salíamos",
+            "salíais",
+            "salían"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "saldré",
+            "saldrás",
+            "saldrá",
+            "saldremos",
+            "saldréis",
+            "saldrán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "saldría",
+            "saldrías",
+            "saldría",
+            "saldríamos",
+            "saldríais",
+            "saldrían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "salga",
+            "salgas",
+            "salga",
+            "salgamos",
+            "salgáis",
+            "salgan"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "saliera",
+            "salieras",
+            "saliera",
+            "saliéramos",
+            "salierais",
+            "salieran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "sal",
+            "salga",
+            "salgamos",
+            "salid",
+            "salgan"
+          ]
+        },
+        "gerund": "saliendo",
+        "participle": "salido"
+      }
+    },
+    {
+      "id": "25c97bdf-cbcd-4aa2-a117-56bb148df562",
+      "es": "bocado",
+      "key": "bocado",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791717894306,
+      "updatedAt": 1791717894306,
+      "dict": {
+        "headword": "bocado",
+        "pos": "noun",
+        "senses": [
+          "mouthful",
+          "snack",
+          "bit",
+          "vanilla ice cream"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "bocados"
+      ]
+    },
+    {
+      "id": "012542bb-328b-47a4-b279-43ab50fcf6a3",
+      "es": "despertar",
+      "key": "despertar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791717606016,
+      "updatedAt": 1791717606016,
+      "dict": {
+        "headword": "despertar",
+        "pos": "verb",
+        "senses": [
+          "to wake",
+          "to wake up",
+          "to awaken",
+          "to pique (interest, curiosity)",
+          "(noun) awakening"
+        ]
+      },
+      "forms": [
+        "despertares"
+      ],
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "despierto",
+            "despiertas",
+            "despierta",
+            "despertamos",
+            "despertáis",
+            "despiertan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "desperté",
+            "despertaste",
+            "despertó",
+            "despertamos",
+            "despertasteis",
+            "despertaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "despertaba",
+            "despertabas",
+            "despertaba",
+            "despertábamos",
+            "despertabais",
+            "despertaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "despertaré",
+            "despertarás",
+            "despertará",
+            "despertaremos",
+            "despertaréis",
+            "despertarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "despertaría",
+            "despertarías",
+            "despertaría",
+            "despertaríamos",
+            "despertaríais",
+            "despertarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "despierte",
+            "despiertes",
+            "despierte",
+            "despertemos",
+            "despertéis",
+            "despierten"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "despertara",
+            "despertaras",
+            "despertara",
+            "despertáramos",
+            "despertarais",
+            "despertaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "despierta",
+            "despierte",
+            "despertemos",
+            "despertad",
+            "despierten"
+          ]
+        },
+        "gerund": "despertando",
+        "participle": "despertado"
+      }
+    },
+    {
+      "id": "33132031-e046-4573-9ebe-62ce5ceb1bc4",
+      "es": "averiguar",
+      "key": "averiguar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791717535665,
+      "updatedAt": 1791717535665,
+      "dict": {
+        "headword": "averiguar",
+        "pos": "verb",
+        "senses": [
+          "to find out, figure out, work out, determine",
+          "to dig up, to investigate",
+          "to argue"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "averiguo",
+            "averiguas",
+            "averigua",
+            "averiguamos",
+            "averiguáis",
+            "averiguan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "averigüé",
+            "averiguaste",
+            "averiguó",
+            "averiguamos",
+            "averiguasteis",
+            "averiguaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "averiguaba",
+            "averiguabas",
+            "averiguaba",
+            "averiguábamos",
+            "averiguabais",
+            "averiguaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "averiguaré",
+            "averiguarás",
+            "averiguará",
+            "averiguaremos",
+            "averiguaréis",
+            "averiguarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "averiguaría",
+            "averiguarías",
+            "averiguaría",
+            "averiguaríamos",
+            "averiguaríais",
+            "averiguarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "averigüe",
+            "averigües",
+            "averigüe",
+            "averigüemos",
+            "averigüéis",
+            "averigüen"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "averiguara",
+            "averiguaras",
+            "averiguara",
+            "averiguáramos",
+            "averiguarais",
+            "averiguaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "averigua",
+            "averigüe",
+            "averigüemos",
+            "averiguad",
+            "averigüen"
+          ]
+        },
+        "gerund": "averiguando",
+        "participle": "averiguado"
+      }
+    },
+    {
+      "id": "63dc6db2-021a-466d-948f-81243baf03a1",
+      "es": "culpa",
+      "key": "culpa",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791717463833,
+      "updatedAt": 1791717463833,
+      "dict": {
+        "headword": "culpa",
+        "pos": "noun",
+        "senses": [
+          "fault",
+          "guilt",
+          "blame"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "culpas"
+      ]
+    },
+    {
+      "id": "d1541949-3acf-445d-8b9f-333b0fcaa8ee",
+      "es": "volar",
+      "key": "volar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791716821434,
+      "updatedAt": 1791716821434,
+      "dict": {
+        "headword": "volar",
+        "pos": "verb",
+        "senses": [
+          "to fly, to fly away",
+          "to fly (on an airplane)",
+          "to blow up",
+          "to anger, to exasperate, to infuriate",
+          "to rouse",
+          "to make fly out"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "vuelo",
+            "vuelas",
+            "vuela",
+            "volamos",
+            "voláis",
+            "vuelan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "volé",
+            "volaste",
+            "voló",
+            "volamos",
+            "volasteis",
+            "volaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "volaba",
+            "volabas",
+            "volaba",
+            "volábamos",
+            "volabais",
+            "volaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "volaré",
+            "volarás",
+            "volará",
+            "volaremos",
+            "volaréis",
+            "volarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "volaría",
+            "volarías",
+            "volaría",
+            "volaríamos",
+            "volaríais",
+            "volarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "vuele",
+            "vueles",
+            "vuele",
+            "volemos",
+            "voléis",
+            "vuelen"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "volara",
+            "volaras",
+            "volara",
+            "voláramos",
+            "volarais",
+            "volaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "vuela",
+            "vuele",
+            "volemos",
+            "volad",
+            "vuelen"
+          ]
+        },
+        "gerund": "volando",
+        "participle": "volado"
+      }
+    },
+    {
+      "id": "e0c2cddd-c6b6-417c-90f4-3fea31c1471c",
+      "es": "roncar",
+      "key": "roncar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791716803848,
+      "updatedAt": 1791716803848,
+      "dict": {
+        "headword": "roncar",
+        "pos": "verb",
+        "senses": [
+          "to snore"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "ronco",
+            "roncas",
+            "ronca",
+            "roncamos",
+            "roncáis",
+            "roncan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "ronqué",
+            "roncaste",
+            "roncó",
+            "roncamos",
+            "roncasteis",
+            "roncaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "roncaba",
+            "roncabas",
+            "roncaba",
+            "roncábamos",
+            "roncabais",
+            "roncaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "roncaré",
+            "roncarás",
+            "roncará",
+            "roncaremos",
+            "roncaréis",
+            "roncarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "roncaría",
+            "roncarías",
+            "roncaría",
+            "roncaríamos",
+            "roncaríais",
+            "roncarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "ronque",
+            "ronques",
+            "ronque",
+            "ronquemos",
+            "ronquéis",
+            "ronquen"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "roncara",
+            "roncaras",
+            "roncara",
+            "roncáramos",
+            "roncarais",
+            "roncaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "ronca",
+            "ronque",
+            "ronquemos",
+            "roncad",
+            "ronquen"
+          ]
+        },
+        "gerund": "roncando",
+        "participle": "roncado"
+      }
+    },
+    {
+      "id": "50b81a2c-cdc8-4943-b82c-11ba6bea52eb",
+      "es": "sombra",
+      "key": "sombra",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791716653065,
+      "updatedAt": 1791716653065,
+      "dict": {
+        "headword": "sombra",
+        "pos": "noun",
+        "senses": [
+          "shadow (a dark image projected onto a surface where light (or other radiation) is blocked by the shade of an object)",
+          "shade (darkness where light, particularly sunlight, is blocked)",
+          "shade, shadow (a small degree)",
+          "ghost, shade, phantom",
+          "shade (a color obtained by adding black)"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "sombras"
+      ]
+    },
+    {
+      "id": "09f73616-dddb-4f26-80eb-8695467e5801",
+      "es": "temer",
+      "key": "temer",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791716637350,
+      "updatedAt": 1791716637350,
+      "dict": {
+        "headword": "temer",
+        "pos": "verb",
+        "senses": [
+          "to fear",
+          "to dread",
+          "to be afraid, sorry; to suspect"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "temo",
+            "temes",
+            "teme",
+            "tememos",
+            "teméis",
+            "temen"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "temí",
+            "temiste",
+            "temió",
+            "temimos",
+            "temisteis",
+            "temieron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "temía",
+            "temías",
+            "temía",
+            "temíamos",
+            "temíais",
+            "temían"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "temeré",
+            "temerás",
+            "temerá",
+            "temeremos",
+            "temeréis",
+            "temerán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "temería",
+            "temerías",
+            "temería",
+            "temeríamos",
+            "temeríais",
+            "temerían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "tema",
+            "temas",
+            "tema",
+            "temamos",
+            "temáis",
+            "teman"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "temiera",
+            "temieras",
+            "temiera",
+            "temiéramos",
+            "temierais",
+            "temieran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "teme",
+            "tema",
+            "temamos",
+            "temed",
+            "teman"
+          ]
+        },
+        "gerund": "temiendo",
+        "participle": "temido"
+      }
+    },
+    {
+      "id": "dace9499-4cbd-48d2-8a0f-588e8c8a3ab0",
+      "es": "seguro",
+      "key": "seguro",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791716534697,
+      "updatedAt": 1791716534697,
+      "dict": {
+        "headword": "seguro",
+        "pos": "adj",
+        "senses": [
+          "secure; safe (free from danger)",
+          "certain; sure; positive; definite (of being correct)",
+          "secure; firm; stable; reliable; surefire; foolproof (not likely to fall)",
+          "security; security-related",
+          "confident; self-confident",
+          "(noun) insurance (indemnity against a future occurrence)"
+        ]
+      },
+      "forms": [
+        "segura",
+        "seguros",
+        "seguras"
+      ]
+    },
+    {
+      "id": "29fbf8c3-d6ab-4ff3-ad8c-68dc675d5929",
+      "es": "si",
+      "key": "si",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "conjunction",
+      "notes": "",
+      "createdAt": 1791716397898,
+      "updatedAt": 1791716397898,
+      "dict": {
+        "headword": "si",
+        "pos": "conj",
+        "senses": [
+          "if, whether",
+          "points out a contradiction (and often implies that it's obvious or that it's easy to find out about)"
+        ]
+      }
+    },
+    {
+      "id": "64485461-0552-4837-b870-224d5338aacc",
+      "es": "mantener",
+      "key": "mantener",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791716357635,
+      "updatedAt": 1791716357635,
+      "dict": {
+        "headword": "mantener",
+        "pos": "verb",
+        "senses": [
+          "to keep",
+          "to maintain, to support",
+          "to sustain, to preserve, to retain, to uphold",
+          "to maintain, continue, to keep up",
+          "to stay, to remain",
+          "to maintain, to keep, to stay, to remain"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "mantengo",
+            "mantienes",
+            "mantiene",
+            "mantenemos",
+            "mantenéis",
+            "mantienen"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "mantuve",
+            "mantuviste",
+            "mantuvo",
+            "mantuvimos",
+            "mantuvisteis",
+            "mantuvieron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "mantenía",
+            "mantenías",
+            "mantenía",
+            "manteníamos",
+            "manteníais",
+            "mantenían"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "mantendré",
+            "mantendrás",
+            "mantendrá",
+            "mantendremos",
+            "mantendréis",
+            "mantendrán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "mantendría",
+            "mantendrías",
+            "mantendría",
+            "mantendríamos",
+            "mantendríais",
+            "mantendrían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "mantenga",
+            "mantengas",
+            "mantenga",
+            "mantengamos",
+            "mantengáis",
+            "mantengan"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "mantuviera",
+            "mantuvieras",
+            "mantuviera",
+            "mantuviéramos",
+            "mantuvierais",
+            "mantuvieran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "mantén",
+            "mantenga",
+            "mantengamos",
+            "mantened",
+            "mantengan"
+          ]
+        },
+        "gerund": "manteniendo",
+        "participle": "mantenido"
+      }
+    },
+    {
+      "id": "3efc798c-1df5-4dc9-847e-89b2dcd31563",
+      "es": "ruta",
+      "key": "ruta",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791716331860,
+      "updatedAt": 1791716331860,
+      "dict": {
+        "headword": "ruta",
+        "pos": "noun",
+        "senses": [
+          "highway",
+          "route",
+          "path"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "rutas"
+      ]
+    },
+    {
+      "id": "31f0087a-d9a3-4244-8b7b-bc9f373b7d9e",
+      "es": "viaje",
+      "key": "viaje",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791716125438,
+      "updatedAt": 1791716125438,
+      "dict": {
+        "headword": "viaje",
+        "pos": "noun",
+        "senses": [
+          "voyage",
+          "journey, trip",
+          "A state of hallucination or altered consciousness caused by a narcotic drug.",
+          "a lot, loads"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "viajes"
+      ]
+    },
+    {
+      "id": "700f6a88-c098-4623-a115-061037269a04",
+      "es": "siguiente",
+      "key": "siguiente",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791716082846,
+      "updatedAt": 1791716082846,
+      "dict": {
+        "headword": "siguiente",
+        "pos": "adj",
+        "senses": [
+          "following",
+          "next"
+        ]
+      },
+      "forms": [
+        "siguientes"
+      ]
+    },
+    {
+      "id": "64706a46-c862-4a75-874c-d60a6ee9916b",
+      "es": "alentar",
+      "key": "alentar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791715816287,
+      "updatedAt": 1791715816287,
+      "dict": {
+        "headword": "alentar",
+        "pos": "verb",
+        "senses": [
+          "to encourage, animate",
+          "to gather up one's courage",
+          "to recuperate; to recover from an illness.",
+          "to slow down, become slow",
+          "to become or behave as a shy, shameful or fearful person"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "aliento",
+            "alientas",
+            "alienta",
+            "alentamos",
+            "alentáis",
+            "alientan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "alenté",
+            "alentaste",
+            "alentó",
+            "alentamos",
+            "alentasteis",
+            "alentaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "alentaba",
+            "alentabas",
+            "alentaba",
+            "alentábamos",
+            "alentabais",
+            "alentaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "alentaré",
+            "alentarás",
+            "alentará",
+            "alentaremos",
+            "alentaréis",
+            "alentarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "alentaría",
+            "alentarías",
+            "alentaría",
+            "alentaríamos",
+            "alentaríais",
+            "alentarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "aliente",
+            "alientes",
+            "aliente",
+            "alentemos",
+            "alentéis",
+            "alienten"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "alentara",
+            "alentaras",
+            "alentara",
+            "alentáramos",
+            "alentarais",
+            "alentaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "alienta",
+            "aliente",
+            "alentemos",
+            "alentad",
+            "alienten"
+          ]
+        },
+        "gerund": "alentando",
+        "participle": "alentado"
+      }
+    },
+    {
+      "id": "d25008c7-1741-4e0f-9fd4-7c260cc35911",
+      "es": "tomar una siesta",
+      "key": "tomar una siesta",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791715773527,
+      "updatedAt": 1791715773527,
+      "dict": {
+        "headword": "tomar una siesta",
+        "pos": "verb",
+        "senses": [
+          "to take a nap"
+        ]
+      }
+    },
+    {
+      "id": "c8da2ec8-9910-4e0f-93a3-f12678f66310",
+      "es": "en otra parte",
+      "key": "en otra parte",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adverb",
+      "notes": "",
+      "createdAt": 1791715709527,
+      "updatedAt": 1791715709527,
+      "dict": {
+        "headword": "en otra parte",
+        "pos": "adv",
+        "senses": [
+          "elsewhere, somewhere else",
+          "in another part"
+        ]
+      }
+    },
+    {
+      "id": "b793b270-cf4b-4f2c-8e40-1fc389ac064a",
+      "es": "humo",
+      "key": "humo",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791715612050,
+      "updatedAt": 1791715612050,
+      "dict": {
+        "headword": "humo",
+        "pos": "noun",
+        "senses": [
+          "smoke",
+          "steam",
+          "fume, fumes",
+          "conceit"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "humos"
+      ]
+    },
+    {
+      "id": "9950b1d8-7431-43dd-b779-488a691a5352",
+      "es": "conocimiento",
+      "key": "conocimiento",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791403357448,
+      "updatedAt": 1791403357448,
+      "dict": {
+        "headword": "conocimiento",
+        "pos": "noun",
+        "senses": [
+          "knowledge",
+          "awareness (state of knowing something)",
+          "consciousness (state of having cognition and sensation)"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "conocimientos"
+      ]
+    },
+    {
+      "id": "e3c7ef6d-ecea-4762-972d-f220e00c3bb0",
+      "es": "alcanzar",
+      "key": "alcanzar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791403175726,
+      "updatedAt": 1791403175726,
+      "dict": {
+        "headword": "alcanzar",
+        "pos": "verb",
+        "senses": [
+          "to reach; to get to to catch up",
+          "to accomplish; to achieve",
+          "to be enough; to suffice",
+          "to pass",
+          "to peak, to peak at",
+          "to get it (to receive punishment; to receive a beating)"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "alcanzo",
+            "alcanzas",
+            "alcanza",
+            "alcanzamos",
+            "alcanzáis",
+            "alcanzan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "alcancé",
+            "alcanzaste",
+            "alcanzó",
+            "alcanzamos",
+            "alcanzasteis",
+            "alcanzaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "alcanzaba",
+            "alcanzabas",
+            "alcanzaba",
+            "alcanzábamos",
+            "alcanzabais",
+            "alcanzaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "alcanzaré",
+            "alcanzarás",
+            "alcanzará",
+            "alcanzaremos",
+            "alcanzaréis",
+            "alcanzarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "alcanzaría",
+            "alcanzarías",
+            "alcanzaría",
+            "alcanzaríamos",
+            "alcanzaríais",
+            "alcanzarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "alcance",
+            "alcances",
+            "alcance",
+            "alcancemos",
+            "alcancéis",
+            "alcancen"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "alcanzara",
+            "alcanzaras",
+            "alcanzara",
+            "alcanzáramos",
+            "alcanzarais",
+            "alcanzaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "alcanza",
+            "alcance",
+            "alcancemos",
+            "alcanzad",
+            "alcancen"
+          ]
+        },
+        "gerund": "alcanzando",
+        "participle": "alcanzado"
+      }
+    },
+    {
+      "id": "f1c340c0-635b-42da-b77d-e71bf0933cfe",
+      "es": "ahí",
+      "key": "ahi",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adverb",
+      "notes": "",
+      "createdAt": 1791401510715,
+      "updatedAt": 1791401510715,
+      "dict": {
+        "headword": "ahí",
+        "pos": "adv",
+        "senses": [
+          "there (away from the speaker)",
+          "that (in certain phrases)"
+        ]
+      }
+    },
+    {
+      "id": "aec95101-ce98-40f3-a98f-61d381656482",
+      "es": "lado",
+      "key": "lado",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791315552504,
+      "updatedAt": 1791315552504,
+      "dict": {
+        "headword": "lado",
+        "pos": "noun",
+        "senses": [
+          "side",
+          "face"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "lados"
+      ]
+    },
+    {
+      "id": "d0474b44-bb33-445a-8dc0-02a7e2f76954",
+      "es": "nacer",
+      "key": "nacer",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791315495967,
+      "updatedAt": 1791315495967,
+      "dict": {
+        "headword": "nacer",
+        "pos": "verb",
+        "senses": [
+          "to be born, to sprout, to begin to grow; to hatch (out)",
+          "to grow; to rise, to have its source (river); to rise (sun); to have its roots; to arise",
+          "to feel a desire or an urge to do something without anyone asking you to"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "nazco",
+            "naces",
+            "nace",
+            "nacemos",
+            "nacéis",
+            "nacen"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "nací",
+            "naciste",
+            "nació",
+            "nacimos",
+            "nacisteis",
+            "nacieron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "nacía",
+            "nacías",
+            "nacía",
+            "nacíamos",
+            "nacíais",
+            "nacían"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "naceré",
+            "nacerás",
+            "nacerá",
+            "naceremos",
+            "naceréis",
+            "nacerán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "nacería",
+            "nacerías",
+            "nacería",
+            "naceríamos",
+            "naceríais",
+            "nacerían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "nazca",
+            "nazcas",
+            "nazca",
+            "nazcamos",
+            "nazcáis",
+            "nazcan"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "naciera",
+            "nacieras",
+            "naciera",
+            "naciéramos",
+            "nacierais",
+            "nacieran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "nace",
+            "nazca",
+            "nazcamos",
+            "naced",
+            "nazcan"
+          ]
+        },
+        "gerund": "naciendo",
+        "participle": "nacido"
+      }
+    },
+    {
+      "id": "56770385-b9d1-45cb-8641-277173aa73a0",
+      "es": "cualquiera",
+      "key": "cualquiera",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "pronoun",
+      "notes": "",
+      "createdAt": 1791315287368,
+      "updatedAt": 1791315287368,
+      "dict": {
+        "headword": "cualquiera",
+        "pos": "pron",
+        "senses": [
+          "anyone, whoever, whomever",
+          "(determiner) any, whatever, whichever",
+          "(noun) a person of no importance; a nobody, zero",
+          "(noun) a female prostitute"
+        ]
+      },
+      "forms": [
+        "cualesquiera",
+        "cualquieras"
+      ]
+    },
+    {
+      "id": "5cfc1a1b-579b-4c23-94a3-15b6f8c54ee3",
+      "es": "obra",
+      "key": "obra",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791315257674,
+      "updatedAt": 1791315257674,
+      "dict": {
+        "headword": "obra",
+        "pos": "noun",
+        "senses": [
+          "work (usually literary or artistic)",
+          "construction"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "obras"
+      ]
+    },
+    {
+      "id": "316cb4a5-64f6-4ff8-b6e6-50dd26b07294",
+      "es": "desaparecido",
+      "key": "desaparecido",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791315195552,
+      "updatedAt": 1791315195552,
+      "dict": {
+        "headword": "desaparecido",
+        "pos": "adj",
+        "senses": [
+          "disappeared, missing",
+          "(noun) missing (people or things)"
+        ]
+      },
+      "forms": [
+        "desaparecida",
+        "desaparecidos",
+        "desaparecidas"
+      ]
+    },
+    {
+      "id": "faf99f4e-f2b4-475e-97a2-e59b5a48b851",
+      "es": "barrio",
+      "key": "barrio",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791314980347,
+      "updatedAt": 1791314980347,
+      "dict": {
+        "headword": "barrio",
+        "pos": "noun",
+        "senses": [
+          "neighbourhood",
+          "any neighbourhood of the original or ancient part of a city (usually excluding new growth after the 1930s, 40s or 50s, depending on the state or city)",
+          "slum"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "barrios"
+      ]
+    },
+    {
+      "id": "77b51b0e-b269-4152-948d-8603c4099949",
+      "es": "mismo",
+      "key": "mismo",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "que te parece si salimos despues de clases",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791314851165,
+      "updatedAt": 1792693042640,
+      "dict": {
+        "headword": "mismo",
+        "pos": "adj",
+        "senses": [
+          "same; identical; one and the same; indicates that the two compared noun clauses both represent the one thing",
+          "similar; alike; practically identical; indicates that the two compared noun clauses have one or more matching qualities",
+          "self; emphasizes the identity or singularity of the modified noun phrase",
+          "own; emphasizes the owner or the exclusivity of ownership in a noun phrase with a possessive pronoun",
+          "(adverb) right, exactly, immediately"
+        ]
+      },
+      "forms": [
+        "misma",
+        "mismos",
+        "mismas"
+      ]
+    },
+    {
+      "id": "9b16c1cf-95d8-427a-bdfd-c93abd63c9f1",
+      "es": "lugar",
+      "key": "lugar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791313801087,
+      "updatedAt": 1791313801087,
+      "dict": {
+        "headword": "lugar",
+        "pos": "noun",
+        "senses": [
+          "place"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "lugares"
+      ]
+    },
+    {
+      "id": "c44d008b-f2ef-4721-9d61-696a0f5ac93a",
+      "es": "encontrar",
+      "key": "encontrar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "createdAt": 1791313708735,
+      "updatedAt": 1791313708735,
+      "dict": {
+        "headword": "encontrar",
+        "pos": "verb",
+        "senses": [
+          "to meet",
+          "to find, encounter, come across",
+          "to meet, bump into",
+          "to think, consider, find",
+          "to manage (to do something)",
+          "to be located"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "encuentro",
+            "encuentras",
+            "encuentra",
+            "encontramos",
+            "encontráis",
+            "encuentran"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "encontré",
+            "encontraste",
+            "encontró",
+            "encontramos",
+            "encontrasteis",
+            "encontraron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "encontraba",
+            "encontrabas",
+            "encontraba",
+            "encontrábamos",
+            "encontrabais",
+            "encontraban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "encontraré",
+            "encontrarás",
+            "encontrará",
+            "encontraremos",
+            "encontraréis",
+            "encontrarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "encontraría",
+            "encontrarías",
+            "encontraría",
+            "encontraríamos",
+            "encontraríais",
+            "encontrarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "encuentre",
+            "encuentres",
+            "encuentre",
+            "encontremos",
+            "encontréis",
+            "encuentren"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "encontrara",
+            "encontraras",
+            "encontrara",
+            "encontráramos",
+            "encontrarais",
+            "encontraran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "encuentra",
+            "encuentre",
+            "encontremos",
+            "encontrad",
+            "encuentren"
+          ]
+        },
+        "gerund": "encontrando",
+        "participle": "encontrado"
+      }
+    },
+    {
+      "id": "98cf0e6a-d4de-4051-a3dd-3f67bc51acb0",
+      "es": "cada",
+      "key": "cada",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "determiner",
+      "notes": "",
+      "createdAt": 1791313162309,
+      "updatedAt": 1791313162309,
+      "dict": {
+        "headword": "cada",
+        "pos": "det",
+        "senses": [
+          "each; every",
+          "(adverb) every time"
+        ]
+      }
+    },
+    {
+      "id": "eb685abb-c1f9-4b9c-ac70-9cc368acb4eb",
+      "es": "debilidad",
+      "key": "debilidad",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791313084823,
+      "updatedAt": 1791313084823,
+      "dict": {
+        "headword": "debilidad",
+        "pos": "noun",
+        "senses": [
+          "debility",
+          "weakness"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "debilidades"
+      ]
+    },
+    {
+      "id": "8d599bb7-d286-4438-ba2f-005b0a43ac76",
+      "es": "bondad",
+      "key": "bondad",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791313068549,
+      "updatedAt": 1791313068549,
+      "dict": {
+        "headword": "bondad",
+        "pos": "noun",
+        "senses": [
+          "goodness",
+          "good deed",
+          "affability"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "bondades"
+      ]
+    },
+    {
+      "id": "23bf80f7-f559-4858-993c-fbdb8510e592",
+      "es": "sano",
+      "key": "sano",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adjective",
+      "notes": "",
+      "createdAt": 1791312817729,
+      "updatedAt": 1791312817729,
+      "dict": {
+        "headword": "sano",
+        "pos": "adj",
+        "senses": [
+          "healthy, sound",
+          "earnest",
+          "pure",
+          "whole, unbroken"
+        ]
+      },
+      "forms": [
+        "sana",
+        "sanos",
+        "sanas"
+      ]
+    },
+    {
+      "id": "df920000-6858-4dcf-b652-3550cc94e613",
+      "es": "salud",
+      "key": "salud",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "interjection",
+      "notes": "",
+      "createdAt": 1791311317131,
+      "updatedAt": 1791311317131,
+      "dict": {
+        "headword": "salud",
+        "pos": "intj",
+        "senses": [
+          "bless you (said to somebody who has sneezed)",
+          "cheers (the usual toast when drinking alcohol)",
+          "greetings!",
+          "(noun) health"
+        ]
+      },
+      "forms": [
+        "saludes"
+      ]
+    },
+    {
+      "id": "ad9125c8-d571-4489-9e7e-903cd72147a9",
+      "es": "calidad",
+      "key": "calidad",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791311254877,
+      "updatedAt": 1791311254877,
+      "dict": {
+        "headword": "calidad",
+        "pos": "noun",
+        "senses": [
+          "quality (level of excellence)",
+          "kind, type"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "calidades"
+      ]
+    },
+    {
+      "id": "9841d2f0-8aeb-4ca0-b64f-c28025b1d807",
+      "es": "basura",
+      "key": "basura",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791311134370,
+      "updatedAt": 1791311134370,
+      "dict": {
+        "headword": "basura",
+        "pos": "noun",
+        "senses": [
+          "trash, waste, garbage, rubbish, nonsense",
+          "something trashy or undesirable"
+        ]
+      },
+      "gender": "f",
+      "forms": [
+        "basuras"
+      ]
+    },
+    {
+      "id": "0ce9cc0b-61de-45fd-9719-c2a2bd9f7dcb",
+      "es": "desechos",
+      "key": "desechos",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "createdAt": 1791310872320,
+      "updatedAt": 1791310872320,
+      "dict": {
+        "headword": "desechos",
+        "pos": "noun",
+        "senses": [
+          "jetsam",
+          "excrement, crap"
+        ]
+      },
+      "gender": "m"
+    },
+    {
       "id": "7c4d4cc1-8fab-48c3-ae31-0898e8fcdee4",
       "es": "población",
       "key": "poblacion",
@@ -2528,18 +5035,6 @@
       "updatedAt": 1789637861569
     },
     {
-      "id": "ad72df26-0633-4202-8742-3bb1652aad2a",
-      "es": "bondad",
-      "key": "bondad",
-      "auto": "kindness",
-      "autoState": "ok",
-      "gloss": "",
-      "pos": "other",
-      "notes": "",
-      "createdAt": 1789637483537,
-      "updatedAt": 1789637517425
-    },
-    {
       "id": "9fd17b0c-e4cc-40f2-af82-b0dac04c93b1",
       "es": "claro",
       "key": "claro",
@@ -3455,6 +5950,55 @@
   ],
   "sentences": [
     {
+      "id": "82cbf52b-9d77-4280-b96d-de523258c7e0",
+      "text": "de hecho",
+      "source": "",
+      "createdAt": 1792693293083,
+      "updatedAt": 1792693293083
+    },
+    {
+      "id": "75606d84-5d6f-4cba-a269-5b2daa7f14f7",
+      "text": "Que te parece si salimos despues de clases",
+      "source": "",
+      "createdAt": 1792693108453,
+      "updatedAt": 1792693108453
+    },
+    {
+      "id": "b2feefdb-6b88-4bb0-8206-602028628172",
+      "text": "al mismo tiempo",
+      "source": "",
+      "createdAt": 1792692867828,
+      "updatedAt": 1792692881633
+    },
+    {
+      "id": "3ddda6f7-da5d-407b-8b93-a922131d5ac5",
+      "text": "creo que deberia dejar su siesta",
+      "source": "",
+      "createdAt": 1791718295901,
+      "updatedAt": 1791718295901
+    },
+    {
+      "id": "4e166df0-b9bc-4f97-bb2b-216a434f588d",
+      "text": "Despertamos a un dragon dormido sin qe se moleste",
+      "source": "",
+      "createdAt": 1791717748582,
+      "updatedAt": 1791717748582
+    },
+    {
+      "id": "8e41bdb2-0e7c-4413-b3ab-f44b131ed44c",
+      "text": "Van a llegar más tarde.",
+      "source": "",
+      "createdAt": 1791402487957,
+      "updatedAt": 1791402487957
+    },
+    {
+      "id": "d7f4c94b-cc60-4f66-a4f3-1960c79d49f7",
+      "text": "Llamamos su atención para informarles que a partir del 10 de octubre comienzan las clases de natación para niños y jubilados y no se podrá hacer uso de la piscina pequeña.",
+      "source": "",
+      "createdAt": 1791401894707,
+      "updatedAt": 1791401894707
+    },
+    {
       "id": "20f87cfc-e37d-49f2-851f-6e7bb77012d2",
       "text": "En Estados Unidos, un país que alberga solo el 4 % de la población mundial, se genera el 12 % de los residuos del mundo.",
       "source": "",
@@ -3697,6 +6241,11 @@
     {
       "wordId": "579c7023-b013-4b91-badd-100a2593f468",
       "sentenceId": "7d071726-ee01-493b-9332-84a336b2b3f0",
+      "kind": "manual"
+    },
+    {
+      "wordId": "bc33c041-8935-4e58-b0f4-56bb37778aad",
+      "sentenceId": "4e166df0-b9bc-4f97-bb2b-216a434f588d",
       "kind": "manual"
     }
   ]
