@@ -2,6 +2,593 @@
   "version": 2,
   "words": [
     {
+      "id": "ae7b4280-ebd7-47f6-aea6-1cf820e9eb99",
+      "es": "lavar",
+      "key": "lavar",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "verb",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793904737884,
+      "updatedAt": 1793904737884,
+      "dict": {
+        "headword": "lavar",
+        "pos": "verb",
+        "senses": [
+          "to wash",
+          "to wipe, clear (disgrace, doubt, etc.)",
+          "to wash oneself",
+          "to wash a body part of oneself (e.g. hands, hair, etc.)"
+        ]
+      },
+      "conj": {
+        "present": {
+          "source": "dictionary",
+          "forms": [
+            "lavo",
+            "lavas",
+            "lava",
+            "lavamos",
+            "laváis",
+            "lavan"
+          ]
+        },
+        "preterite": {
+          "source": "dictionary",
+          "forms": [
+            "lavé",
+            "lavaste",
+            "lavó",
+            "lavamos",
+            "lavasteis",
+            "lavaron"
+          ]
+        },
+        "imperfect": {
+          "source": "dictionary",
+          "forms": [
+            "lavaba",
+            "lavabas",
+            "lavaba",
+            "lavábamos",
+            "lavabais",
+            "lavaban"
+          ]
+        },
+        "future": {
+          "source": "dictionary",
+          "forms": [
+            "lavaré",
+            "lavarás",
+            "lavará",
+            "lavaremos",
+            "lavaréis",
+            "lavarán"
+          ]
+        },
+        "conditional": {
+          "source": "dictionary",
+          "forms": [
+            "lavaría",
+            "lavarías",
+            "lavaría",
+            "lavaríamos",
+            "lavaríais",
+            "lavarían"
+          ]
+        },
+        "subjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "lave",
+            "laves",
+            "lave",
+            "lavemos",
+            "lavéis",
+            "laven"
+          ]
+        },
+        "imperfectSubjunctive": {
+          "source": "dictionary",
+          "forms": [
+            "lavara",
+            "lavaras",
+            "lavara",
+            "laváramos",
+            "lavarais",
+            "lavaran"
+          ]
+        },
+        "imperative": {
+          "source": "dictionary",
+          "forms": [
+            "",
+            "lava",
+            "lave",
+            "lavemos",
+            "lavad",
+            "laven"
+          ]
+        },
+        "gerund": "lavando",
+        "participle": "lavado"
+      },
+      "groupIds": [
+        "2d7a252f-01e6-45d5-86b8-d9e9b9a1b5da"
+      ],
+      "review": {
+        "step": 0,
+        "due": 13,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "2f0b1214-95a2-4a4f-b016-d5d987e2476f",
+      "es": "diciembre",
+      "key": "diciembre",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "diciembre",
+        "pos": "noun",
+        "senses": [
+          "December"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "diciembres"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "f4ddba2b-0c4b-486a-8853-a6041df64804",
+      "es": "noviembre",
+      "key": "noviembre",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "noviembre",
+        "pos": "noun",
+        "senses": [
+          "November"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "noviembres"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "b75fb50e-551c-42df-a905-4b9add326e3b",
+      "es": "octubre",
+      "key": "octubre",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "octubre",
+        "pos": "noun",
+        "senses": [
+          "October"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "octubres"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "ba6390a7-6bb9-4720-aabb-f8b3e4664ed8",
+      "es": "septiembre",
+      "key": "septiembre",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "septiembre",
+        "pos": "noun",
+        "senses": [
+          "September"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "septiembres"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "42ff222c-2ef1-4e9b-a12d-4f35b48c4128",
+      "es": "agosto",
+      "key": "agosto",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "agosto",
+        "pos": "noun",
+        "senses": [
+          "August"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "agostos"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "0e881b14-937b-43b4-bd5d-e90ad04ce34e",
+      "es": "julio",
+      "key": "julio",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "julio",
+        "pos": "noun",
+        "senses": [
+          "July",
+          "joule"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "julios"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "1d2585f5-ae58-480f-9cf5-4dd60c996ba2",
+      "es": "junio",
+      "key": "junio",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "junio",
+        "pos": "noun",
+        "senses": [
+          "June"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "junios"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "930bf767-e887-4b6c-81b4-f60e6ad32b8e",
+      "es": "mayo",
+      "key": "mayo",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "mayo",
+        "pos": "noun",
+        "senses": [
+          "May",
+          "maypole",
+          "bouquet left by a boyfriend in front of his girlfriend's door",
+          "May Day",
+          "singing performed by young men to bachelorettes on the last day of April (May eve)"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "mayos"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "e2e8298a-2b75-453b-9944-88746011a8f3",
+      "es": "abril",
+      "key": "abril",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "abril",
+        "pos": "noun",
+        "senses": [
+          "April",
+          "years of age"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "abriles"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "10574947-5bda-411e-9e49-966ec2e7827d",
+      "es": "marzo",
+      "key": "marzo",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823690221,
+      "updatedAt": 1793823690221,
+      "dict": {
+        "headword": "marzo",
+        "pos": "noun",
+        "senses": [
+          "March"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "marzos"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "c43b64b1-5ab4-4df5-96ca-8f76457436d9",
+      "es": "febrero",
+      "key": "febrero",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823562526,
+      "updatedAt": 1793823562526,
+      "dict": {
+        "headword": "febrero",
+        "pos": "noun",
+        "senses": [
+          "February"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "febreros"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "d0fc98d7-a072-43e1-96f4-346de0e4c35d",
+      "es": "enero",
+      "key": "enero",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "learning",
+      "createdAt": 1793823526915,
+      "updatedAt": 1793823526915,
+      "dict": {
+        "headword": "enero",
+        "pos": "noun",
+        "senses": [
+          "January"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "eneros"
+      ],
+      "groupIds": [
+        "b75897e6-dbef-4695-82db-c77e40520c6a"
+      ],
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
+    },
+    {
+      "id": "f0a5c34e-8c83-4cdf-88a4-a034ac47276e",
+      "es": "gasto",
+      "key": "gasto",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "noun",
+      "notes": "",
+      "state": "new",
+      "createdAt": 1793740419001,
+      "updatedAt": 1793740419001,
+      "dict": {
+        "headword": "gasto",
+        "pos": "noun",
+        "senses": [
+          "expenditure, cost",
+          "spending, expense"
+        ]
+      },
+      "gender": "m",
+      "forms": [
+        "gastos"
+      ],
+      "touched": 11
+    },
+    {
+      "id": "921e5cf8-7427-4af8-945c-03b5375f402a",
+      "es": "despacio",
+      "key": "despacio",
+      "auto": "",
+      "autoState": "none",
+      "gloss": "",
+      "pos": "adverb",
+      "notes": "",
+      "state": "new",
+      "createdAt": 1793740329842,
+      "updatedAt": 1793740329843,
+      "dict": {
+        "headword": "despacio",
+        "pos": "adv",
+        "senses": [
+          "slowly",
+          "quietly"
+        ]
+      },
+      "touched": 11
+    },
+    {
       "id": "928b5e87-9764-424d-a2a7-3266fc8a069c",
       "es": "tocar",
       "key": "tocar",
@@ -115,7 +702,9 @@
         },
         "gerund": "tocando",
         "participle": "tocado"
-      }
+      },
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "0f8217eb-769b-493c-b586-e8c462d6d73a",
@@ -134,7 +723,9 @@
         "senses": [
           "maybe, perhaps"
         ]
-      }
+      },
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "e7dfd2f3-2e1c-43a3-85cc-276d65eaac01",
@@ -246,7 +837,9 @@
         },
         "gerund": "asombrando",
         "participle": "asombrado"
-      }
+      },
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "3e2e2429-e41e-4f50-86af-b4dc21061ffe",
@@ -258,7 +851,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1792693355221,
-      "updatedAt": 1792693356185
+      "updatedAt": 1792693356185,
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "aa01d199-38d1-44fc-b420-d5c669f48512",
@@ -287,7 +882,15 @@
         "hechos",
         "hecha",
         "hechas"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "4109579e-4a5e-405f-929e-f88ae225a8c8",
@@ -311,7 +914,9 @@
       "gender": "m",
       "forms": [
         "matices"
-      ]
+      ],
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "96931ec2-15ec-4e09-b09f-57083b5c9b03",
@@ -427,6 +1032,14 @@
         },
         "gerund": "pareciendo",
         "participle": "parecido"
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -542,7 +1155,9 @@
         },
         "gerund": "prestando",
         "participle": "prestado"
-      }
+      },
+      "state": "new",
+      "touched": 9
     },
     {
       "id": "7b817827-6e04-4b32-a6c9-091cdef7ca87",
@@ -567,7 +1182,9 @@
         "obvia",
         "obvios",
         "obvias"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "44bd9ff1-f050-4611-9e0e-7476530c2c4a",
@@ -683,6 +1300,14 @@
         },
         "gerund": "saliendo",
         "participle": "salido"
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -709,7 +1334,9 @@
       "gender": "m",
       "forms": [
         "bocados"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "012542bb-328b-47a4-b279-43ab50fcf6a3",
@@ -827,6 +1454,14 @@
         },
         "gerund": "despertando",
         "participle": "despertado"
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -940,7 +1575,9 @@
         },
         "gerund": "averiguando",
         "participle": "averiguado"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "63dc6db2-021a-466d-948f-81243baf03a1",
@@ -965,7 +1602,9 @@
       "gender": "f",
       "forms": [
         "culpas"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "d1541949-3acf-445d-8b9f-333b0fcaa8ee",
@@ -1081,7 +1720,9 @@
         },
         "gerund": "volando",
         "participle": "volado"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "e0c2cddd-c6b6-417c-90f4-3fea31c1471c",
@@ -1192,7 +1833,9 @@
         },
         "gerund": "roncando",
         "participle": "roncado"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "50b81a2c-cdc8-4943-b82c-11ba6bea52eb",
@@ -1219,7 +1862,9 @@
       "gender": "f",
       "forms": [
         "sombras"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "09f73616-dddb-4f26-80eb-8695467e5801",
@@ -1332,7 +1977,9 @@
         },
         "gerund": "temiendo",
         "participle": "temido"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "dace9499-4cbd-48d2-8a0f-588e8c8a3ab0",
@@ -1361,7 +2008,9 @@
         "segura",
         "seguros",
         "seguras"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "29fbf8c3-d6ab-4ff3-ad8c-68dc675d5929",
@@ -1381,6 +2030,14 @@
           "if, whether",
           "points out a contradiction (and often implies that it's obvious or that it's easy to find out about)"
         ]
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -1497,7 +2154,9 @@
         },
         "gerund": "manteniendo",
         "participle": "mantenido"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "3efc798c-1df5-4dc9-847e-89b2dcd31563",
@@ -1522,7 +2181,9 @@
       "gender": "f",
       "forms": [
         "rutas"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "31f0087a-d9a3-4244-8b7b-bc9f373b7d9e",
@@ -1548,7 +2209,9 @@
       "gender": "m",
       "forms": [
         "viajes"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "700f6a88-c098-4623-a115-061037269a04",
@@ -1571,7 +2234,15 @@
       },
       "forms": [
         "siguientes"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 12,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
+      }
     },
     {
       "id": "64706a46-c862-4a75-874c-d60a6ee9916b",
@@ -1686,7 +2357,9 @@
         },
         "gerund": "alentando",
         "participle": "alentado"
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "d25008c7-1741-4e0f-9fd4-7c260cc35911",
@@ -1705,7 +2378,9 @@
         "senses": [
           "to take a nap"
         ]
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "c8da2ec8-9910-4e0f-93a3-f12678f66310",
@@ -1725,7 +2400,9 @@
           "elsewhere, somewhere else",
           "in another part"
         ]
-      }
+      },
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "b793b270-cf4b-4f2c-8e40-1fc389ac064a",
@@ -1751,7 +2428,9 @@
       "gender": "m",
       "forms": [
         "humos"
-      ]
+      ],
+      "state": "new",
+      "touched": 8
     },
     {
       "id": "9950b1d8-7431-43dd-b779-488a691a5352",
@@ -1776,7 +2455,9 @@
       "gender": "m",
       "forms": [
         "conocimientos"
-      ]
+      ],
+      "state": "new",
+      "touched": 7
     },
     {
       "id": "e3c7ef6d-ecea-4762-972d-f220e00c3bb0",
@@ -1892,7 +2573,9 @@
         },
         "gerund": "alcanzando",
         "participle": "alcanzado"
-      }
+      },
+      "state": "new",
+      "touched": 7
     },
     {
       "id": "f1c340c0-635b-42da-b77d-e71bf0933cfe",
@@ -1912,7 +2595,9 @@
           "there (away from the speaker)",
           "that (in certain phrases)"
         ]
-      }
+      },
+      "state": "new",
+      "touched": 7
     },
     {
       "id": "aec95101-ce98-40f3-a98f-61d381656482",
@@ -1936,7 +2621,9 @@
       "gender": "m",
       "forms": [
         "lados"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "d0474b44-bb33-445a-8dc0-02a7e2f76954",
@@ -2049,7 +2736,9 @@
         },
         "gerund": "naciendo",
         "participle": "nacido"
-      }
+      },
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "56770385-b9d1-45cb-8641-277173aa73a0",
@@ -2075,7 +2764,9 @@
       "forms": [
         "cualesquiera",
         "cualquieras"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "5cfc1a1b-579b-4c23-94a3-15b6f8c54ee3",
@@ -2099,7 +2790,9 @@
       "gender": "f",
       "forms": [
         "obras"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "316cb4a5-64f6-4ff8-b6e6-50dd26b07294",
@@ -2124,7 +2817,9 @@
         "desaparecida",
         "desaparecidos",
         "desaparecidas"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "faf99f4e-f2b4-475e-97a2-e59b5a48b851",
@@ -2149,7 +2844,9 @@
       "gender": "m",
       "forms": [
         "barrios"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "77b51b0e-b269-4152-948d-8603c4099949",
@@ -2177,7 +2874,15 @@
         "misma",
         "mismos",
         "mismas"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "9b16c1cf-95d8-427a-bdfd-c93abd63c9f1",
@@ -2200,7 +2905,15 @@
       "gender": "m",
       "forms": [
         "lugares"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "c44d008b-f2ef-4721-9d61-696a0f5ac93a",
@@ -2316,7 +3029,9 @@
         },
         "gerund": "encontrando",
         "participle": "encontrado"
-      }
+      },
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "98cf0e6a-d4de-4051-a3dd-3f67bc51acb0",
@@ -2336,7 +3051,9 @@
           "each; every",
           "(adverb) every time"
         ]
-      }
+      },
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "eb685abb-c1f9-4b9c-ac70-9cc368acb4eb",
@@ -2360,7 +3077,9 @@
       "gender": "f",
       "forms": [
         "debilidades"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "8d599bb7-d286-4438-ba2f-005b0a43ac76",
@@ -2385,7 +3104,15 @@
       "gender": "f",
       "forms": [
         "bondades"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "23bf80f7-f559-4858-993c-fbdb8510e592",
@@ -2412,7 +3139,9 @@
         "sana",
         "sanos",
         "sanas"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "df920000-6858-4dcf-b652-3550cc94e613",
@@ -2437,7 +3166,9 @@
       },
       "forms": [
         "saludes"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "ad9125c8-d571-4489-9e7e-903cd72147a9",
@@ -2461,7 +3192,9 @@
       "gender": "f",
       "forms": [
         "calidades"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "9841d2f0-8aeb-4ca0-b64f-c28025b1d807",
@@ -2485,7 +3218,9 @@
       "gender": "f",
       "forms": [
         "basuras"
-      ]
+      ],
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "0ce9cc0b-61de-45fd-9719-c2a2bd9f7dcb",
@@ -2506,7 +3241,9 @@
           "excrement, crap"
         ]
       },
-      "gender": "m"
+      "gender": "m",
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "7c4d4cc1-8fab-48c3-ae31-0898e8fcdee4",
@@ -2532,7 +3269,15 @@
       "gender": "f",
       "forms": [
         "poblaciones"
-      ]
+      ],
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "c1ae6ce5-b88b-4453-83aa-846314c0c370",
@@ -2552,7 +3297,9 @@
           "social media"
         ]
       },
-      "gender": "f"
+      "gender": "f",
+      "state": "new",
+      "touched": 6
     },
     {
       "id": "12dc2dc5-2b79-42e4-98ed-776a8cd5d110",
@@ -2564,7 +3311,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790169600392,
-      "updatedAt": 1790169600907
+      "updatedAt": 1790169600907,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "366e02b8-ca56-4469-91e7-1012c8cee844",
@@ -2576,7 +3325,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790168877990,
-      "updatedAt": 1790168878720
+      "updatedAt": 1790168878720,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "477ae201-6252-4ca7-9127-3b4a86c3dae9",
@@ -2588,7 +3339,9 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1790156696255,
-      "updatedAt": 1790156697117
+      "updatedAt": 1790156697117,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "dcaa9c8f-c25a-4d71-b889-da2967f30d9c",
@@ -2600,7 +3353,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790156507583,
-      "updatedAt": 1790156508239
+      "updatedAt": 1790156508239,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "15f6406f-6b7a-4b35-b679-fa53e7fb1170",
@@ -2612,7 +3367,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790156118709,
-      "updatedAt": 1790156138522
+      "updatedAt": 1790156138522,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "68a0ac5c-272b-41fb-8db4-fe48e8824f50",
@@ -2624,7 +3387,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790155945998,
-      "updatedAt": 1790155946597
+      "updatedAt": 1790155946597,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "539062b4-1e34-4d41-9b46-c3a403b0e27f",
@@ -2636,7 +3401,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790155930898,
-      "updatedAt": 1790155931566
+      "updatedAt": 1790155931566,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "60306e83-51c0-477c-b60f-abbc1daaee74",
@@ -2648,7 +3415,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790154783393,
-      "updatedAt": 1790154784313
+      "updatedAt": 1790154784313,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "73078bf8-6cad-4001-92b2-5bfc08669007",
@@ -2660,7 +3429,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790145018544,
-      "updatedAt": 1790145031438
+      "updatedAt": 1790145031438,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "bc33c041-8935-4e58-b0f4-56bb37778aad",
@@ -2719,6 +3490,14 @@
             "molestaban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -2731,7 +3510,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790144600056,
-      "updatedAt": 1790144600729
+      "updatedAt": 1790144600729,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "1a46b093-2926-46c6-88e8-8c38ee16dc08",
@@ -2790,7 +3571,9 @@
             "olvidaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "776e03c1-c6ed-4f3e-9e68-44543e6ef151",
@@ -2849,7 +3632,9 @@
             "recuerdaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "445d2622-70d1-42c0-a26b-41a7d6a3883e",
@@ -2861,7 +3646,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790144424689,
-      "updatedAt": 1790144473132
+      "updatedAt": 1790144473132,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "e7199220-3af0-402d-a95f-85b250268197",
@@ -2920,6 +3713,14 @@
             "herían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -2932,7 +3733,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790144339776,
-      "updatedAt": 1790144396885
+      "updatedAt": 1790144396885,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "8f51e070-a94d-44fd-9e8a-15bac152989c",
@@ -2944,7 +3753,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790144162639,
-      "updatedAt": 1790144163318
+      "updatedAt": 1790144163318,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "4cc5bbab-dfaf-4a17-844d-9697da808844",
@@ -2956,7 +3767,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790143997492,
-      "updatedAt": 1790143998158
+      "updatedAt": 1790143998158,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "0a7de724-e3ac-4c42-831a-67b6ffa06dc6",
@@ -2968,7 +3781,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790143987179,
-      "updatedAt": 1790143988128
+      "updatedAt": 1790143988128,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "06ba1f3f-2aa0-42a7-b4d6-5860452eecb0",
@@ -2980,7 +3795,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790143923167,
-      "updatedAt": 1790143924340
+      "updatedAt": 1790143924340,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "064819a5-9ffe-42f2-b911-87400e62d33f",
@@ -2992,7 +3809,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790143893736,
-      "updatedAt": 1790143895262
+      "updatedAt": 1790143895262,
+      "state": "new",
+      "touched": 5
     },
     {
       "id": "78633210-2018-44b8-bc83-6ba97d5e35e0",
@@ -3051,7 +3870,9 @@
             "sentaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "ff946bff-ff8a-406e-8a60-d9a8e960baf9",
@@ -3063,7 +3884,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790085589881,
-      "updatedAt": 1790085590408
+      "updatedAt": 1790085590408,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "0561f13d-924f-4321-89be-279af2d43043",
@@ -3075,7 +3898,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790085576519,
-      "updatedAt": 1790085577716
+      "updatedAt": 1790085577716,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "0eb9cff0-baa5-457e-bfea-8ce3c4c6f30e",
@@ -3087,7 +3912,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790085534012,
-      "updatedAt": 1790085541261
+      "updatedAt": 1790085541261,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "26cebbbd-7464-4e91-bcca-c4c8464d865b",
@@ -3146,6 +3973,14 @@
             "creían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -3158,7 +3993,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790084279417,
-      "updatedAt": 1790084280322
+      "updatedAt": 1790084280322,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "9d2cc063-a955-4f66-b851-32c152423eae",
@@ -3217,7 +4054,9 @@
             "volvían"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "50865d6c-8e0e-4501-9d70-27c3c4837337",
@@ -3229,7 +4068,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790083199727,
-      "updatedAt": 1790083258752
+      "updatedAt": 1790083258752,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "b529d32d-460b-4b0f-a9cd-d71963bc6ebb",
@@ -3288,7 +4135,9 @@
             "apoyaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "b15c0003-d69e-4132-8454-4aed90d36aa9",
@@ -3300,7 +4149,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1790079441458,
-      "updatedAt": 1790079492784
+      "updatedAt": 1790079492784,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "ee7d55c3-0480-40e7-afcd-d957dd5606b6",
@@ -3312,7 +4169,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1790079397426,
-      "updatedAt": 1790079408229
+      "updatedAt": 1790079408229,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "b35488f0-1b26-4b9e-8c3c-e8c96feab9a4",
@@ -3371,7 +4230,9 @@
             "salvaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "07e415b2-725d-4d18-9021-0c84ad7e465d",
@@ -3383,7 +4244,9 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1790076359122,
-      "updatedAt": 1790079336860
+      "updatedAt": 1790079336860,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "c27a7bb3-3889-42d6-9f66-25bb64c33b65",
@@ -3395,7 +4258,9 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1790074316518,
-      "updatedAt": 1790074335785
+      "updatedAt": 1790074335785,
+      "state": "new",
+      "touched": 4
     },
     {
       "id": "e2963df0-2a44-48f2-936b-ed18291736c5",
@@ -3407,7 +4272,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789742009223,
-      "updatedAt": 1789742010396
+      "updatedAt": 1789742010396,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "3ba22a85-6a1c-4da8-b1e2-7c264efd778d",
@@ -3466,7 +4333,9 @@
             "sonaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "261b36a2-a3a3-4cb0-a7c8-5b8f8df94963",
@@ -3525,6 +4394,17 @@
             "llevaban"
           ]
         }
+      },
+      "state": "learning",
+      "groupIds": [
+        "2d7a252f-01e6-45d5-86b8-d9e9b9a1b5da"
+      ],
+      "review": {
+        "step": 0,
+        "due": 13,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 0
       }
     },
     {
@@ -3584,6 +4464,15 @@
             "mostraban"
           ]
         }
+      },
+      "state": "learned",
+      "touched": 3,
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
       }
     },
     {
@@ -3643,7 +4532,18 @@
             "llamaban"
           ]
         }
-      }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      },
+      "groupIds": [
+        "2d7a252f-01e6-45d5-86b8-d9e9b9a1b5da"
+      ]
     },
     {
       "id": "a713a343-3fa6-4686-8c55-340778ff3773",
@@ -3655,7 +4555,9 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1789736955196,
-      "updatedAt": 1789736988045
+      "updatedAt": 1789736988045,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "e299ec79-6090-4b1d-84c8-7804c5272c58",
@@ -3667,7 +4569,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789736922685,
-      "updatedAt": 1789736923972
+      "updatedAt": 1789736923972,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "7aa15458-c42c-43af-90bb-123b66ec6364",
@@ -3679,7 +4583,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789736607769,
-      "updatedAt": 1789736608570
+      "updatedAt": 1789736608570,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "53b527d7-b7e5-4716-994e-46c9aafe4fa4",
@@ -3691,7 +4597,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789736512487,
-      "updatedAt": 1789736530451
+      "updatedAt": 1789736530451,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "562ec1dd-f7bc-4983-89ed-3889555ca1ba",
@@ -3703,7 +4617,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789736472059,
-      "updatedAt": 1789736472904
+      "updatedAt": 1789736472904,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "722eb0d7-5a07-456f-bcc1-b708de6def68",
@@ -3715,7 +4631,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789736413872,
-      "updatedAt": 1789736415467
+      "updatedAt": 1789736415467,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "583303d2-3dc5-46a1-ad8a-dca9c2242c69",
@@ -3774,6 +4698,14 @@
             "acudían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -3786,7 +4718,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789736051353,
-      "updatedAt": 1789736052495
+      "updatedAt": 1789736052495,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "62f619d5-65fb-4819-b4a0-a86b3fbd1669",
@@ -3845,7 +4779,9 @@
             "cedían"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "9c7e2817-83a1-4f4f-9ff4-7862e6a4f69c",
@@ -3857,7 +4793,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789735935737,
-      "updatedAt": 1789735936285
+      "updatedAt": 1789735936285,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "a76f4e11-c3c0-4342-8770-fe787e5d3911",
@@ -3869,7 +4807,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789735913679,
-      "updatedAt": 1789735914372
+      "updatedAt": 1789735914372,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "55d8cf26-0d81-4368-8e39-ce0351b5d6e5",
@@ -3881,7 +4821,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789735876648,
-      "updatedAt": 1789735877540
+      "updatedAt": 1789735877540,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "c00ac57a-e7ba-46fd-a17b-99aae2495740",
@@ -3940,7 +4882,9 @@
             "perdían"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "3cbb2340-444e-48bd-960c-e8bca96f66a3",
@@ -3952,7 +4896,15 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1789735353633,
-      "updatedAt": 1789735392210
+      "updatedAt": 1789735392210,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "583d6987-623e-43c0-9546-eae31cc0984b",
@@ -3964,7 +4916,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789735237957,
-      "updatedAt": 1789735244339
+      "updatedAt": 1789735244339,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "9aee6f91-ca47-4564-9917-11b488d90523",
@@ -3976,7 +4930,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789734761304,
-      "updatedAt": 1789734779822
+      "updatedAt": 1789734779822,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "8db4e4bd-a8b3-4ed9-a048-57040edd364b",
@@ -4035,7 +4991,9 @@
             "descansaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "2682c721-2567-4f76-855d-fc3cc06bc7cd",
@@ -4047,7 +5005,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789734534357,
-      "updatedAt": 1789734613567
+      "updatedAt": 1789734613567,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "41763865-3a89-4775-b83b-d0867745ff65",
@@ -4106,6 +5072,14 @@
             "alegraban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
       }
     },
     {
@@ -4118,7 +5092,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789734444362,
-      "updatedAt": 1789734457316
+      "updatedAt": 1789734457316,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "19228eb7-a3f5-4a16-986a-ceaf93937725",
@@ -4177,6 +5159,14 @@
             "placían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -4236,7 +5226,9 @@
             "ganaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "38246039-c571-43ad-a843-562e6f579a2c",
@@ -4248,7 +5240,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789734110790,
-      "updatedAt": 1789734111720
+      "updatedAt": 1789734111720,
+      "state": "new",
+      "touched": 3
     },
     {
       "id": "0a739fe7-a775-448b-8d4d-fde5fe166949",
@@ -4307,6 +5301,15 @@
             "regresaban"
           ]
         }
+      },
+      "state": "learned",
+      "touched": 3,
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
       }
     },
     {
@@ -4319,7 +5322,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789656034885,
-      "updatedAt": 1789656035667
+      "updatedAt": 1789656035667,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "6ecdc49b-3bf6-4ec3-b7e2-90e114490463",
@@ -4378,7 +5383,9 @@
             "apostaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "5fe8f745-4cbc-4938-a8c8-ce3481ed6493",
@@ -4437,6 +5444,14 @@
             "iban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -4449,7 +5464,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789648624241,
-      "updatedAt": 1790144473132
+      "updatedAt": 1790144473132,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "9f9dcb7d-db92-42a2-bb42-80316e0da49c",
@@ -4461,7 +5484,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789648585515,
-      "updatedAt": 1789735392210
+      "updatedAt": 1789735392210,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "082712ac-456d-4cc2-a0d2-6b77bdf98010",
@@ -4520,7 +5551,9 @@
             "agradecían"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "12dcdff6-b874-4d0f-9377-923a52ac57d2",
@@ -4532,7 +5565,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789646827124,
-      "updatedAt": 1789646827995
+      "updatedAt": 1789646827995,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "aa5a4110-34b3-4679-9a6c-1912742b18b0",
@@ -4591,6 +5626,14 @@
             "dejaban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -4603,7 +5646,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789646556547,
-      "updatedAt": 1789734457316
+      "updatedAt": 1789734457316,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "68f82aa4-6464-4907-8e4a-3feae3033cdc",
@@ -4615,7 +5666,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789646357220,
-      "updatedAt": 1789646358373
+      "updatedAt": 1789646358373,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "94f03f5e-aaf0-4dc3-b21a-0b495784e225",
@@ -4627,7 +5680,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789646233691,
-      "updatedAt": 1789646234752
+      "updatedAt": 1789646234752,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "b37f4060-db50-464b-8cbd-eb185ae60fb5",
@@ -4639,7 +5694,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789646197511,
-      "updatedAt": 1789646198093
+      "updatedAt": 1789646198093,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "d39b4512-c5a4-45a6-9620-317a68816f05",
@@ -4651,7 +5708,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789646124457,
-      "updatedAt": 1789646125697
+      "updatedAt": 1789646125697,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "084592e2-530e-48eb-aa3a-b88a20fc8eec",
@@ -4663,7 +5722,15 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789643150128,
-      "updatedAt": 1790144396885
+      "updatedAt": 1790144396885,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "28313ebf-1aa6-4e01-9bc8-382de65f2f37",
@@ -4675,7 +5742,16 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789643086291,
-      "updatedAt": 1789643091818
+      "updatedAt": 1789643091818,
+      "state": "learned",
+      "touched": 2,
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
+      }
     },
     {
       "id": "54823876-9efc-4084-b1d2-ce483ed7124b",
@@ -4687,7 +5763,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789643039299,
-      "updatedAt": 1789643039983
+      "updatedAt": 1789643039983,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "46c0b33e-c5ea-44bd-abd4-9c463f437d03",
@@ -4699,7 +5777,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789643014734,
-      "updatedAt": 1789643015448
+      "updatedAt": 1789643015448,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "0f31966b-987b-4f47-a68b-0d6d75406f26",
@@ -4711,7 +5791,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789642989387,
-      "updatedAt": 1789642992016
+      "updatedAt": 1789642992016,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "e23a00b4-7e07-4a2f-9313-d5efa480b1f4",
@@ -4770,6 +5852,14 @@
             "duraban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -4829,7 +5919,9 @@
             "miraban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "c53ee9da-5bc3-4ab0-be3d-5dcf68fce459",
@@ -4841,7 +5933,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789642583957,
-      "updatedAt": 1789642584567
+      "updatedAt": 1789642584567,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "0df36712-9a29-4539-9710-2de417111fe8",
@@ -4853,7 +5947,9 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789642413621,
-      "updatedAt": 1789642422448
+      "updatedAt": 1789642422448,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "67f105a1-b24b-4a5d-813a-dedd1fdd91d2",
@@ -4865,7 +5961,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789642383636,
-      "updatedAt": 1789642401107
+      "updatedAt": 1789642401107,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "1009debc-ea4c-4766-836b-05b87251b75a",
@@ -4924,6 +6028,14 @@
             "sabían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -4936,7 +6048,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638759390,
-      "updatedAt": 1789735392210
+      "updatedAt": 1789735392210,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "412c810c-1af3-4da3-96f0-45ab773508d2",
@@ -4948,7 +6068,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638748470,
-      "updatedAt": 1789638808533
+      "updatedAt": 1789638808533,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "e6d0382d-caa8-4d0b-913e-d1593edd8fb3",
@@ -4960,7 +6088,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638677079,
-      "updatedAt": 1789638686205
+      "updatedAt": 1789638686205,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "e7765b0c-d812-4325-bc4b-05eec497354e",
@@ -4972,7 +6108,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638660967,
-      "updatedAt": 1789638686205
+      "updatedAt": 1789638686205,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "16d23a47-b15e-4821-be92-94b480504179",
@@ -4984,7 +6128,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638563038,
-      "updatedAt": 1789638563836
+      "updatedAt": 1789638563836,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "2ae0a5be-c731-4a7c-b9d6-6440ebe1c63b",
@@ -4996,7 +6148,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789638427431,
-      "updatedAt": 1789638556665
+      "updatedAt": 1789638556665,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "89637339-9efd-40b6-9b2e-7424abbd123c",
@@ -5008,7 +6168,15 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1789638363399,
-      "updatedAt": 1789638406757
+      "updatedAt": 1789638406757,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "798f6381-73a3-4b8f-9ca5-ff62013bcdf6",
@@ -5020,7 +6188,15 @@
       "pos": "phrase",
       "notes": "",
       "createdAt": 1789638284178,
-      "updatedAt": 1789638284967
+      "updatedAt": 1789638284967,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "d96e55dd-c3fe-4a80-a38b-2631611ceb4b",
@@ -5032,7 +6208,9 @@
       "pos": "noun",
       "notes": "",
       "createdAt": 1789637847580,
-      "updatedAt": 1789637861569
+      "updatedAt": 1789637861569,
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "9fd17b0c-e4cc-40f2-af82-b0dac04c93b1",
@@ -5044,7 +6222,15 @@
       "pos": "other",
       "notes": "",
       "createdAt": 1789637451816,
-      "updatedAt": 1789637461467
+      "updatedAt": 1789637461467,
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "5b3bae19-ac5e-482d-8fcb-e91593bc68ca",
@@ -5103,6 +6289,14 @@
             "dolían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
       }
     },
     {
@@ -5115,7 +6309,15 @@
       "pos": "adjective",
       "notes": "",
       "createdAt": 1789637297385,
-      "updatedAt": 1789637378766
+      "updatedAt": 1789637378766,
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      }
     },
     {
       "id": "c8510e1c-c8ed-4b82-8384-0b02a7db921c",
@@ -5174,7 +6376,9 @@
             "decían"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "87f291e7-41d6-49dd-91f1-baa4d1880bca",
@@ -5186,7 +6390,9 @@
       "notes": "",
       "createdAt": 1789630605148,
       "updatedAt": 1789634845605,
-      "pos": "noun"
+      "pos": "noun",
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "4f335d64-b6a7-40d9-aab1-5b7adae2859b",
@@ -5245,6 +6451,14 @@
             "eran"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -5257,7 +6471,15 @@
       "notes": "",
       "createdAt": 1789630511273,
       "updatedAt": 1789630560030,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "ed519ac5-6294-477e-b960-c9e89637e103",
@@ -5269,7 +6491,15 @@
       "notes": "",
       "createdAt": 1789630427113,
       "updatedAt": 1789632536617,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "7f2268ef-3457-468c-9d42-78c27ab5fb36",
@@ -5281,7 +6511,15 @@
       "notes": "",
       "createdAt": 1789630370387,
       "updatedAt": 1789630394396,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
+      }
     },
     {
       "id": "2ab4283a-f742-4548-aeb1-be58ca837cec",
@@ -5340,7 +6578,9 @@
             "quedaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 2
     },
     {
       "id": "99009dbd-124e-4bd1-ab89-2a1436227866",
@@ -5352,7 +6592,16 @@
       "notes": "",
       "createdAt": 1789589218093,
       "updatedAt": 1789589218751,
-      "pos": "other"
+      "pos": "other",
+      "state": "learned",
+      "touched": 1,
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
+      }
     },
     {
       "id": "a6dbb587-c21d-4d56-8c4f-1eb19dbe6927",
@@ -5364,7 +6613,9 @@
       "notes": "",
       "createdAt": 1789589189529,
       "updatedAt": 1789589200664,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "2300ca74-fed3-4527-a163-6af0bc3aa7c2",
@@ -5376,7 +6627,9 @@
       "notes": "",
       "createdAt": 1789588924776,
       "updatedAt": 1789591289027,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "f5994035-fd26-49d8-bd02-ecf029ea8e8a",
@@ -5388,7 +6641,9 @@
       "notes": "",
       "createdAt": 1789588880782,
       "updatedAt": 1789588898006,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "16c65a8c-c78d-4ff8-90a5-a8a3290528ad",
@@ -5447,6 +6702,14 @@
             "esperaban"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -5506,6 +6769,14 @@
             "veían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -5518,7 +6789,9 @@
       "notes": "",
       "createdAt": 1789588637587,
       "updatedAt": 1789588638494,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "b6a9958f-cd74-4d19-9b75-d0b0214ed840",
@@ -5577,6 +6850,14 @@
             "hacían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 1
       }
     },
     {
@@ -5589,7 +6870,9 @@
       "notes": "",
       "createdAt": 1789588529824,
       "updatedAt": 1789588538845,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "cca15591-0c7d-498f-8377-979d10d56076",
@@ -5601,7 +6884,9 @@
       "notes": "",
       "createdAt": 1789588470598,
       "updatedAt": 1789591289027,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "d3464760-e583-4d0d-83cc-64787ca3941b",
@@ -5613,7 +6898,9 @@
       "notes": "",
       "createdAt": 1789588454614,
       "updatedAt": 1789591289027,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "0b090d67-ca26-474b-ab39-d3ff6ead1107",
@@ -5625,7 +6912,9 @@
       "notes": "",
       "createdAt": 1789588394647,
       "updatedAt": 1789588445665,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "b6c1f253-d376-47ce-b796-42957ba4b882",
@@ -5637,7 +6926,16 @@
       "notes": "",
       "createdAt": 1789588353294,
       "updatedAt": 1789588354005,
-      "pos": "other"
+      "pos": "other",
+      "state": "learned",
+      "touched": 1,
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
+      }
     },
     {
       "id": "c04e580f-c9d6-48a9-9509-257fd36766a0",
@@ -5649,7 +6947,9 @@
       "notes": "",
       "createdAt": 1789588294457,
       "updatedAt": 1789588328521,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "b8a0261a-6748-45f4-bbfb-dee4ec6bf80d",
@@ -5661,7 +6961,9 @@
       "notes": "",
       "createdAt": 1789588283255,
       "updatedAt": 1789588284216,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "b5cb5463-5d2e-4625-bcc1-a2e841c9cef9",
@@ -5673,7 +6975,15 @@
       "notes": "",
       "createdAt": 1789588187734,
       "updatedAt": 1789642393980,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "1eacdc18-c8c8-4e93-b344-b200ac94903f",
@@ -5732,7 +7042,9 @@
             "pasaban"
           ]
         }
-      }
+      },
+      "state": "new",
+      "touched": 1
     },
     {
       "id": "8e86b7e4-945c-476f-b020-dcd0b8dc13e5",
@@ -5791,6 +7103,14 @@
             "buscaban"
           ]
         }
+      },
+      "state": "learned",
+      "review": {
+        "step": 4,
+        "due": 32,
+        "streak": 3,
+        "lastCorrect": 11,
+        "next": 0
       }
     },
     {
@@ -5850,7 +7170,18 @@
             "llegaban"
           ]
         }
-      }
+      },
+      "state": "learning",
+      "review": {
+        "step": 0,
+        "due": 11,
+        "streak": 0,
+        "lastCorrect": null,
+        "next": 2
+      },
+      "groupIds": [
+        "2d7a252f-01e6-45d5-86b8-d9e9b9a1b5da"
+      ]
     },
     {
       "id": "74f5ef37-13b3-44fa-9576-35b63c57ab7d",
@@ -5909,6 +7240,14 @@
             "podían"
           ]
         }
+      },
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
       }
     },
     {
@@ -5921,7 +7260,15 @@
       "notes": "",
       "createdAt": 1789587716689,
       "updatedAt": 1790079492784,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "44144a7f-cf5a-4b0a-bee4-f839357beee4",
@@ -5933,7 +7280,15 @@
       "notes": "",
       "createdAt": 1789587709684,
       "updatedAt": 1790079492784,
-      "pos": "other"
+      "pos": "other",
+      "state": "learning",
+      "review": {
+        "step": 1,
+        "due": 12,
+        "streak": 1,
+        "lastCorrect": 11,
+        "next": 1
+      }
     },
     {
       "id": "50d901e9-8c2f-4ee1-b182-fcb3f3194d36",
@@ -5945,10 +7300,40 @@
       "notes": "",
       "createdAt": 1789587655875,
       "updatedAt": 1789591246805,
-      "pos": "other"
+      "pos": "other",
+      "state": "new",
+      "touched": 1
     }
   ],
   "sentences": [
+    {
+      "id": "ef505ea2-2b4d-4eb7-b4e2-037963996f7d",
+      "text": "en la calle siguiente",
+      "source": "",
+      "createdAt": 1793825322860,
+      "updatedAt": 1793825339709
+    },
+    {
+      "id": "5b535b1a-bfd9-48dd-bef9-f93d8de91c29",
+      "text": "me dejas ver la bolsa",
+      "source": "claude",
+      "createdAt": 1793740767139,
+      "updatedAt": 1793740767139
+    },
+    {
+      "id": "62a2c694-d675-4cee-9c57-148ad8e3ead4",
+      "text": "los gastos incluidos",
+      "source": "claude",
+      "createdAt": 1793740447563,
+      "updatedAt": 1793740465939
+    },
+    {
+      "id": "cc7ed59c-e5af-47ef-89ad-e229d8dffb60",
+      "text": "Puedes repetir, mas despacio?",
+      "source": "claude",
+      "createdAt": 1793740363989,
+      "updatedAt": 1793740363989
+    },
     {
       "id": "82cbf52b-9d77-4280-b96d-de523258c7e0",
       "text": "de hecho",
@@ -6247,6 +7632,40 @@
       "wordId": "bc33c041-8935-4e58-b0f4-56bb37778aad",
       "sentenceId": "4e166df0-b9bc-4f97-bb2b-216a434f588d",
       "kind": "manual"
+    },
+    {
+      "wordId": "700f6a88-c098-4623-a115-061037269a04",
+      "sentenceId": "ef505ea2-2b4d-4eb7-b4e2-037963996f7d",
+      "kind": "manual"
+    }
+  ],
+  "activeDays": [
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-11",
+    "2026-10-22",
+    "2026-10-26",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05"
+  ],
+  "groups": [
+    {
+      "id": "2d7a252f-01e6-45d5-86b8-d9e9b9a1b5da",
+      "note": "",
+      "createdAt": 1793904737884,
+      "updatedAt": 1793904737884
+    },
+    {
+      "id": "b75897e6-dbef-4695-82db-c77e40520c6a",
+      "note": "",
+      "createdAt": 1793823690222,
+      "updatedAt": 1793823699761
     }
   ]
 }
