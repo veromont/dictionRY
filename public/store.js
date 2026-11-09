@@ -1,4 +1,4 @@
-// The data model: three tables — words, sentences, links — plus the computed link view.
+// The data model: four tables — words, sentences, links, groups — plus the computed link view.
 // Knows nothing about the screen. Needs text.js loaded first.
 //
 // links = (matched from the text + manual rows) − blocked rows
@@ -6,7 +6,7 @@
 // after every change, so they can never go stale.
 
 function emptyDb() {
-	return { version: 2, words: [], sentences: [], links: [] };
+	return { version: 2, words: [], sentences: [], links: [], activeDays: [], groups: [] };
 }
 
 let db = emptyDb();
@@ -80,6 +80,7 @@ function mergeWordInto(word, target) {
 	else if ((word.gloss || "").trim() && word.gloss.trim() !== target.gloss.trim()) carried.push(word.es + ": " + word.gloss);
 	target.notes = carried.map(note => (note || "").trim()).filter(Boolean).join(" · ");
 	for (const row of db.links) if (row.wordId === word.id) row.wordId = target.id;
+	addGroupIds(target, word.groupIds);
 	db.words = db.words.filter(other => other !== word);
 	target.updatedAt = Date.now();
 }
@@ -123,6 +124,7 @@ function findSentenceByText(text, exceptId) {
 }
 
 function createSentence(text, source) {
+	markActiveDay();
 	const now = Date.now();
 	const sentence = { id: crypto.randomUUID(), text: text.trim(), source: (source || "").trim(), createdAt: now, updatedAt: now };
 	db.sentences.unshift(sentence);
@@ -199,6 +201,7 @@ function matchedWordIds(index, text) {
 // Rebuilds the link view from scratch. Called after every change; also drops link rows that
 // point at a word or sentence that no longer exists.
 function relink() {
+	cleanGroups();
 	const index = buildIndex(db.words);
 	const wordIds = new Set(db.words.map(word => word.id));
 	const sentenceIds = new Set(db.sentences.map(sentence => sentence.id));
@@ -261,6 +264,265 @@ function unpinLink(sentenceId, wordId) {
 	if (isAutoLink(sentenceId, wordId) && !blocked) db.links.push({ wordId: wordId, sentenceId: sentenceId, kind: "blocked" });
 }
 
+// --- groups ------------------------------------------------------------------
+//
+// Words you mix up with each other. A word lists the groups it is in (`groupIds`); a group doesn't
+// list its words, so the two sides can't disagree.
+
+function addGroupIds(word, ids) {
+	if (ids && ids.length) word.groupIds = [...new Set((word.groupIds || []).concat(ids))];
+}
+
+function groupWords(group) {
+	return db.words.filter(word => (word.groupIds || []).includes(group.id)).sort((a, b) => a.es.localeCompare(b.es, "es"));
+}
+
+function groupsOf(word) {
+	const ids = word.groupIds || [];
+	return db.groups.filter(group => ids.includes(group.id));
+}
+
+function findGroupWith(words) {
+	return db.groups.find(group => {
+		const members = groupWords(group);
+		return members.length === words.length && words.every(word => members.includes(word));
+	}) || null;
+}
+
+// Adding a word to a group means you're learning it. A learned word keeps the progress it earned.
+function addToGroup(group, word) {
+	addGroupIds(word, [group.id]);
+	if (word.state === "new") startLearning(word);
+	group.updatedAt = Date.now();
+}
+
+function createGroup(words, note) {
+	const now = Date.now();
+	const group = { id: crypto.randomUUID(), note: (note || "").trim(), createdAt: now, updatedAt: now };
+	db.groups.unshift(group);
+	for (const word of words) addToGroup(group, word);
+	return group;
+}
+
+function removeFromGroup(group, word) {
+	word.groupIds = (word.groupIds || []).filter(id => id !== group.id);
+	group.updatedAt = Date.now();
+}
+
+function removeGroup(id) {
+	db.groups = db.groups.filter(group => group.id !== id);
+}
+
+// Runs with every relink, so deleting a word, merging and leaving a group need no cleanup of their
+// own: a group left with fewer than two words goes, and its id comes off the words.
+function cleanGroups() {
+	const counts = new Map();
+	for (const word of db.words) {
+		for (const id of word.groupIds || []) counts.set(id, (counts.get(id) || 0) + 1);
+	}
+	db.groups = db.groups.filter(group => counts.get(group.id) >= 2);
+	const kept = new Set(db.groups.map(group => group.id));
+	for (const word of db.words) {
+		if (!word.groupIds) continue;
+		word.groupIds = word.groupIds.filter(id => kept.has(id));
+		if (!word.groupIds.length) delete word.groupIds;
+	}
+}
+
+// --- learning ----------------------------------------------------------------
+//
+// A word is new, learning or learned. "Archived" is not stored: it is a new word nobody has
+// opened for ARCHIVE_AFTER active days. All time is counted in active days — days you used the
+// site — so time away from it moves nothing. Days before this feature existed are reconstructed
+// from when words and sentences were added, the only record of them.
+
+const ARCHIVE_AFTER = 7;
+// Gap before the next flashcard review, in active days, after each correct answer in a row.
+const LADDER = [1, 3, 7, 21, 60, 150];
+// Correct answers on different active days that move a word from learning to learned.
+const LEARNED_AFTER = 3;
+const CARD_TYPES = ["meaning", "spanish", "cloze", "which"];
+
+function dateKey(time) {
+	return new Date(time).toLocaleDateString("sv");
+}
+
+// Today's position on the active-day clock. Until the day's first click it shares the last active
+// day's number.
+function today() {
+	return db.activeDays.length;
+}
+
+function markActiveDay() {
+	const key = dateKey(Date.now());
+	if (!db.activeDays.includes(key)) db.activeDays = db.activeDays.concat(key).sort();
+}
+
+function dayOf(time) {
+	const index = db.activeDays.indexOf(dateKey(time));
+	return index < 0 ? today() : index + 1;
+}
+
+function wordState(word) {
+	if (word.state === "new" && today() - (word.touched || 0) >= ARCHIVE_AFTER) return "archived";
+	return word.state || "new";
+}
+
+function archivesIn(word) {
+	return ARCHIVE_AFTER - (today() - (word.touched || 0));
+}
+
+// Opening a new word, or an archived one (which brings it back), restarts its clock.
+function touchWord(word) {
+	if (word.state !== "new" || word.touched === today()) return false;
+	word.touched = today();
+	return true;
+}
+
+function startLearning(word) {
+	word.state = "learning";
+	word.review = { step: 0, due: today(), streak: 0, lastCorrect: null, next: 0 };
+	delete word.touched;
+}
+
+function moveWord(word, state) {
+	if (state === "learning") return startLearning(word);
+	if (state === "new") {
+		word.state = "new";
+		word.touched = today();
+		delete word.review;
+		return;
+	}
+	// Marked learned by hand: treated as if the streak had been earned, so the next review lands on
+	// the rung a word reaches by earning it.
+	const next = word.review ? word.review.next : 0;
+	word.state = "learned";
+	word.review = { step: LEARNED_AFTER + 1, due: today() + LADDER[LEARNED_AFTER], streak: LEARNED_AFTER, lastCorrect: today(), next: next };
+}
+
+// Words without a state yet: the first load after this feature, or an import. Words with a
+// sentence start learning; the rest are new, their clock counted from the day they were added.
+// Returns true if anything changed.
+function initLearning() {
+	let changed = false;
+	for (const word of db.words) {
+		if (word.state) continue;
+		if (linkedSentences(word.id).length) startLearning(word);
+		else {
+			word.state = "new";
+			word.touched = word.createdAt ? dayOf(word.createdAt) : today();
+		}
+		changed = true;
+	}
+	return changed;
+}
+
+// The first sentence a word gets starts its learning. Only the moment it gains one counts, so a
+// word moved back to new by hand stays new. Returns the words that started.
+function relinkAndStartLearning() {
+	const firstRun = !linkState.index;
+	const before = new Map([...linkState.byWord].map(([id, set]) => [id, set.size]));
+	relink();
+	if (firstRun) return [];
+	const started = [];
+	for (const word of db.words) {
+		if (word.state !== "new" || before.get(word.id) || !linkedSentences(word.id).length) continue;
+		startLearning(word);
+		started.push(word);
+	}
+	return started;
+}
+
+function dueWords(state) {
+	return db.words.filter(word => wordState(word) === state && word.review && word.review.due <= today());
+}
+
+// Back to the start of the ladder. Returns true if a learned word dropped to learning.
+function resetReview(word) {
+	const lapsed = word.state === "learned";
+	word.review.step = 0;
+	word.review.streak = 0;
+	word.review.lastCorrect = null;
+	word.review.due = today();
+	if (lapsed) word.state = "learning";
+	return lapsed;
+}
+
+// A miss on a "which" card means the words of that group can't be told apart yet, so `word`'s
+// group mates lose their progress too. Words moved back to new have none to lose.
+function resetGroup(group, word) {
+	return groupWords(group)
+		.filter(other => other !== word && other.review)
+		.map(other => ({ word: other, lapsed: resetReview(other) }));
+}
+
+// Only the first correct answer of an active day moves a word up: more practice the same day
+// changes nothing, and promotion needs LEARNED_AFTER separate days. A miss always counts.
+// Returns "missed", "knew", "learned" or "lapsed" (a learned word dropping back to learning).
+function grade(word, knew) {
+	const review = word.review || (word.review = { step: 0, due: today(), streak: 0, lastCorrect: null, next: 0 });
+	review.next = (review.next || 0) + 1;
+	if (!knew) return resetReview(word) ? "lapsed" : "missed";
+	if (review.lastCorrect === today()) return "knew";
+	review.lastCorrect = today();
+	review.streak++;
+	review.due = today() + LADDER[Math.min(review.step, LADDER.length - 1)];
+	review.step++;
+	if (word.state === "learning" && review.streak >= LEARNED_AFTER) {
+		word.state = "learned";
+		return "learned";
+	}
+	return "knew";
+}
+
+// One of the word's own sentences with the word blanked out, chosen in rotation. Only sentences
+// where the word (or one of its forms) actually appears qualify, so a hand-pinned link to a
+// sentence that doesn't contain it never makes a gap with nothing to fill.
+function clozeFor(word, turn) {
+	const options = [];
+	for (const sentence of linkedSentences(word.id)) {
+		const re = new RegExp(WORDS_IN_TEXT.source, "gu");
+		let match;
+		while ((match = re.exec(sentence.text))) {
+			if (!tokenWordIds(linkState.index, match[0]).has(word.id)) continue;
+			options.push({
+				before: sentence.text.slice(0, match.index),
+				answer: match[0],
+				after: sentence.text.slice(match.index + match[0].length),
+				sentence: sentence
+			});
+			break;
+		}
+	}
+	return options.length ? options[turn % options.length] : null;
+}
+
+function shuffled(list) {
+	const out = list.slice();
+	for (let i = out.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[out[i], out[j]] = [out[j], out[i]];
+	}
+	return out;
+}
+
+// The next flashcard for a word, cycling through the card types it can make.
+function cardFor(word) {
+	const turn = (word.review && word.review.next) || 0;
+	const round = Math.floor(turn / CARD_TYPES.length);
+	const meaning = meaningOf(word).text;
+	const cloze = clozeFor(word, round);
+	const groups = groupsOf(word);
+	const group = groups.length ? groups[round % groups.length] : null;
+	const types = CARD_TYPES.filter(type => type === "cloze" ? cloze : type === "which" ? meaning && group : meaning);
+	if (!types.length) return null;
+	const sentence = cloze ? cloze.sentence : linkedSentences(word.id)[0];
+	return {
+		word: word, type: types[turn % types.length], meaning: meaning, cloze: cloze, sentence: sentence || null,
+		group: group, choices: group ? shuffled(groupWords(group)) : []
+	};
+}
+
 // --- loading and saving ------------------------------------------------------------
 
 // The v1 file was one array of words, each carrying copies of its sentences. Every old
@@ -304,7 +566,7 @@ function fromV1(list) {
 
 	for (const word of words) normalizeWord(word);
 
-	const converted = { version: 2, words: words, sentences: sentences, links: [] };
+	const converted = { version: 2, words: words, sentences: sentences, links: [], groups: [] };
 	const index = buildIndex(words);
 	const byId = new Map(sentences.map(sentence => [sentence.id, sentence]));
 	const seen = new Set();
@@ -319,13 +581,27 @@ function fromV1(list) {
 	return { db: converted, renamed: [], merged: [], oldPairs: oldPairs };
 }
 
+// Files from before the learning feature have no list of active days: rebuild it from the days
+// words and sentences were added.
+function withActiveDays(data) {
+	if (!Array.isArray(data.activeDays)) {
+		const added = data.words.map(word => word.createdAt).concat(data.sentences.map(sentence => sentence.createdAt));
+		data.activeDays = [...new Set(added.filter(Boolean).map(dateKey))].sort();
+	}
+	return data;
+}
+
 // Takes whatever the server or an import file holds and returns a v2 database.
 function loadAny(parsed) {
-	if (Array.isArray(parsed)) return Object.assign({ converted: true }, fromV1(parsed));
+	if (Array.isArray(parsed)) {
+		const converted = fromV1(parsed);
+		withActiveDays(converted.db);
+		return Object.assign({ converted: true }, converted);
+	}
 	if (parsed && Array.isArray(parsed.words) && Array.isArray(parsed.sentences) && Array.isArray(parsed.links)) {
 		return {
 			converted: false,
-			db: { version: 2, words: parsed.words, sentences: parsed.sentences, links: parsed.links },
+			db: withActiveDays({ version: 2, words: parsed.words, sentences: parsed.sentences, links: parsed.links, activeDays: parsed.activeDays, groups: parsed.groups || [] }),
 			renamed: [],
 			merged: []
 		};
@@ -334,7 +610,7 @@ function loadAny(parsed) {
 }
 
 function snapshot() {
-	return JSON.stringify({ version: 2, words: db.words, sentences: db.sentences, links: db.links }, null, 2);
+	return JSON.stringify({ version: 2, words: db.words, sentences: db.sentences, links: db.links, activeDays: db.activeDays, groups: db.groups }, null, 2);
 }
 
 // Folds another database into the current one: same word (by spelling) or same sentence (by
@@ -345,10 +621,14 @@ function mergeDb(incoming) {
 	let addedWords = 0;
 	let addedSentences = 0;
 
+	for (const group of incoming.groups) {
+		if (!db.groups.some(other => other.id === group.id)) db.groups.push(Object.assign({}, group));
+	}
 	for (const word of incoming.words) {
 		const existing = findWordByKey(word.key || normKey(word.es));
 		if (existing) {
 			wordIds.set(word.id, existing.id);
+			addGroupIds(existing, word.groupIds);
 			continue;
 		}
 		const copy = Object.assign({}, word);
@@ -375,6 +655,9 @@ function mergeDb(incoming) {
 		const wordId = wordIds.get(row.wordId);
 		const sentenceId = sentenceIds.get(row.sentenceId);
 		if (wordId && sentenceId) db.links.push({ wordId: wordId, sentenceId: sentenceId, kind: row.kind });
+	}
+	if (Array.isArray(incoming.activeDays)) {
+		db.activeDays = [...new Set((db.activeDays || []).concat(incoming.activeDays))].sort();
 	}
 	return { addedWords: addedWords, skippedWords: incoming.words.length - addedWords, addedSentences: addedSentences };
 }

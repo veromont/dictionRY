@@ -30,13 +30,13 @@ const MIME = {
 	".ico": "image/x-icon"
 };
 
-function json(res, status, body) {
+function json(res, status, body, headers) {
 	const payload = JSON.stringify(body);
-	res.writeHead(status, {
+	res.writeHead(status, Object.assign({
 		"Content-Type": "application/json; charset=utf-8",
 		"Content-Length": Buffer.byteLength(payload),
 		"Cache-Control": "no-store"
-	});
+	}, headers));
 	res.end(payload);
 }
 
@@ -58,6 +58,11 @@ function readVocab() {
 	const parsed = JSON.parse(raw);
 	if (!Array.isArray(parsed) && !isCurrentShape(parsed)) throw new Error("vocab.json is neither the old nor the current format");
 	return parsed;
+}
+
+// When the file last changed. A page gets this with the data and sends it back with each save.
+function fileTime() {
+	return fs.existsSync(DATA_FILE) ? fs.statSync(DATA_FILE).mtimeMs : 0;
 }
 
 function backup() {
@@ -136,15 +141,19 @@ const server = http.createServer(async (req, res) => {
 	const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
 	try {
 		if (url.pathname === "/api/vocab" && req.method === "GET") {
-			return json(res, 200, readVocab());
+			const vocab = readVocab();
+			return json(res, 200, vocab, { "X-File-Time": fileTime() });
 		}
 		if (url.pathname === "/api/vocab" && req.method === "PUT") {
 			const parsed = JSON.parse(await readBody(req));
 			// An old-format save can only come from a tab still running the previous version of the
 			// page; accepting it would overwrite the converted file with the old shape.
 			if (!isCurrentShape(parsed)) return json(res, 400, { error: "expected { words, sentences, links } — reload the page" });
+			// A save replaces the whole file, so a tab behind it would wipe whatever was saved since.
+			// A tab loaded before this check sends no time, which counts as behind.
+			if (!(Number(req.headers["x-file-time"]) >= fileTime())) return json(res, 409, { error: "this tab is behind the file — reload the page" });
 			writeVocab(parsed);
-			return json(res, 200, { ok: true, count: parsed.length });
+			return json(res, 200, { ok: true, count: parsed.length }, { "X-File-Time": fileTime() });
 		}
 		if (url.pathname === "/api/dict" && req.method === "GET") {
 			if (!dictionary) return json(res, 503, { error: "dictionary not built — run: node tools/build-dictionary.js <dump>" });

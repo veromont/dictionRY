@@ -7,7 +7,10 @@ Open it at **http://localhost:8787**
 ## How it works
 
 - `server.js` — a small Node server (no dependencies, nothing to install). Serves the page, reads and writes the data file, and proxies translation requests.
-- `public/index.html` — the screen: markup, styles, and everything you click.
+- `public/index.html` — the page layout.
+- `public/style.css` — the look.
+- `public/views.js` — draws each tab, the word cards and the flashcards.
+- `public/app.js` — what every button does, saving, and start-up.
 - `public/store.js` — the data: words, sentences, the links between them, loading and saving.
 - `public/text.js` — small text helpers (ignoring case and accents, splitting sentences into words).
 - `lib/dictionary.js` — looks words up in the dictionary; `tools/build-dictionary.js` builds it (see **Dictionary**).
@@ -36,6 +39,29 @@ The meaning shown on a word is your own gloss if you wrote one, otherwise the di
 Adding a word you already have does not create a duplicate: typing `celosas` next month opens `celoso`.
 
 **Check against dictionary** (bottom of the page) goes through every saved word. It fills in meanings, gender, forms and verb tables straight away, since that only adds information and never touches your own gloss, notes or corrected tables. Anything that would rename or merge a word goes on a review list, one row each, which you accept or skip: respellings (`comoda → cómoda`), typos (`el palcer → placer`, merging into the `placer` you already have), headwords (`maniobras → maniobra`), wrong articles. Skipped words aren't asked about again.
+
+## Learning
+
+Every word is **new**, **learning** or **learned**, and each has its own tab.
+
+- **New** is the inbox: words you saved but haven't started. A new word nobody opens for 7 active days moves to the **archive** tab. Nothing is deleted; opening it there, or typing it again, brings it back.
+- A word starts **learning** the moment it gets its first sentence, or when you press **start learning**. In the learning tab each word is a card with its meanings, every sentence, and the sentence box always open.
+- Flashcards move a word to **learned**: answer it correctly on 3 different active days in a row. A miss on a learned word sends it back to learning. You can move any word by hand with the buttons on it.
+
+**Active days** are days you used the site: the first click or key press of a day counts it. Days away count for nothing, so a week off doesn't archive anything or pile up reviews. (Days from before this feature are reconstructed from when you added words and sentences.)
+
+**Flashcards** (the Study button in the learning and learned tabs) show what's due: think of the answer, press **show answer**, then **knew it** or **didn't know**. Keys: space shows the answer, 1 = didn't know, 2 = knew it, Esc ends. Each word cycles through three cards: Spanish → meaning, meaning → Spanish, and one of its own sentences with the word blanked out. A correct answer schedules the next review 1, 3, 7, 21, 60, then 150 active days later; a miss starts the ladder again and brings the card back later in the same session. Only one correct answer per day counts toward learned. When nothing is due, **Practice** runs all the words anyway, and those answers count.
+
+## Confusing words
+
+The **confusing** tab holds groups of words you mix up, like `llegar` / `llevar`. Type two or more words and an optional note, and they show side by side. A word can be in several groups, and being in a group doesn't replace its state: `llegar` stays in learning and keeps its progress.
+
+- Adding a word to a group means you're learning it: a new or archived word moves to learning. A learned word stays learned.
+- A word you haven't saved goes through the dictionary first, the same way as the Add box.
+- Open a word to see what it's confused with, leave a group, or start a new one with **+ confused with**. Closed cards show a small `vs llevar` line.
+- A group needs two words. Removing one from a pair deletes the group, after asking.
+
+Words in a group get a fourth flashcard, **Which one?**: it shows a meaning and a button for each word in the group. Keys: a number picks, space continues. The app grades this card itself. A right answer moves up only that word. **A miss resets every word in the group**, since you can't tell them apart yet, and a learned word in it drops back to learning. The group mates are due again straight away, in your next session. A miss on any other card only resets that one word.
 
 ## Verbs
 
@@ -79,6 +105,8 @@ Search filters as you type across the Spanish word, both translations, your note
 
 The footer shows whether your changes have reached the file: `saved`, `saving…`, or a red `unsaved — retrying`. If the server is not running, the app holds your changes in the browser and keeps retrying, then saves them as soon as the server is back.
 
+Each tab remembers when the file last changed. A save from a tab older than the file is refused, because it would wipe whatever was saved since. The tab asks you to reload from the saved data, and the change that triggered it isn't saved. If you decline, the footer shows `not saved — this tab is out of date` and every later save asks again. A hand edit of `vocab.json` counts as a change too. Unsaved changes held in the browser are only offered back if the file hasn't changed since.
+
 ## Running it by hand
 
 ```
@@ -96,7 +124,7 @@ taskkill /PID <pid> /F
 
 ## Data shape
 
-One file, three lists — like three tables in a database:
+One file, four lists — like four tables in a database:
 
 ```json
 {
@@ -129,9 +157,14 @@ One file, three lists — like three tables in a database:
   "links": [
     { "wordId": "uuid", "sentenceId": "uuid", "kind": "manual" },
     { "wordId": "uuid", "sentenceId": "uuid", "kind": "blocked" }
+  ],
+  "groups": [
+    { "id": "uuid", "note": "g vs v", "createdAt": 1793000000000, "updatedAt": 1793000000000 }
   ]
 }
 ```
+
+A word in a group lists it in its own `groupIds` field; a group doesn't list its words, so the two can't disagree.
 
 `links` holds **only your decisions** — words you pinned (`manual`) and matches you rejected (`blocked`). The links you see are:
 
